@@ -1,9 +1,8 @@
-import GameRoutes from "./routes";
 
 function App() {
   return (
-    <div>
-      <GameRoutes/>
+    <div >
+      <p>Empty</p>
     </div>
   );
 }
