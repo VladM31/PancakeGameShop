@@ -1,19 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
-const GameRoutes = () => {
-    return (
+function GameRoutes() {
+    return(
         <Router>
             <Routes>
-                <Route path="/" element={ <Main /> }/>
-                <Route path="/game/:id" component={<Game />} />
-                <Route path="/payment" component={<Payment />} />
-                <Route path="/game/:gameId/level/:levelId" component={<Level />} />
-                <Route path="/auth/login" component={<AuthLogin />} />
-                <Route path="/auth/signUp" component={<AuthSignUp />} />
-                <Route path="/library" component={<Library />} />
+                <Route path="/" element={<Main/>}/>
+                <Route path="/game/:id" element={<Game/>}/>
+                <Route path="/payment" element={<Payment/>}/>
+                <Route path="/game/:gameId/level/:levelId" element={<Level/>}/>
+                <Route path="/auth/login" element={<Login/>}/>
+                <Route path="/auth/signUp" element={<SignUp/>}/>
+                <Route path="/library " element={<Library/>}/>
             </Routes>
         </Router>
-    );
-};
+    )
+}
 
 export default GameRoutes;
