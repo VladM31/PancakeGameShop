@@ -1,0 +1,2 @@
+ALTER TABLE users_table
+    ADD date_registration DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
