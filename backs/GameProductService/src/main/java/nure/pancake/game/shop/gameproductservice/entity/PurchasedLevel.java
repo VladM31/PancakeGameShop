@@ -22,6 +22,6 @@ public class PurchasedLevel {
     @Column(name = "levels_id")
     private Long levelsId;
 
-    @Column(name = "purchased_game")
+    @Column(name = "purchased_game_id")
     private Long purchasedGameId;
 }
