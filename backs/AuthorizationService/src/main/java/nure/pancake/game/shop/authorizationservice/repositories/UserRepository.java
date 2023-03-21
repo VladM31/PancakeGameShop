@@ -6,4 +6,5 @@ import org.springframework.data.repository.Repository;
 
 
 public interface UserRepository extends Repository<UserEntity, Long>, JpaSpecificationExecutor<UserEntity> {
+    UserEntity save(UserEntity entity);
 }
