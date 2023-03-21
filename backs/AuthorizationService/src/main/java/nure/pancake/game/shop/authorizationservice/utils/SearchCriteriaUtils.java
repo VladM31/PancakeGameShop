@@ -2,12 +2,7 @@ package nure.pancake.game.shop.authorizationservice.utils;
 
 import jakarta.persistence.criteria.*;
 import nure.pancake.game.shop.authorizationservice.entities.FieldNameGettable;
-import nure.pancake.game.shop.authorizationservice.entities.UserEntity;
-import org.springframework.util.CollectionUtils;
-import org.yaml.snakeyaml.util.ArrayUtils;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.stream.Stream;
 
 public class SearchCriteriaUtils {
