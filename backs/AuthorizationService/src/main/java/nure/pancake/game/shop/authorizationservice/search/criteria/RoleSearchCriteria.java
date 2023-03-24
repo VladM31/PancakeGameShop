@@ -4,10 +4,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import nure.pancake.game.shop.authorizationservice.entities.RoleEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.CollectionUtils;
@@ -24,6 +21,7 @@ import static nure.pancake.game.shop.authorizationservice.utils.SearchCriteriaUt
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoleSearchCriteria implements Specification<RoleEntity> {
+    @Singular(ignoreNullCollections = true)
     private Collection<Integer> roleIds;
     private Collection<String> names;
     private String name;
