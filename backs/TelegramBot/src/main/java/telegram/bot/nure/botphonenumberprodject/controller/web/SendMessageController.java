@@ -24,14 +24,14 @@ public class SendMessageController {
     @ResponseBody
     @Validated(OnValidateForm.class)
     @RequestMapping(value = "/text", method = RequestMethod.POST)
-    public boolean sendTextMessage(@RequestBody @Valid TelegramMessageRequest request) {
-        return messageService.sendMessage(messageMapper.toTelegramMessage(request));
+    public String sendTextMessage(@RequestBody @Valid TelegramMessageRequest request) {
+        return messageService.sendMessage(messageMapper.toTelegramMessage(request)).name();
     }
 
     @ResponseBody
     @Validated(OnValidateForm.class)
     @RequestMapping(value = "/survey", method = RequestMethod.POST)
-    public boolean sendSurveyMessage(@RequestBody @Valid SurveyTelegramMessageRequest request) {
-        return messageService.sendMessage(surveyTelegramMessageMapper.toSurveyTelegramMessage(request));
+    public String sendSurveyMessage(@RequestBody @Valid SurveyTelegramMessageRequest request) {
+        return messageService.sendMessage(surveyTelegramMessageMapper.toSurveyTelegramMessage(request)).name();
     }
 }
