@@ -11,13 +11,13 @@ function GameRoutes() {
     return(
         <Router>
             <Routes>
-                <Route path="/" element={<Main />}/>
-                <Route path="/game/:id" element={<Game />}/>
-                <Route path="/payment" element={<Payment />}/>
-                <Route path="/game/:gameId/level/:levelId" element={<Level />}/>
-                <Route path="/auth/login" element={<Login />}/>
-                <Route path="/auth/signUp" element={<SignUp />}/>
-                <Route path="/library " element={<Library />}/>
+                <Route path="/" name="Main" element={<Main />}/>
+                <Route path="/game/:id" name="Game"  element={<Game />}/>
+                <Route path="/payment" name="Payment"  element={<Payment />}/>
+                <Route path="/game/:gameId/level/:levelId" name="Level"  element={<Level />}/>
+                <Route path="/auth/login" name="Login"  element={<Login />}/>
+                <Route path="/auth/signUp" name="SignUp"  element={<SignUp />}/>
+                <Route path="/library" name="Library"  element={<Library />}/>
             </Routes>
         </Router>
     )
