@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-         dirX = Input.GetAxisRaw("Horizontal");
+        dirX = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
@@ -46,12 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (dirX > 0f)
         {
-           // state = MovementState.running;
+           //state = MovementState.running;
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
-           // state = MovementState.running;
+           //state = MovementState.running;
             sprite.flipX= true;
         }
         else
@@ -59,16 +59,17 @@ public class PlayerMovement : MonoBehaviour
             //state = MovementState.idle;
         }
 
+
         if (rb.velocity.y > .1f)
         {
-           // state = MovementState.jumping;
+           //state = MovementState.jumping;
 
         }
         else if (rb.velocity.y < -.1f)
         {
-           // state = MovementState.falling;
+           //state = MovementState.falling;
         }
 
-       // anim.SetInteger("state", (int)state );
+       //anim.SetInteger("state", (int)state );
     }
 }
