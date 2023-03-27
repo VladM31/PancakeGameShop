@@ -4,10 +4,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import nure.pancake.game.shop.authorizationservice.entities.AuthCodeEntity;
 import nure.pancake.game.shop.authorizationservice.entities.AuthCodeEntity.FieldName;
 import nure.pancake.game.shop.authorizationservice.entities.UserEntity;
@@ -26,7 +23,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthCodeSearchCriteria implements Specification<AuthCodeEntity> {
+    @Singular(ignoreNullCollections = true)
     private Collection<Long> codeIds;
+    @Singular(ignoreNullCollections = true)
     private Collection<Long> userIds;
     private String valueEq;
     private String userPhoneNumberEq;

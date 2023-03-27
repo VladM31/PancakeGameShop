@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/rest/api/**").authenticated()
+                .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JWTAuthenticationFilter(authenticationService), UsernamePasswordAuthenticationFilter.class);
 

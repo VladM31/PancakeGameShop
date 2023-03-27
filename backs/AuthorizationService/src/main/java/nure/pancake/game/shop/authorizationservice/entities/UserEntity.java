@@ -64,6 +64,7 @@ public class UserEntity {
         EMAIL("email"),
         ACTIVE("active"),
         NICKNAME("nickname"),
+        PASSWORD("password"),
         LAST_NAME("lastName"),
         FIRST_NAME("firstName"),
         BIRTH_DATE("birthDate"),

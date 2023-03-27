@@ -4,10 +4,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import nure.pancake.game.shop.authorizationservice.dataobjects.UserState;
 import nure.pancake.game.shop.authorizationservice.entities.RoleEntity;
 import nure.pancake.game.shop.authorizationservice.entities.UserEntity;
@@ -30,10 +27,15 @@ import static nure.pancake.game.shop.authorizationservice.utils.SearchCriteriaUt
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserSearchCriteria implements Specification<UserEntity> {
+    @Singular(ignoreNullCollections = true)
     private Collection<Long> userIds;
+    @Singular(ignoreNullCollections = true)
     private Collection<Integer> roleIds;
+    @Singular(ignoreNullCollections = true)
     private Collection<String> roleNames;
+    @Singular(ignoreNullCollections = true)
     private Collection<String> selCurrencies;
+    @Singular(ignoreNullCollections = true)
     private Collection<UserState> userStates;
     private String phoneNumberEq;
     private String phoneNumber;
@@ -42,6 +44,7 @@ public class UserSearchCriteria implements Specification<UserEntity> {
     private String lastName;
     private String email;
     private String emailEq;
+    private String passwordEq;
     private Range<LocalDate> birthDate;
     private Range<LocalDateTime> dateRegistration;
     private Boolean active;
@@ -79,6 +82,10 @@ public class UserSearchCriteria implements Specification<UserEntity> {
         if (StringUtils.hasText(emailEq)) {
             criteria.add(cb.equal(root.get(FieldName.EMAIL.getFieldName()), emailEq));
         }
+        if (StringUtils.hasText(passwordEq)) {
+            criteria.add(cb.equal(root.get(FieldName.PASSWORD.getFieldName()), passwordEq));
+        }
+
         if (StringUtils.hasText(phoneNumber)) {
             criteria.add(contains(root, cb, phoneNumber, FieldName.PHONE_NUMBER));
         }

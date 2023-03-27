@@ -7,6 +7,7 @@
         <sourceRoots>
           <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/target/generated-sources/annotations" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -32,6 +33,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -94,12 +96,17 @@
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-commons:1.10.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:6.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:6.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-cache:3.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:6.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.flywaydb:flyway-core:9.5.1" level="project" />
     <orderEntry type="library" name="Maven: com.electronwill.night-config:toml:3.6.6" level="project" />
     <orderEntry type="library" name="Maven: com.electronwill.night-config:core:3.6.6" level="project" />
     <orderEntry type="library" name="Maven: org.flywaydb:flyway-mysql:9.5.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.mysql:mysql-connector-j:8.0.32" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.26" level="project" />
+    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:3.1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:3.32.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.errorprone:error_prone_annotations:2.18.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:3.0.4" level="project" />
