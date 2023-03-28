@@ -4,12 +4,6 @@ CREATE TABLE game_genre (
                             CONSTRAINT game_genre_pk PRIMARY KEY (games_id,genres_id)
 );
 
-CREATE TABLE game_genre (
-                            games_id bigint  NOT NULL,
-                            genres_id int  NOT NULL,
-                            CONSTRAINT game_genre_pk PRIMARY KEY (games_id,genres_id)
-);
-
 -- Table: games
 CREATE TABLE games (
                        id bigint  NOT NULL AUTO_INCREMENT,
