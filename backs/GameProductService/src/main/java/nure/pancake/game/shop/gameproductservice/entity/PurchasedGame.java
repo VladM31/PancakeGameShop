@@ -25,5 +25,5 @@ public class PurchasedGame {
     @Column(name = "games_id")
     private Long gamesId;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "purchasedGameId")
-    private List<Level> levels;
+    private List<PurchasedLevel> levels;
 }
