@@ -13,7 +13,7 @@ function GameCard(props) {
   const { mainImage, name, images, releaseDate, price } = props;
 
   const imageList = (
-    <ImageList cols={2}>
+    <ImageList>
       {images.map((image, index) => (
         <ImageListItem key={image}>
             <img style={{ borderRadius: 5 }} src={`${image}`} alt={`game img #${index}`} />
