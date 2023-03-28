@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float dirX = 0f;
 
-    //private enum MovementState {idle, running, jumping, falling }
     private enum MovementState {idle, running, jumping, falling }
 
     // Start is called before the first frame update
@@ -43,55 +42,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAnimationState()
     {
-      //MovementState state ;
       MovementState state ;
 
         if (dirX > 0f)
         {
-<<<<<<< HEAD
-           //state = MovementState.running;
-=======
             state = MovementState.running;
->>>>>>> dev
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
-<<<<<<< HEAD
-           //state = MovementState.running;
-=======
             state = MovementState.running;
->>>>>>> dev
             sprite.flipX= true;
         }
         else
         {
-            //state = MovementState.idle;
             state = MovementState.idle;
         }
 
 
         if (rb.velocity.y > .1f)
         {
-<<<<<<< HEAD
-           //state = MovementState.jumping;
-=======
             state = MovementState.jumping;
->>>>>>> dev
-
         }
         else if (rb.velocity.y < -.1f)
         {
-<<<<<<< HEAD
-           //state = MovementState.falling;
-        }
-
-       //anim.SetInteger("state", (int)state );
-=======
-            state = MovementState.falling;
+           state = MovementState.falling;
         }
 
         anim.SetInteger("state", (int)state );
->>>>>>> dev
     }
 }
