@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,9 +18,9 @@ import Button from '@mui/material/Button';
 
 const drawerWidth = 240;
 
-const navItemsAuthUser = ['Бібліотека', 'Корзина', 'Увійти / Вийти'];
+// const navItemsAuthUser = ['Бібліотека', 'Корзина', 'Увійти / Вийти'];
 
-// const navItemsNoAuthUser = ['Увійти / Вийти'];
+const navItemsNoAuthUser = ['Увійти / Вийти'];
 
 function Header(props) {
   const { window } = props;
@@ -36,7 +37,7 @@ function Header(props) {
       </Typography>
       <Divider />
       <List>
-        {navItemsAuthUser.map((item) => (
+        {navItemsNoAuthUser.map((item) => (
           <ListItem style={{ color: '#B55D9C'}} key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item} />
@@ -63,16 +64,16 @@ function Header(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
+          <Box
             variant="h6"
             component="div"
-			style={{ color: '#B55D9C' }}
+			style={{ color: '#570861' }}
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItemsAuthUser.map((item) => (
+            <Link to='/'><img width='175' src={require('../../assets/logo.png')} alt='logo'></img></Link>
+          </Box>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            {navItemsNoAuthUser.map((item) => (
               <Button key={item} sx={{ color: '#B55D9C', fontWeight: '700', fontSize: '16px', lineHeight: '39px' }}>
                 {item}
               </Button>
@@ -97,10 +98,8 @@ function Header(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component={props.name} sx={{ p: 6 }}>
-        <Toolbar>
-			{props.children}
-		</Toolbar>
+      <Box component={props.name} sx={{ p: 10, width: '200vh' , display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Outlet />
       </Box>
     </Box>
   );
