@@ -26,8 +26,6 @@ function Header(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  console.log(props.children)
-
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
