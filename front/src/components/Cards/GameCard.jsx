@@ -9,8 +9,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   height: '600px',
 }));
 
-function GameCard(props) {
-  const { mainImage, name, images, releaseDate, price } = props;
+function GameCard({ mainImage, name, images, releaseDate, price }) {
 
   const imageList = (
     <ImageList>
