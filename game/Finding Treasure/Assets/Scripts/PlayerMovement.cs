@@ -13,11 +13,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] private LayerMask jumpableGround;
 
+
+
     private float dirX = 0f;
 
     private enum MovementState {idle, running, jumping, falling }
 
-    // Start is called before the first frame update
+    [SerializeField] private AudioSource jumpSoundEffect;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+
     private void Update()
     {
         dirX = Input.GetAxisRaw("Horizontal");
@@ -36,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
