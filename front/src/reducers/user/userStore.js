@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const userSlice = createSlice({
   name: "user",
@@ -20,8 +21,16 @@ export const userSlice = createSlice({
 		  },
   },
   reducers: {
-	  initUser: (state, payload) => {
-      state.user = payload;
+	  initUser: async (state) => {
+     try {
+      let { data } = await axios.get('')
+      if(!Object.keys(data).length) {
+        data = state.user;
+      }
+      state.user = data;
+     } catch(e) {
+      console.log(e);
+     }
 	  },
 	  initToken: (state, payload) => {
       state.token = payload;
