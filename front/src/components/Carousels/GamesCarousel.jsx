@@ -5,6 +5,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import GameCard from '../Cards/GameCard';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import './styles/GamesCarousel.css'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews, {interval: 1000});
 
@@ -51,6 +52,7 @@ function GamesCarousel(props) {
 		sx={{ background: 'inherit' }}
 		steps={maxSteps}
 		position="static"
+		variant='dots'
 		activeStep={activeStep}
 		nextButton={
 		<Button
