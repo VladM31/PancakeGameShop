@@ -1,0 +1,55 @@
+import React from 'react';
+import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
+import { styled } from '@mui/system';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { Link } from 'react-router-dom';
+
+function SmallGameOrLevelCard({ id, mainImage, name, purchasedDate, price, isLibraryCard }) {
+
+  const StyledCard = styled(Card)(({ theme }) => ({
+    backgroundColor: '#B55D9C',
+    borderRadius: '15px',
+    width: '950px',
+    height: '200px',
+  }));
+
+  return (
+    <StyledCard style={{ marginTop: '20px' }}>
+      <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
+        <CardMedia component="img" sx={{ borderRadius: '20px', width: '35%' }} height="170" image={mainImage} alt={name} />
+        <CardContent sx={{ display: 'flex', width: '65%' , justifyContent: 'space-between', alignItems: 'center'}}>
+          <CardContent>
+            <Typography variant="h4" color="white" sx={{ textAlign: 'center', mt: 1 }}>{name}</Typography>
+            { purchasedDate ? (<Typography variant="h4" color="white" sx={{ textAlign: 'center', mt: 1 }}>{purchasedDate}</Typography>) : null }
+          </CardContent>
+          <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '105%',justifyContent: 'space-between', p: 2 }}>
+            {
+              isLibraryCard ? (
+                <Link style={{ color: '#fff' }} to={`/game/${id}`}>
+                  Переглянути
+                </Link>
+              ) : (
+                <Typography variant="h5" color="white">
+                  Ціна {price}$
+                </Typography>
+              )
+            }
+            {
+              isLibraryCard ? (
+                <Button variant="contained">
+                  <ArrowDownwardIcon />
+                </Button>
+              ) : (
+                <Button variant="contained" color="error">
+                  Видалити
+                </Button>
+              )
+            }
+          </CardContent>
+        </CardContent>
+      </CardContent>
+    </StyledCard>
+  );
+}
+
+export default SmallGameOrLevelCard;
