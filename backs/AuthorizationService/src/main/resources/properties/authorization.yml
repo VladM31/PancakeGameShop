@@ -1,0 +1,7 @@
+auth:
+  secret-word: javainuse-secret-key-auth-secret-word-and-service
+  plus-expiration-time: 864000000
+  max-refresh-count: 3
+  code-length: 30
+  confirm-url: http://localhost:${server.port}/api/v1/auth/confirm
+  token-prefix: Bearer
