@@ -42,7 +42,7 @@ function GamesCarousel(props) {
 				games.map((game, index) => (
 					<Box key={game.name}>
 						{ activeStep === index ? (
-						<GameCard  mainImage={game.mainImage} name={game.name} images={game.images} releaseDate={game.releaseDate} price={game.price} />
+						<GameCard id={game.id} mainImage={game.mainImage} name={game.name} images={game.images} releaseDate={game.releaseDate} price={game.price} />
 						) : null }
 					</Box>
 				))

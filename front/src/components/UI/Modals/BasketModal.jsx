@@ -83,7 +83,7 @@ export default function BasicModal() {
             <Box>
               {
                 basketGames.map((game) => (
-                  <SmallGameOrLevelCard key={game.id} id={game.id} mainImage={game.mainImage} name={game.name} price={game.price}  />
+                  <SmallGameOrLevelCard cardType='cart' key={game.id} id={game.id} mainImage={game.mainImage} name={game.name} price={game.price}  />
                 ))
               }
               <Box sx={{

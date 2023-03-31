@@ -13,6 +13,7 @@ function Main() {
   async function getAllGames() {
     const allGames = [
       { 
+        id: 1,
         mainImage: 'https://m.media-amazon.com/images/M/MV5BMzgyZWEzMDgtMzI0YS00ZDMwLTllNjQtZjE3ZmVkNWM3YzliXkEyXkFqcGdeQXVyMTYxNzI4OTYx._V1_FMjpg_UX1000_.jpg',
         name: 'Minecraft',
         images: ['https://www.ionos.at/digitalguide/fileadmin/_processed_/1/c/csm_linux-minecraft-server-t_dc835841c1.jpg', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],
@@ -20,6 +21,7 @@ function Main() {
         price: 50, 
       },
       {
+        id: 2,
         mainImage: 'https://cdn.akamai.steamstatic.com/steam/apps/374320/capsule_616x353.jpg?t=1644436409',
         name: 'Dark Souls 3',
         images: ['https://www.ionos.at/digitalguide/fileadmin/_processed_/1/c/csm_linux-minecraft-server-t_dc835841c1.jpg', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],
@@ -27,6 +29,7 @@ function Main() {
         price: 50, 
       },
       {
+        id: 3,
         mainImage: 'https://cdn1.epicgames.com/offer/602a0ef0aceb46cca62445439661d712/EGS_STALKER2HeartofChornobyl_GSCGameWorld_S1_2560x1440-7cc8db55646ee7b969c48defed6963f4',
         name: 'S.T.A.L.K.E.R. 2',
         images: ['https://www.ionos.at/digitalguide/fileadmin/_processed_/1/c/csm_linux-minecraft-server-t_dc835841c1.jpg', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],

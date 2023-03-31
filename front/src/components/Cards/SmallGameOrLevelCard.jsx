@@ -4,8 +4,14 @@ import { styled } from '@mui/system';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { Link } from 'react-router-dom';
 
-function SmallGameOrLevelCard({ id, mainImage, name, purchasedDate, price, isLibraryCard }) {
-
+function SmallGameOrLevelCard({
+  id,
+  mainImage,
+  name,
+  purchasedDate,
+  price,
+  cardType, // Pass 'cart', 'library', 'gamepage' or any other type as a prop
+}) {
   const StyledCard = styled(Card)(({ theme }) => ({
     backgroundColor: '#B55D9C',
     borderRadius: '15px',
@@ -13,25 +19,26 @@ function SmallGameOrLevelCard({ id, mainImage, name, purchasedDate, price, isLib
     height: '200px',
   }));
 
+  const isLibraryCard = cardType === 'library';
+  const isGamePageCard = cardType === 'gamepage';
+
   return (
     <StyledCard style={{ marginTop: '20px' }}>
       <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
         <CardMedia component="img" sx={{ borderRadius: '20px', width: '35%' }} height="170" image={mainImage} alt={name} />
-        <CardContent sx={{ display: 'flex', width: '65%' , justifyContent: 'space-between', alignItems: 'center'}}>
+        <CardContent sx={{ display: 'flex', width: '65%', justifyContent: 'space-between', alignItems: 'center' }}>
           <CardContent>
             <Typography variant="h4" color="white" sx={{ textAlign: 'center', mt: 1 }}>{name}</Typography>
-            { purchasedDate ? (<Typography variant="h4" color="white" sx={{ textAlign: 'center', mt: 1 }}>{purchasedDate}</Typography>) : null }
+            {purchasedDate && <Typography variant="h4" color="white" sx={{ textAlign: 'center', mt: 1 }}>{purchasedDate}</Typography>}
           </CardContent>
-          <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '105%',justifyContent: 'space-between', p: 2 }}>
+          <CardContent sx={!isLibraryCard && isGamePageCard ? { display: 'flex', flexDirection: 'column', height: '105%', justifyContent: 'center', p: 2 } : { display: 'flex', flexDirection: 'column', height: '105%', justifyContent: 'space-between', p: 2 }}>
             {
               isLibraryCard ? (
                 <Link style={{ color: '#fff' }} to={`/game/${id}`}>
                   Переглянути
                 </Link>
               ) : (
-                <Typography variant="h5" color="white">
-                  Ціна {price}$
-                </Typography>
+                <Typography variant="h5" color="white">Ціна {price}$</Typography>
               )
             }
             {
@@ -40,9 +47,7 @@ function SmallGameOrLevelCard({ id, mainImage, name, purchasedDate, price, isLib
                   <ArrowDownwardIcon />
                 </Button>
               ) : (
-                <Button variant="contained" color="error">
-                  Видалити
-                </Button>
+                !isGamePageCard && <Button variant="contained" color="error">Видалити</Button>
               )
             }
           </CardContent>
