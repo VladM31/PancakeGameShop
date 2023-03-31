@@ -37,7 +37,7 @@ public class JwtAuthFilter extends GenericFilterBean {
             if (token == null) {
                 return;
             }
-            var tokenUser = tokenService.toUser(tokenPrefix);
+            var tokenUser = tokenService.toUser(token);
             if (tokenUser.isEmpty()) {
                 return;
             }
