@@ -14,7 +14,7 @@ const Filter = ({ onFilter }) => {
   
 
   const handleFilter = () => {
-	console.log('Filtering...')
+	  // console.log('Filtering...')
     // onFilter({ name, minPrice, maxPrice });
   };
 

@@ -27,7 +27,7 @@ function GameCard({ id, mainImage, name, images, releaseDate, price }) {
   );
 
   useEffect(() => {
-    console.log(id)
+    // console.log(id)
   }, [id])
 
   function isPastDate(date) {
