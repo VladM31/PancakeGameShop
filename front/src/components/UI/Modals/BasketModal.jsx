@@ -96,7 +96,7 @@ export default function BasicModal() {
                 height: '100px',
                 marginTop: '20px',
               }}>
-                <Button variant='contained' sx={{ marginLeft: '20px', bgcolor: '#C0369A', color: 'white' }} >Купити</Button><Typography variant='h4' color={'white'} sx={{ marginRight: '20px' }}>Сумма замовлень: {basketPrice}$</Typography>
+                <Button variant='contained' color='inherit' sx={{ marginLeft: '20px' }} >Купити</Button><Typography variant='h4' color={'white'} sx={{ marginRight: '20px' }}>Сумма замовлень: {basketPrice}$</Typography>
               </Box>
             </Box>
           </Box>

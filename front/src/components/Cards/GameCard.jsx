@@ -61,8 +61,8 @@ function GameCard({ id, mainImage, name, images, releaseDate, price }) {
                 <Typography variant="h5" color="white">
                   Ціна {price}$
                 </Typography>
-                <Button onClick={(e) => {e.stopPropagation();}} variant="contained" color="success">
-                  Додати у корзину
+                <Button onClick={(e) => {e.stopPropagation();}} variant="contained" color="inherit">
+                  В корзину
                 </Button>
               </CardContent>
             )}

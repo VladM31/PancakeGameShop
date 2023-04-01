@@ -12,7 +12,12 @@ function SmallGameOrLevelCard({
   price,
   cardType, // Pass 'cart', 'library', 'gamepage' or any other type as a prop
 }) {
-  const StyledCard = styled(Card)(({ theme }) => ({
+  const StyledCard = styled(Card)(({ theme }) => (cardType === 'gamepage' ? {
+    backgroundColor: '#B55D9C',
+    borderRadius: '15px',
+    width: '650px',
+    height: '200px',
+  }: {
     backgroundColor: '#B55D9C',
     borderRadius: '15px',
     width: '950px',
@@ -23,7 +28,7 @@ function SmallGameOrLevelCard({
   const isGamePageCard = cardType === 'gamepage';
 
   return (
-    <StyledCard style={{ marginTop: '20px' }}>
+    <StyledCard sx={{ marginBottom: '20px' }}>
       <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
         <CardMedia component="img" sx={{ borderRadius: '20px', width: '35%' }} height="170" image={mainImage} alt={name} />
         <CardContent sx={{ display: 'flex', width: '65%', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -31,7 +36,7 @@ function SmallGameOrLevelCard({
             <Typography variant="h4" color="white" sx={{ textAlign: 'center', mt: 1 }}>{name}</Typography>
             {purchasedDate && <Typography variant="h4" color="white" sx={{ textAlign: 'center', mt: 1 }}>{purchasedDate}</Typography>}
           </CardContent>
-          <CardContent sx={!isLibraryCard && isGamePageCard ? { display: 'flex', flexDirection: 'column', height: '105%', justifyContent: 'center', p: 2 } : { display: 'flex', flexDirection: 'column', height: '105%', justifyContent: 'space-between', p: 2 }}>
+          <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '105%', justifyContent: 'space-between', p: 2 }}>
             {
               isLibraryCard ? (
                 <Link style={{ color: '#fff' }} to={`/game/${id}`}>
@@ -47,7 +52,7 @@ function SmallGameOrLevelCard({
                   <ArrowDownwardIcon />
                 </Button>
               ) : (
-                !isGamePageCard && <Button variant="contained" color="error">Видалити</Button>
+                !isGamePageCard ? <Button variant="contained" color="error">Видалити</Button> : <Button variant="contained" color="inherit">В корзину</Button>
               )
             }
           </CardContent>

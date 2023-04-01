@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import ImageCarousel from '../components/Carousels/ImagesCarousel';
 import { Box, Button, Typography } from '@mui/material';
 import SmallGameOrLevelCard from '../components/Cards/SmallGameOrLevelCard';
+import Filter from '../components/UI/Filter';
 
 function Game() {
   const { id } = useParams();
@@ -66,8 +67,8 @@ function Game() {
               <Typography color={'white'} variant='h5'>Жанри: {game.genres.join(', ')}</Typography>
             </Box>
             <Box alignSelf={'end'}>
-              <Button onClick={(e) => {e.stopPropagation();}} variant="contained" color="success">
-                    Додати у корзину
+              <Button onClick={(e) => {e.stopPropagation();}} variant="contained" color="inherit">
+                В корзину
               </Button>
             </Box>
           </Box>
@@ -83,14 +84,14 @@ function Game() {
         <Typography sx={{marginTop: '20px'}} align='center' variant='h3' color={'white'}>
           Рівні гри
         </Typography>
-        <Box sx={{ width: 1000, heigh: 400 }}>
+        <Box sx={{display: 'flex'}}>
           <Box>
               { levels.results.map((level) => (
                 <SmallGameOrLevelCard cardType='gamepage' key={level.id} id={level.id} mainImage={level.image} name={level.name} price={level.price} />
               )) }
           </Box>
           <Box>
-
+                <Filter />
           </Box>
         </Box>
       </Box>
