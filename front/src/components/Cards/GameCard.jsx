@@ -1,15 +1,20 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, ImageList, ImageListItem, Button } from '@mui/material';
 import { styled } from '@mui/system';
+import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 const StyledCard = styled(Card)(({ theme }) => ({
+  cursor: 'pointer',
   backgroundColor: '#B55D9C',
   borderRadius: '15px',
   width: '1450px',
   height: '600px',
 }));
 
-function GameCard({ mainImage, name, images, releaseDate, price }) {
+function GameCard({ id, mainImage, name, images, releaseDate, price }) {
+
+  const navigate = useNavigate();
 
   const imageList = (
     <ImageList>
@@ -20,6 +25,10 @@ function GameCard({ mainImage, name, images, releaseDate, price }) {
       ))}
     </ImageList>
   );
+
+  useEffect(() => {
+    // console.log(id)
+  }, [id])
 
   function isPastDate(date) {
     const inputDate = new Date(date);
@@ -33,8 +42,13 @@ function GameCard({ mainImage, name, images, releaseDate, price }) {
     return inputDate <= currentDate;
   }
 
+  const redirectToGamePage = async (event, id) =>  { 
+    navigate(`/game/${id}`); 
+    event.preventDefault();
+  }
+
   return (
-    <StyledCard style={{ marginTop: '20px' }}>
+    <StyledCard onClick={(e) => redirectToGamePage(e, id) } style={{ marginTop: '20px' }}>
       <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
         <CardMedia component="img" sx={{ borderRadius: '20px' }} height="550" image={mainImage} alt={name} />
         <CardContent>
@@ -47,8 +61,8 @@ function GameCard({ mainImage, name, images, releaseDate, price }) {
                 <Typography variant="h5" color="white">
                   Ціна {price}$
                 </Typography>
-                <Button variant="contained" color="success">
-                  Додати у корзину
+                <Button onClick={(e) => {e.stopPropagation();}} variant="contained" color="inherit">
+                  В корзину
                 </Button>
               </CardContent>
             )}
