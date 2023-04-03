@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 
 function SmallGameOrLevelCard({
@@ -12,12 +13,8 @@ function SmallGameOrLevelCard({
   price,
   cardType, // Pass 'cart', 'library', 'gamepage' or any other type as a prop
 }) {
-  const StyledCard = styled(Card)(({ theme }) => (cardType === 'gamepage' ? {
-    backgroundColor: '#B55D9C',
-    borderRadius: '15px',
-    width: '650px',
-    height: '200px',
-  }: {
+  const StyledCard = styled(Card)(({ theme }) => (
+  {
     backgroundColor: '#B55D9C',
     borderRadius: '15px',
     width: '950px',
@@ -40,7 +37,7 @@ function SmallGameOrLevelCard({
             {
               isLibraryCard ? (
                 <Link style={{ color: '#fff' }} to={`/game/${id}`}>
-                  Переглянути
+                    Переглянути
                 </Link>
               ) : (
                 <Typography variant="h5" color="white">Ціна {price}$</Typography>

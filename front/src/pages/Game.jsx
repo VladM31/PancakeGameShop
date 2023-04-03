@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ImageCarousel from '../components/Carousels/ImagesCarousel';
 import { Box, Button, Typography } from '@mui/material';
-import SmallGameOrLevelCard from '../components/Cards/SmallGameOrLevelCard';
+import LevelCard from '../components/Cards/LevelCard';
 import Filter from '../components/UI/Filter';
 
 function Game() {
@@ -70,7 +70,7 @@ function Game() {
               <Button onClick={(e) => {e.stopPropagation();}} variant="contained" color="inherit">
                 В корзину
               </Button>
-            </Box>
+              </Box>
           </Box>
         </Box>
         <Typography sx={{marginTop: '20px'}} align='center' variant='h3' color={'white'}>
@@ -87,7 +87,7 @@ function Game() {
         <Box sx={{display: 'flex'}}>
           <Box>
               { levels.results.map((level) => (
-                <SmallGameOrLevelCard cardType='gamepage' key={level.id} id={level.id} mainImage={level.image} name={level.name} price={level.price} />
+                <LevelCard key={level.id} id={level.id} mainImage={level.image} name={level.name} price={level.price} />
               )) }
           </Box>
           <Box>
