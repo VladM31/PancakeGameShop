@@ -38,7 +38,7 @@ function Level() {
           <Typography align='center' sx={{marginTop: '10px'}} color='white' variant='h5'>{level.name}</Typography>
           <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
             <Typography color='white' variant='h5'>Ціна: {level.price}$</Typography>
-            <Button sx={{backgroundColor: 'white', color: 'black'}}>У кошик</Button>
+            <Button sx={{backgroundColor: 'white', color: 'black'}}>В корзину</Button>
           </Box>
         </Box>
       </Box>

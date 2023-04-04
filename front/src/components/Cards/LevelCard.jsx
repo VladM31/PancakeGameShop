@@ -28,7 +28,7 @@ function GameCard({
 
   const redirectToLevelPage = async (event, gameId = 1, levelId = 1) =>  { 
     navigate(`/game/${gameId}/level/${levelId}`);
-    event.preventDefault();
+    event.stopPropagation();
   }
 
   return (
@@ -41,7 +41,7 @@ function GameCard({
           </CardContent>
           <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '105%', justifyContent: 'space-between', p: 2 }}>
             <Typography variant="h5" color="white">Ціна {price}$</Typography>
-            <Button variant="contained" color="inherit">В корзину</Button>
+            <Button onClick={(e) => e.stopPropagation()} variant="contained" color="inherit">В корзину</Button>
           </CardContent>
         </CardContent>
       </CardContent>
