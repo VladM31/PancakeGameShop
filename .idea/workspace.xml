@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-4 #comment added routes and made configuration #6">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/Cards/LevelCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Cards/LevelCard.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +69,7 @@
       <updated>1678994654267</updated>
       <workItem from="1678994656152" duration="1388000" />
       <workItem from="1678996074815" duration="1130000" />
+      <workItem from="1680608732028" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="PGS-4 #comment added routes and made configuration #6">
       <created>1678995778967</created>

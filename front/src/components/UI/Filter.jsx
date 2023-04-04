@@ -43,7 +43,7 @@ const Filter = ({ onFilter }) => {
           label="Min Price"
           type="number"
           value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
+          onChange={(e) => e.target.value < 0 ? setMinPrice(0) : setMinPrice(e.target.value)}
           fullWidth
           margin="normal"
         />
@@ -51,7 +51,7 @@ const Filter = ({ onFilter }) => {
           label="Max Price"
           type="number"
           value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
+          onChange={(e) => e.target.value < 0 ? setMaxPrice(0) : setMaxPrice(e.target.value)}
           fullWidth
           margin="normal"
         />

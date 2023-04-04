@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, IconButton, CardMedia } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
-const ImageCarousel = ({ images }) => {
+const ImageCarousel = ({ images, height = 300 }) => {
   const [mainImageIndex, setMainImageIndex] = useState(0);
 
   const handleImageClick = (index) => {
@@ -21,7 +21,7 @@ const ImageCarousel = ({ images }) => {
     <Box>
       <CardMedia
         component="img"
-        height="300"
+        height={height}
         image={images[mainImageIndex]}
         alt="Main Image"
       />
