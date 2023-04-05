@@ -1,11 +1,11 @@
 import React from 'react';
+import RegistrationForm from "../components/UI/Forms/RegisterForm";
 
 function SignUp() {
   return (
-    <div>
-      <h1>Sign Up</h1>
-      {/* Add your content here */}
-    </div>
+    <>
+      <RegistrationForm />
+    </>
   );
 }
 

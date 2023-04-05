@@ -56,7 +56,7 @@ function Game() {
   return (
     <>
       <Box>
-        <Box sx={{ display: 'flex', width: 1000, heigh: 400, backgroundColor: '#B55D9C', padding: '40px', borderRadius: '15px',}}>
+        <Box sx={{ display: 'flex', width: 1000, backgroundColor: '#B55D9C', padding: '40px', borderRadius: '15px',}}>
           <ImageCarousel images={game.images} /> 
           <Box sx={{ display: 'flex', width: '50%', justifyContent: 'space-between', flexDirection: 'column', marginLeft: '20px' }}>
             <Box sx={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
@@ -70,13 +70,13 @@ function Game() {
               <Button onClick={(e) => {e.stopPropagation();}} variant="contained" color="inherit">
                 В корзину
               </Button>
-              </Box>
+            </Box>
           </Box>
         </Box>
         <Typography sx={{marginTop: '20px'}} align='center' variant='h3' color={'white'}>
           Опис
         </Typography>
-        <Box sx={{ width: 1000, heigh: 400, backgroundColor: '#B55D9C', padding: '40px', borderRadius: '15px',}}>
+        <Box sx={{ width: 1000, backgroundColor: '#B55D9C', padding: '40px', borderRadius: '15px',}}>
           <Typography variant='h6' color={'white'}>
           {game.description}
           </Typography>
