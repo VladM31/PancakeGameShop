@@ -3,7 +3,8 @@ import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material'
 import { styled } from '@mui/system';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {useNavigate} from "react-router";
 
 function SmallGameOrLevelCard({
   gameId,
@@ -16,6 +17,7 @@ function SmallGameOrLevelCard({
   onButtonClick,
   showCards,
 }) {
+  const navigate = useNavigate()
   const StyledCard = styled(Card)(({ theme }) => isLibraryLevelCard ? 
     ({
       backgroundColor: '#B55D9C',
@@ -34,9 +36,20 @@ function SmallGameOrLevelCard({
   const isLibraryCard = cardType === 'library';
   const isLibraryLevelCard = cardType === 'libraryLevel';
   const isGamePageCard = cardType === 'gamepage';
+  const isCartCard = cardType === 'cart';
+
+  const navigationToGameOrLevel = (e, gameId, levelId) => {
+    if(levelId) {
+        navigate(`/game/${gameId}/level/${levelId}`)
+    } else {
+        navigate(`/game/${gameId}`)
+    }
+    onButtonClick();
+    e.stopPropagation();
+  }
 
   return (
-    <StyledCard sx={{ marginBottom: '20px' }}>
+    <StyledCard onClick={isCartCard ? e => navigationToGameOrLevel(e) : null} sx={isCartCard ? { cursor: 'pointer', marginBottom: '20px' } : { marginBottom: '20px' }}>
       <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
         <CardMedia component="img" sx={{ borderRadius: '20px', width: '35%' }} height="170" image={mainImage} alt={name} />
         <CardContent sx={{ display: 'flex', width: '65%', justifyContent: 'space-between', alignItems: 'center' }}>

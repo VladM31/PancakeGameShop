@@ -1,27 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    user: {
-        id: 0,
-        phoneNumber: 0,
-        nickname: "",
-        firstname: "",
-        lastname: "",
-        birthDate: "",
-        selectedCurrency: "",
-        email: null,
-        role: "",
-		  },
-		  token: {
-        value: "",
-        expiresIn: ""
-		  },
+      user: {
+          id: 0,
+          phoneNumber: 0,
+          nickname: "",
+          firstname: "",
+          lastname: "",
+          birthDate: "",
+          selectedCurrency: "",
+          email: null,
+          role: "",
+      },
+      token: {
+          value: "",
+          expiresIn: ""
+      },
   },
   reducers: {
-	  initUser: (state, payload) => {
-      state.user = payload;
+	  initUser: async (state) => {
+     try {
+      let { data } = await axios.get('')
+      if(!Object.keys(data).length) {
+        data = state.user;
+      }
+      state.user = data;
+     } catch(e) {
+      console.log(e);
+     }
 	  },
 	  initToken: (state, payload) => {
       state.token = payload;

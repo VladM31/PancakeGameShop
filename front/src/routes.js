@@ -7,12 +7,13 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Library from './pages/Library';
 import Header from './components/UI/Header';
+import BasketModal from "./components/UI/Modals/BasketModal";
 
 function GameRoutes() {
     return(
         <Router>
             <Routes>
-                <Route element={<Header />}>
+                <Route element={<><Header /> <BasketModal /></>}>
                     <Route path="/" name="Main" element={<Main />}/>
                     <Route path="/game/:id" name="Game"  element={<Game />}/>
                     <Route path="/payment" name="Payment"  element={<Payment />}/>
