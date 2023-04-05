@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { initUser } from '../../reducers/user/userStore';
+import {initUser} from '../../reducers/user/userStore';
 
 
 function Header(props) {
@@ -15,12 +15,12 @@ function Header(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    initUser()
+      initUser()
   }, [user, token, dispatch]);
 
-  const navItemsAuthUser = [{ id: 1, name: 'Бібліотека', path: '/library' }, { id: 2, name: 'Увійти / Вийти', path: '/auth/login' }];
+  const navItemsAuthUser = [{ id: 1, name: 'Бібліотека', path: '/library' }, { id: 2, name: 'Вийти', path: '/auth/login' }];
 
-  const navItemsNoAuthUser = [{ id: 2, name: 'Увійти / Вийти', path: '/auth/login' }];
+  const navItemsNoAuthUser = [{ id: 2, name: 'Увійти', path: '/auth/login' }];
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -38,14 +38,14 @@ function Header(props) {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {
               token.value === '' ? navItemsNoAuthUser.map((item) => (
-                  <Link style={{textDecoration: 'none'}} to={item.path}>
-                    <Button key={item.id} sx={{ color: '#fff', fontWeight: '700', fontSize: '16px', lineHeight: '39px',}}>
+                  <Link key={item.id} style={{textDecoration: 'none'}} to={item.path}>
+                    <Button sx={{ color: '#fff', fontWeight: '700', fontSize: '16px', lineHeight: '39px',}}>
                       {item.name}
                     </Button>
                   </Link>
               )) : navItemsAuthUser.map((item) => (
-                  <Link style={{textDecoration: 'none'}} to={item.path}>
-                    <Button key={item.id} sx={{ color: '#fff', fontWeight: '700', fontSize: '16px', lineHeight: '39px',}}>
+                  <Link key={item.id} style={{textDecoration: 'none'}} to={item.path}>
+                    <Button sx={{ color: '#fff', fontWeight: '700', fontSize: '16px', lineHeight: '39px',}}>
                       {item.name}
                     </Button>
                   </Link>

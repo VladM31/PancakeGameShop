@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal';
 import { Button, Fade, IconButton } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import SmallGameOrLevelCard from '../../Cards/SmallGameOrLevelCard';
+import {useNavigate} from "react-router";
 
 const style = {
   position: 'fixed',
@@ -25,38 +26,39 @@ export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const navigate = useNavigate();
 
-  const basketGames = [
+  const basketGamesOrLevels = [
     { 
-      id: 1,
+      gameId: 1,
       mainImage: 'https://m.media-amazon.com/images/M/MV5BMzgyZWEzMDgtMzI0YS00ZDMwLTllNjQtZjE3ZmVkNWM3YzliXkEyXkFqcGdeQXVyMTYxNzI4OTYx._V1_FMjpg_UX1000_.jpg',
       name: 'Minecraft',
       releaseDate: '2023-03-26',
       price: 50, 
     },
     {
-      id: 2,
+      gameId: 2,
       mainImage: 'https://cdn.akamai.steamstatic.com/steam/apps/374320/capsule_616x353.jpg?t=1644436409',
       name: 'Dark Souls 3',
       releaseDate: '2023-03-26',
       price: 50, 
     },
     {
-      id: 3,
+      gameId: 3,
       mainImage: 'https://cdn1.epicgames.com/offer/602a0ef0aceb46cca62445439661d712/EGS_STALKER2HeartofChornobyl_GSCGameWorld_S1_2560x1440-7cc8db55646ee7b969c48defed6963f4',
       name: 'S.T.A.L.K.E.R. 2',
       releaseDate: '2024-03-26',
       price: 50, 
     },
     {
-      id: 4,
+      gameId: 4,
       mainImage: 'https://cdn1.epicgames.com/offer/602a0ef0aceb46cca62445439661d712/EGS_STALKER2HeartofChornobyl_GSCGameWorld_S1_2560x1440-7cc8db55646ee7b969c48defed6963f4',
       name: 'S.T.A.L.K.E.R. 2',
       releaseDate: '2024-03-26',
       price: 50, 
     },
     {
-      id: 5,
+      gameId: 5,
       mainImage: 'https://cdn1.epicgames.com/offer/602a0ef0aceb46cca62445439661d712/EGS_STALKER2HeartofChornobyl_GSCGameWorld_S1_2560x1440-7cc8db55646ee7b969c48defed6963f4',
       name: 'S.T.A.L.K.E.R. 2',
       releaseDate: '2024-03-26',
@@ -64,7 +66,7 @@ export default function BasicModal() {
     }
   ]
 
-  const basketPrice = basketGames.reduce((acc, game) => acc + game.price, 0)
+  const basketPrice = basketGamesOrLevels.reduce((acc, game) => acc + game.price, 0)
 
   return (
     <>
@@ -82,8 +84,8 @@ export default function BasicModal() {
             </Typography>
             <Box>
               {
-                basketGames.map((game) => (
-                  <SmallGameOrLevelCard cardType='cart' key={game.id} id={game.id} mainImage={game.mainImage} name={game.name} price={game.price}  />
+                basketGamesOrLevels.map((gameOrLevel) => (
+                  <SmallGameOrLevelCard onButtonClick={handleClose} cardType='cart' key={gameOrLevel.gameId} id={gameOrLevel.gameId} mainImage={gameOrLevel.mainImage} name={gameOrLevel.name} price={gameOrLevel.price}  />
                 ))
               }
               <Box sx={{
@@ -96,7 +98,7 @@ export default function BasicModal() {
                 height: '100px',
                 marginTop: '20px',
               }}>
-                <Button variant='contained' color='inherit' sx={{ marginLeft: '20px' }} >Купити</Button><Typography variant='h4' color={'white'} sx={{ marginRight: '20px' }}>Сумма замовлень: {basketPrice}$</Typography>
+                <Button onClick={() => { navigate('/payment'); handleClose(); }} variant='contained' color='inherit' sx={{ marginLeft: '20px' }} >Купити</Button><Typography variant='h4' color={'white'} sx={{ marginRight: '20px' }}>Сумма замовлень: {basketPrice}$</Typography>
               </Box>
             </Box>
           </Box>

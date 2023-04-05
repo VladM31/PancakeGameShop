@@ -4,21 +4,21 @@ import axios from "axios";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    user: {
-        id: 0,
-        phoneNumber: 0,
-        nickname: "",
-        firstname: "",
-        lastname: "",
-        birthDate: "",
-        selectedCurrency: "",
-        email: null,
-        role: "",
-		  },
-		  token: {
-        value: "",
-        expiresIn: ""
-		  },
+      user: {
+          id: 0,
+          phoneNumber: 0,
+          nickname: "",
+          firstname: "",
+          lastname: "",
+          birthDate: "",
+          selectedCurrency: "",
+          email: null,
+          role: "",
+      },
+      token: {
+          value: "",
+          expiresIn: ""
+      },
   },
   reducers: {
 	  initUser: async (state) => {
