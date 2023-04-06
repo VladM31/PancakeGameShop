@@ -2,9 +2,7 @@ package nure.pancake.game.shop.gameproductservice.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import nure.pancake.game.shop.gameproductservice.convector.ListStringConvector;
 
 import java.time.LocalDateTime;
@@ -44,4 +42,11 @@ public class Game {
             inverseJoinColumns = @JoinColumn(name = "genres_id")
     )
     private Set<Genre> genres;
+
+    @RequiredArgsConstructor
+    public enum FieldName implements FieldNameGettable {
+        GENRE("genres");
+        @Getter
+        private final String fieldName;
+    }
 }
