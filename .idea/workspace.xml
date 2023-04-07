@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-4 #comment added routes and made configuration #6">
+    <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-39 add redirection and fixes problems from console">
+      <change afterPath="$PROJECT_DIR$/front/src/components/UI/Forms/RegisterForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/Cards/SmallGameOrLevelCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Cards/SmallGameOrLevelCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/UI/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/UI/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/UI/Modals/BasketModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/UI/Modals/BasketModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Game.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Game.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/SignUp.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,23 +45,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\WebStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Универ\3 курс\2 семестр\МППС\PancakeGameShop\front\src\assets" />
       <recent name="D:\Универ\3 курс\2 семестр\МППС\PancakeGameShop\front\public" />
     </key>
   </component>
