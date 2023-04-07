@@ -1,4 +1,4 @@
-package nure.pancake.game.shop.gameproductservice.entity;
+package nure.pancake.game.shop.gameproductservice.entities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PurchasedGame {
+public class PurchasedGameEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,5 +25,5 @@ public class PurchasedGame {
     @Column(name = "games_id")
     private Long gamesId;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "purchasedGameId")
-    private List<PurchasedLevel> levels;
+    private List<PurchasedLevelEntity> levels;
 }

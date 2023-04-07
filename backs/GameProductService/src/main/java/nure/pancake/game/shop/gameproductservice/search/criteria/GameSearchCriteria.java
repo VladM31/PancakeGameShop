@@ -5,8 +5,8 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.*;
-import nure.pancake.game.shop.gameproductservice.entity.Game;
-import nure.pancake.game.shop.gameproductservice.entity.Genre;
+import nure.pancake.game.shop.gameproductservice.entities.GameEntity;
+import nure.pancake.game.shop.gameproductservice.entities.GenreEntity;
 import nure.pancake.game.shop.gameproductservice.utils.Range;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.CollectionUtils;
@@ -20,7 +20,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GameSearchCriteria implements Specification<Game> {
+public class GameSearchCriteria implements Specification<GameEntity> {
     @Singular(ignoreNullCollections = true)
     private Collection<Long> gameIds;
     @Singular(ignoreNullCollections = true)
@@ -33,7 +33,7 @@ public class GameSearchCriteria implements Specification<Game> {
     private String name;
 
     @Override
-    public Predicate toPredicate(Root<Game> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+    public Predicate toPredicate(Root<GameEntity> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         List<Predicate> criteria = new ArrayList<>();
 
         if (!CollectionUtils.isEmpty(gameIds)) {
@@ -42,14 +42,14 @@ public class GameSearchCriteria implements Specification<Game> {
         }
         if (!CollectionUtils.isEmpty(genreIds)) {
             criteria.add(cb.in(root
-                            .get(Game.FieldName.GENRE.getFieldName())
-                            .get(Genre.FieldName.GENRE_ID.getFieldName()))
+                            .get(GameEntity.FieldName.GENRE.getFieldName())
+                            .get(GenreEntity.FieldName.GENRE_ID.getFieldName()))
                     .value(genreIds));
         }
         if (!CollectionUtils.isEmpty(genreNames)) {
             criteria.add(cb.in(root
-                            .get(Game.FieldName.GENRE.getFieldName())
-                            .get(Genre.FieldName.GENRE_NAME.getFieldName()))
+                            .get(GameEntity.FieldName.GENRE.getFieldName())
+                            .get(GenreEntity.FieldName.GENRE_NAME.getFieldName()))
                     .value(genreNames));
         }
         if (StringUtils.hasText(name)) {
@@ -86,7 +86,7 @@ public class GameSearchCriteria implements Specification<Game> {
             );
         }
         if (CollectionUtils.isEmpty(criteria)) {
-            return Specification.where((Specification<Game>) null).toPredicate(root, query, cb);
+            return Specification.where((Specification<GameEntity>) null).toPredicate(root, query, cb);
         }
         return cb.and(criteria.toArray(Predicate[]::new));
     }

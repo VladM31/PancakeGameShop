@@ -1,7 +1,7 @@
 package nure.pancake.game.shop.gameproductservice.utils;
 
 import jakarta.persistence.criteria.*;
-import nure.pancake.game.shop.gameproductservice.entity.FieldNameGettable;
+import nure.pancake.game.shop.gameproductservice.entities.FieldNameGettable;
 
 import java.util.stream.Stream;
 

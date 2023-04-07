@@ -1,4 +1,4 @@
-package nure.pancake.game.shop.gameproductservice.entity;
+package nure.pancake.game.shop.gameproductservice.entities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
@@ -9,7 +9,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Genre {
+public class GenreEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
