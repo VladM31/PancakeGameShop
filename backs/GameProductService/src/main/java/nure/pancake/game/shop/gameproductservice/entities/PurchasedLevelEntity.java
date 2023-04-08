@@ -1,4 +1,4 @@
-package nure.pancake.game.shop.gameproductservice.entity;
+package nure.pancake.game.shop.gameproductservice.entities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PurchasedLevel {
+public class PurchasedLevelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

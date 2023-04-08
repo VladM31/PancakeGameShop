@@ -1,4 +1,4 @@
-package nure.pancake.game.shop.gameproductservice.entity;
+package nure.pancake.game.shop.gameproductservice.entities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
@@ -14,7 +14,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Game {
+public class GameEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,7 +41,7 @@ public class Game {
             joinColumns = @JoinColumn(name = "games_id"),
             inverseJoinColumns = @JoinColumn(name = "genres_id")
     )
-    private Set<Genre> genres;
+    private Set<GenreEntity> genreEntities;
 
     @RequiredArgsConstructor
     public enum FieldName implements FieldNameGettable {

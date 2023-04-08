@@ -5,7 +5,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.*;
-import nure.pancake.game.shop.gameproductservice.entity.Level;
+import nure.pancake.game.shop.gameproductservice.entities.LevelEntity;
 import nure.pancake.game.shop.gameproductservice.utils.Range;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.CollectionUtils;
@@ -20,7 +20,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LevelSearchCriteria implements Specification<Level> {
+public class LevelSearchCriteria implements Specification<LevelEntity> {
     @Singular(ignoreNullCollections = true)
     private Collection<Long> levelIds;
     @Singular(ignoreNullCollections = true)
@@ -30,7 +30,7 @@ public class LevelSearchCriteria implements Specification<Level> {
     private Boolean hidden;
 
     @Override
-    public Predicate toPredicate(Root<Level> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+    public Predicate toPredicate(Root<LevelEntity> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         List<Predicate> criteria = new ArrayList<>();
 
         if (!CollectionUtils.isEmpty(levelIds)) {
@@ -56,7 +56,7 @@ public class LevelSearchCriteria implements Specification<Level> {
             criteria.add(cb.equal(root.get("hidden"), hidden));
         }
         if (CollectionUtils.isEmpty(criteria)) {
-            return Specification.where((Specification<Level>) null).toPredicate(root, query, cb);
+            return Specification.where((Specification<LevelEntity>) null).toPredicate(root, query, cb);
         }
         return cb.and(criteria.toArray(Predicate[]::new));
     }

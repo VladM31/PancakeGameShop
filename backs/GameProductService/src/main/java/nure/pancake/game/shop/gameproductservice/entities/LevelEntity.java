@@ -1,4 +1,4 @@
-package nure.pancake.game.shop.gameproductservice.entity;
+package nure.pancake.game.shop.gameproductservice.entities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Level {
+public class LevelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

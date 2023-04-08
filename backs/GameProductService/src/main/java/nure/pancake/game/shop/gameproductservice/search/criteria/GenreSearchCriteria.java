@@ -5,7 +5,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.*;
-import nure.pancake.game.shop.gameproductservice.entity.Genre;
+import nure.pancake.game.shop.gameproductservice.entities.GenreEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -19,14 +19,14 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GenreSearchCriteria implements Specification<Genre> {
+public class GenreSearchCriteria implements Specification<GenreEntity> {
     @Singular(ignoreNullCollections = true)
     private Collection<Integer> genreIds;
     private Collection<String> names;
     private String name;
 
     @Override
-    public Predicate toPredicate(Root<Genre> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+    public Predicate toPredicate(Root<GenreEntity> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         List<Predicate> criteria = new ArrayList<>();
 
         if (!CollectionUtils.isEmpty(genreIds)) {
@@ -39,7 +39,7 @@ public class GenreSearchCriteria implements Specification<Genre> {
             criteria.add(cb.like(root.get("name"), "%" + name + "%"));
         }
         if (CollectionUtils.isEmpty(criteria)) {
-            return Specification.where((Specification<Genre>) null).toPredicate(root, query, cb);
+            return Specification.where((Specification<GenreEntity>) null).toPredicate(root, query, cb);
         }
 
         return cb.and(criteria.toArray(Predicate[]::new));
