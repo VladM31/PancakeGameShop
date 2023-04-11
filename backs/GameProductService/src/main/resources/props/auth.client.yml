@@ -1,0 +1,5 @@
+auth:
+  client:
+    header: Authorization
+    api-url: http://localhost:8005/api/v1/auth-token/token-to-user
+    token-prefix: Bearer
