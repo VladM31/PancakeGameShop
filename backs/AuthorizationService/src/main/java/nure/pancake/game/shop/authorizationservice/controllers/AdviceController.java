@@ -51,6 +51,6 @@ public class AdviceController {
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {ValidationException.class})
     public String handleValidationException(ValidationException e) {
-        return e.getMessage();
+        return e.getCause().getMessage();
     }
 }
