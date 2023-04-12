@@ -10,7 +10,7 @@
     </parent>
     <groupId>nure.pancake.game.shop</groupId>
     <artifactId>AuthorizationService</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>-V1</version>
     <name>AuthorizationService</name>
     <description>AuthorizationService</description>
     <properties>
