@@ -1,16 +1,19 @@
 package nure.pancake.game.shop.gameproductservice.filters;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
+import nure.pancake.game.shop.gameproductservice.dataobjects.sortfiled.GameSortFiled;
 import nure.pancake.game.shop.gameproductservice.utils.Range;
 
 import java.time.LocalDate;
 import java.util.Collection;
 
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GameLevelsFilter {
+@EqualsAndHashCode(callSuper = true)
+public class GameLevelsFilter extends  FilterPage<GameSortFiled> {
     @Singular(ignoreNullCollections = true)
     private Collection<Long> gameIds;
     @Singular(ignoreNullCollections = true)
