@@ -11,6 +11,8 @@ import {
 import { styled } from '@mui/system';
 import { Link as RouterLink } from 'react-router-dom';
 import { useState } from 'react';
+import {useDispatch} from "react-redux";
+import {loginUser} from "../reducers/user/userStore";
 
 const options = {
     shouldForwardProp: (prop) => prop !== 'fontColor',
@@ -51,11 +53,30 @@ const FullScreenContainer = styled(Container)({
 });
 
 const Login = () => {
+    const [password, setPassword] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState(0);
     const [isOpenErrorMes, setOpenErrorMes] = useState(false);
     const [errorMes, setErrorMes] = useState('');
 
-    const handleSubmit = (e) => {
+    const dispatch = useDispatch();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(!password || !phoneNumber) {
+            setOpenErrorMes(true);
+            setErrorMes('Please, fill in all fields');
+            return;
+        }
+
+        const { payload } = await dispatch(loginUser({ phoneNumber, password }));
+
+        if(payload.success) {
+
+        } else {
+            setErrorMes(payload.message);
+            setOpenErrorMes(true);
+        }
     };
 
     return (
@@ -68,12 +89,14 @@ const Login = () => {
                         type="text"
                         name="phoneNumber"
                         required
+                        onChange={(e) => setPhoneNumber(e.target.value)}
                         inputProps={{ pattern: '\\d{10,15}' }}
                     />
                     <StyledTextField
                         label="Password"
                         type="password"
                         name="password"
+                        onChange={(e) => setPassword(e.target.value)}
                         required
                         inputProps={{ minLength: 8, maxLength: 60 }}
                     />

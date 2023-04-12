@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-39 add redirection and fixes problems from console">
-      <change afterPath="$PROJECT_DIR$/front/src/reducers/user/api.js" afterDir="false" />
+    <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-58 Prepare user store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/Cards/SmallGameOrLevelCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Cards/SmallGameOrLevelCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/UI/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/UI/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/UI/Modals/BasketModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/UI/Modals/BasketModal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/reducers/user/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +80,7 @@
       <workItem from="1680612023310" duration="4000" />
       <workItem from="1680703689167" duration="757000" />
       <workItem from="1680704466821" duration="1865000" />
-      <workItem from="1681327897706" duration="499000" />
+      <workItem from="1681327897706" duration="3745000" />
     </task>
     <task id="LOCAL-00001" summary="PGS-4 #comment added routes and made configuration #6">
       <created>1678995778967</created>
@@ -100,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678996679305</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="PGS-58 Prepare user store">
+      <created>1681328492395</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681328492395</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +122,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="PGS-4 #comment added routes and made configuration #6" />
-    <option name="LAST_COMMIT_MESSAGE" value="PGS-4 #comment added routes and made configuration #6" />
+    <MESSAGE value="PGS-58 Prepare user store" />
+    <option name="LAST_COMMIT_MESSAGE" value="PGS-58 Prepare user store" />
   </component>
 </project>

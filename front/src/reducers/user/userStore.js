@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "./api";
 
 // Async actions using redux-thunk
-export const checkUser = createAsyncThunk("user/checkUser", async (phoneNumber = "380635662050") => {
+export const checkUser = createAsyncThunk("user/checkUser", async (phoneNumber) => {
     try {
         const data = await api.isRegistered(phoneNumber);
         console.log(data);
@@ -11,12 +11,21 @@ export const checkUser = createAsyncThunk("user/checkUser", async (phoneNumber =
     }
 });
 
-export const registerUser = createAsyncThunk("user/registerUser", async (user = { phoneNumber: '380635662050', password: '12345678', firstName: 'Vasya', lastName: 'Petya', nickname: 'zeebro2223', birthDate: '2003-06-05', currency: 'USD' }) => {
+export const registerUser = createAsyncThunk("user/registerUser", async (user ) => {
     try {
         const data = await api.register(user);
         console.log(data);
     } catch (error) {
         console.log(error);
+    }
+});
+
+export const loginUser = createAsyncThunk("user/login", async (payload) => {
+    try {
+        const result = await api.login(payload.phoneNumber, payload.password);
+        return { success: true, message: 'Login successful', user: result.data.user, token: {value: result.data.tokenValue, expiresIn: result.data.tokenExpirationTime} };
+    } catch (error) {
+        return { success: false, message: error.response.data };
     }
 });
 
@@ -39,6 +48,9 @@ const userSlice = createSlice({
         },
     },
     reducers: {
+        initUser: (state, action) => {
+            state.user = action.payload;
+        },
         initToken: (state, action) => {
             state.token = action.payload;
         },
@@ -55,6 +67,18 @@ const userSlice = createSlice({
                 role: "",
             };
             state.token = action.payload;
+        },
+        extraReducers: (builder) => {
+            builder
+                .addCase(loginUser.fulfilled, (state, action) => {
+                    if (action.payload.success) {
+                        state.user = action.payload.user;
+                        state.token = action.payload.token;
+                    }
+                })
+            // Обработка состояния для других асинхронных функций (если необходимо)
+            // .addCase(checkUser.fulfilled, ...)
+            // .addCase(registerUser.fulfilled, ...)
         },
     },
 });
