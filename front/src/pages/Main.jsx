@@ -7,6 +7,7 @@ import people from '../assets/shopCompany/people.png';
 import company from '../assets/shopCompany/company.jpg';
 import GamesCarousel from '../components/Carousels/GamesCarousel';
 
+
 function Main() {
   const [allGames, setGames] = React.useState([]);
 
@@ -41,8 +42,8 @@ function Main() {
   }
 
   useEffect(() => {
-    getAllGames();
-  }, [])
+    getAllGames().then(r => r).catch(e => console.log(e));
+  }, []);
 
   return (
     <Box>

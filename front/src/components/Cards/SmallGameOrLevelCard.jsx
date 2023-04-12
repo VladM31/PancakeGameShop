@@ -49,7 +49,7 @@ function SmallGameOrLevelCard({
   }
 
   return (
-    <StyledCard onClick={isCartCard ? e => navigationToGameOrLevel(e) : null} sx={isCartCard ? { cursor: 'pointer', marginBottom: '20px' } : { marginBottom: '20px' }}>
+    <StyledCard onClick={isCartCard ? e => navigationToGameOrLevel(e, gameId, levelId) : null} sx={isCartCard ? { cursor: 'pointer', marginBottom: '20px' } : { marginBottom: '20px' }}>
       <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
         <CardMedia component="img" sx={{ borderRadius: '20px', width: '35%' }} height="170" image={mainImage} alt={name} />
         <CardContent sx={{ display: 'flex', width: '65%', justifyContent: 'space-between', alignItems: 'center' }}>

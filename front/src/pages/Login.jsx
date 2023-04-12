@@ -43,7 +43,7 @@ const btnSize = {
 };
 
 const FullScreenContainer = styled(Container)({
-    height: '100vh',
+    height: '82vh',
     margin: 0,
     display: 'flex',
     justifyContent: 'center',
