@@ -12,6 +12,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,10 +27,10 @@ public class GameSearchCriteria implements Specification<GameEntity> {
     @Singular(ignoreNullCollections = true)
     private Collection<Long> genreIds;
     @Singular(ignoreNullCollections = true)
-    private Collection<Long> genreNames;
+    private Collection<String> genreNames;
     private Range<Float> price;
     private Range<Float> ageRating;
-    private Range<Float> releaseDate;
+    private Range<LocalDate> releaseDate;
     private String name;
 
     @Override
@@ -77,12 +78,12 @@ public class GameSearchCriteria implements Specification<GameEntity> {
         }
         if (Range.hasFrom(releaseDate)) {
             criteria.add(
-                    cb.ge(root.get("releaseDate"), releaseDate.getFrom())
+                    cb.greaterThanOrEqualTo(root.get("releaseDate"), releaseDate.getFrom())
             );
         }
         if (Range.hasTo(releaseDate)) {
             criteria.add(
-                    cb.le(root.get("releaseDate"), releaseDate.getTo())
+                    cb.lessThanOrEqualTo(root.get("releaseDate"), releaseDate.getTo())
             );
         }
         if (CollectionUtils.isEmpty(criteria)) {
