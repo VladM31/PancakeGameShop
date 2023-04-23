@@ -16,7 +16,7 @@ const currencies = [
     // ... add more currencies here
 ];
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ isActiveFunc }) => {
     const [form, setForm] = useState({
         telephone: '',
         password: '',
@@ -35,12 +35,13 @@ const RegistrationForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        isActiveFunc(true);
         console.log('Form data:', form);
         // Handle form submission here (e.g., send data to the server)
     };
 
     return (
-        <Container sx={{display: 'flex', alignItems: 'center', height: '100vh'}} component="main" maxWidth="sm">
+        <Container sx={{display: 'flex', alignItems: 'center', height: '82vh'}} component="main" maxWidth="sm">
             <Box
                 sx={{
                     display: 'flex',

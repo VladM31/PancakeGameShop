@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import RegistrationForm from "../components/UI/Forms/RegisterForm";
+import RegisterHelp from "../components/UI/Etc/RegisterHelp";
 
 function SignUp() {
+    const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <RegistrationForm />
+        {
+            isActive ?  <RegisterHelp /> :<RegistrationForm isActiveFunc={setIsActive}/>
+}
     </>
   );
 }

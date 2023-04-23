@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-58 Prepare user store">
+    <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-58 implement login function">
+      <change afterPath="$PROJECT_DIR$/front/src/components/UI/Etc/RegisterHelp.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/reducers/user/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/UI/Forms/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/UI/Forms/RegisterForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/SignUp.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +31,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="frontend/PGS-58-Implement-authorization-logic" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,22 +44,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "frontend/PGS-58-Implement-authori…logic",
+    "last_opened_file_path": "D:/Универ/3 курс/2 семестр/МППС/PancakeGameShop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\WebStorm 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Универ\3 курс\2 семестр\МППС\PancakeGameShop\front\src\assets" />
@@ -80,7 +82,9 @@
       <workItem from="1680612023310" duration="4000" />
       <workItem from="1680703689167" duration="757000" />
       <workItem from="1680704466821" duration="1865000" />
-      <workItem from="1681327897706" duration="3745000" />
+      <workItem from="1681327897706" duration="3791000" />
+      <workItem from="1682276944492" duration="835000" />
+      <workItem from="1682277806374" duration="1466000" />
     </task>
     <task id="LOCAL-00001" summary="PGS-4 #comment added routes and made configuration #6">
       <created>1678995778967</created>
@@ -103,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681328492395</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="PGS-58 implement login function">
+      <created>1681332236560</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681332236560</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +125,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/frontend/PGS-58-Implement-authorization-logic" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -123,6 +146,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="PGS-4 #comment added routes and made configuration #6" />
     <MESSAGE value="PGS-58 Prepare user store" />
-    <option name="LAST_COMMIT_MESSAGE" value="PGS-58 Prepare user store" />
+    <MESSAGE value="PGS-58 implement login function" />
+    <option name="LAST_COMMIT_MESSAGE" value="PGS-58 implement login function" />
   </component>
 </project>
