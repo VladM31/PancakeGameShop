@@ -19,4 +19,5 @@ public class Level {
     private String mainImage;
     private List<String> images;
     private Long gameId;
+    private boolean hidden;
 }

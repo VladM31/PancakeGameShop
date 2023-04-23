@@ -35,7 +35,7 @@ public class GameEntity {
     @Column(name = "images")
     @Convert(converter = ListStringConvector.class)
     private List<String> images;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "game_genre",
             joinColumns = @JoinColumn(name = "games_id"),
