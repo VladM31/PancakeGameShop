@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import * as api from "./api";
+import Cookies from "js-cookie";
 
 // Async actions using redux-thunk
 export const checkUser = createAsyncThunk("user/checkUser", async (phoneNumber) => {
@@ -52,9 +53,11 @@ const userSlice = createSlice({
             state.user = action.payload;
         },
         initToken: (state, action) => {
+            Cookies.set("token", action.payload.value, {expires: action.payload.expiresIn});
             state.token = action.payload;
         },
         logout: (state, action) => {
+            Cookies.remove("token");
             state.user = {
                 id: 0,
                 phoneNumber: 0,
@@ -66,7 +69,10 @@ const userSlice = createSlice({
                 email: null,
                 role: "",
             };
-            state.token = action.payload;
+            state.token = {
+                value: "",
+                expiresIn: "",
+            };
         },
         extraReducers: (builder) => {
             builder
@@ -83,6 +89,6 @@ const userSlice = createSlice({
     },
 });
 
-export const {initToken, logout} = userSlice.actions;
+export const {initToken, logout, initUser} = userSlice.actions;
 
 export default userSlice.reducer;

@@ -6,13 +6,12 @@ import {
     Link,
     Alert,
     Container,
-    CssBaseline,
 } from '@mui/material';
 import { styled } from '@mui/system';
-import { Link as RouterLink } from 'react-router-dom';
+import {Link as RouterLink, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 import {useDispatch} from "react-redux";
-import {loginUser} from "../reducers/user/userStore";
+import {initToken, initUser, loginUser} from "../reducers/user/userStore";
 
 const options = {
     shouldForwardProp: (prop) => prop !== 'fontColor',
@@ -59,6 +58,7 @@ const Login = () => {
     const [errorMes, setErrorMes] = useState('');
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -72,7 +72,9 @@ const Login = () => {
         const { payload } = await dispatch(loginUser({ phoneNumber, password }));
 
         if(payload.success) {
-
+            dispatch(initUser(payload.user));
+            dispatch(initToken(payload.token));
+            navigate('/')
         } else {
             setErrorMes(payload.message);
             setOpenErrorMes(true);

@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import {useDispatch} from "react-redux";
 import {registerUser} from "../../../reducers/user/userStore";
+import {redirect} from "react-router-dom";
 
 const currencies = [
     {label: 'USD', value: 'USD'},
@@ -53,6 +54,7 @@ const RegistrationForm = ({isActiveFunc}) => {
 
         if (!payload.success) {
             setError(payload.message);
+            redirect('/auth/login');
             return;
         }
 
