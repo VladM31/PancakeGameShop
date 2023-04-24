@@ -8,8 +8,12 @@ export const isRegistered = async (phoneNumber) => {
 };
 
 export const register = async (user) => {
-    const { data } = await axios.post(`${baseURL}/sign-up`, user);
-    return data;
+    try {
+        const { data } = await axios.post(`${baseURL}/sign-up`, user);
+        return data;
+    } catch (e) {
+        return { success: false, message: e.response.data };
+    }
 };
 
 export const login = async (phoneNumber, password) => {

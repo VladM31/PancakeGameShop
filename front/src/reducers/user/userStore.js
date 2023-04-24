@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import * as api from "./api";
 
 // Async actions using redux-thunk
@@ -11,21 +11,21 @@ export const checkUser = createAsyncThunk("user/checkUser", async (phoneNumber) 
     }
 });
 
-export const registerUser = createAsyncThunk("user/registerUser", async (user ) => {
-    try {
-        const data = await api.register(user);
-        console.log(data);
-    } catch (error) {
-        console.log(error);
-    }
+export const registerUser = createAsyncThunk("user/registerUser", async (user) => {
+    return await api.register(user);
 });
 
 export const loginUser = createAsyncThunk("user/login", async (payload) => {
     try {
         const result = await api.login(payload.phoneNumber, payload.password);
-        return { success: true, message: 'Login successful', user: result.data.user, token: {value: result.data.tokenValue, expiresIn: result.data.tokenExpirationTime} };
+        return {
+            success: true,
+            message: 'Login successful',
+            user: result.data.user,
+            token: {value: result.data.tokenValue, expiresIn: result.data.tokenExpirationTime}
+        };
     } catch (error) {
-        return { success: false, message: error.response.data };
+        return {success: false, message: error.response.data};
     }
 });
 
@@ -83,6 +83,6 @@ const userSlice = createSlice({
     },
 });
 
-export const { initToken, logout } = userSlice.actions;
+export const {initToken, logout} = userSlice.actions;
 
 export default userSlice.reducer;

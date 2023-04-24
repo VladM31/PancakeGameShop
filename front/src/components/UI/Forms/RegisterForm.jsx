@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     Box,
     Button,
@@ -8,15 +8,17 @@ import {
     MenuItem,
     Grid,
 } from '@mui/material';
+import {useDispatch} from "react-redux";
+import {registerUser} from "../../../reducers/user/userStore";
 
 const currencies = [
-    { label: 'USD', value: 'USD' },
-    { label: 'EUR', value: 'EUR' },
-    { label: 'GBP', value: 'GBP' },
+    {label: 'USD', value: 'USD'},
+    {label: 'EUR', value: 'EUR'},
+    {label: 'GBP', value: 'GBP'},
     // ... add more currencies here
 ];
 
-const RegistrationForm = ({ isActiveFunc }) => {
+const RegistrationForm = ({isActiveFunc}) => {
     const [form, setForm] = useState({
         telephone: '',
         password: '',
@@ -27,15 +29,35 @@ const RegistrationForm = ({ isActiveFunc }) => {
         birthday: '',
         currency: '',
     });
+    const [error, setError] = useState('');
+
+    const dispatch = useDispatch();
 
     const handleChange = (event) => {
         const {name, value} = event.target;
         setForm((prevForm) => ({...prevForm, [name]: value}));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        const { payload } = await dispatch(registerUser({
+            phoneNumber: form.telephone,
+            password: form.password,
+            nickname: form.nickname,
+            firstName: form.name,
+            lastName: form.surname,
+            email: form.email,
+            birthDate: form.birthday,
+            currency: form.currency,
+        }));
+
+        if (!payload.success) {
+            setError(payload.message);
+            return;
+        }
+
         isActiveFunc(true);
+
         console.log('Form data:', form);
         // Handle form submission here (e.g., send data to the server)
     };
@@ -56,7 +78,7 @@ const RegistrationForm = ({ isActiveFunc }) => {
                 <Typography component="h1" variant="h5">
                     Registration
                 </Typography>
-                <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                <Box component="form" onSubmit={handleSubmit} sx={{mt: 1}}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -67,6 +89,7 @@ const RegistrationForm = ({ isActiveFunc }) => {
                                 id="telephone"
                                 label="Telephone"
                                 name="telephone"
+                                type={'tel'}
                                 autoComplete="tel"
                                 autoFocus
                                 value={form.telephone}
@@ -175,12 +198,13 @@ const RegistrationForm = ({ isActiveFunc }) => {
                                 ))}
                             </TextField>
                         </Grid>
+                        {error && <Grid item xs={12} sm={12}><Typography variant={'body1'} color={'red'}>{error}</Typography></Grid>}
                     </Grid>
                     <Button
                         type="submit"
                         variant="contained"
                         color={'inherit'}
-                        sx={{ mt: 3, mb: 2, width: '40%' }}
+                        sx={{mt: 3, mb: 2, width: '40%'}}
                     >
                         Register
                     </Button>
