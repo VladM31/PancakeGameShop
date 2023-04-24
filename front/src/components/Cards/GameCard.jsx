@@ -9,7 +9,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   backgroundColor: '#B55D9C',
   borderRadius: '15px',
   width: '1450px',
-  height: '600px',
+  height: '625px',
 }));
 
 function GameCard({ id, mainImage, name, images, releaseDate, price }) {

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-39 add redirection and fixes problems from console">
-      <change afterPath="$PROJECT_DIR$/front/src/components/UI/Forms/RegisterForm.jsx" afterDir="false" />
+    <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-57 Static info sign-up component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Game.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Game.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/UI/Forms/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/UI/Forms/RegisterForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/SignUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/reducers/user/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +32,14 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="frontend/PGS-39-Add-redirection-functionals-for-routs" />
+        <entry key="$PROJECT_DIR$" value="frontend/PGS-57-Static-info-sign-up-component" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,13 +55,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "frontend/PGS-59-Implement-registration",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Универ/3 курс/2 семестр/МППС/PancakeGameShop/front",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "D:\\WebStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "D:\\WebStorm 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -81,6 +88,15 @@
       <workItem from="1680612023310" duration="4000" />
       <workItem from="1680703689167" duration="757000" />
       <workItem from="1680704466821" duration="1865000" />
+      <workItem from="1681327897706" duration="3791000" />
+      <workItem from="1682276944492" duration="835000" />
+      <workItem from="1682277806374" duration="1668000" />
+      <workItem from="1682323410438" duration="933000" />
+      <workItem from="1682324505996" duration="1129000" />
+      <workItem from="1682327423178" duration="4600000" />
+      <workItem from="1682332730171" duration="275000" />
+      <workItem from="1682333022112" duration="152000" />
+      <workItem from="1682333183019" duration="97000" />
     </task>
     <task id="LOCAL-00001" summary="PGS-4 #comment added routes and made configuration #6">
       <created>1678995778967</created>
@@ -96,7 +112,28 @@
       <option name="project" value="LOCAL" />
       <updated>1678996679305</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="PGS-58 Prepare user store">
+      <created>1681328492395</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681328492395</updated>
+    </task>
+    <task id="LOCAL-00004" summary="PGS-58 implement login function">
+      <created>1681332236560</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681332236560</updated>
+    </task>
+    <task id="LOCAL-00005" summary="PGS-57 Static info sign-up component">
+      <created>1682279399826</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682279399826</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,7 +144,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/frontend/PGS-58-Implement-authorization-logic" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -115,6 +164,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="PGS-4 #comment added routes and made configuration #6" />
-    <option name="LAST_COMMIT_MESSAGE" value="PGS-4 #comment added routes and made configuration #6" />
+    <MESSAGE value="PGS-58 Prepare user store" />
+    <MESSAGE value="PGS-58 implement login function" />
+    <MESSAGE value="PGS-57 Static info sign-up component" />
+    <option name="LAST_COMMIT_MESSAGE" value="PGS-57 Static info sign-up component" />
   </component>
 </project>

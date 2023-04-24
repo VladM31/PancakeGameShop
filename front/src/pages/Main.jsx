@@ -7,6 +7,7 @@ import people from '../assets/shopCompany/people.png';
 import company from '../assets/shopCompany/company.jpg';
 import GamesCarousel from '../components/Carousels/GamesCarousel';
 
+
 function Main() {
   const [allGames, setGames] = React.useState([]);
 
@@ -16,7 +17,7 @@ function Main() {
         id: 1,
         mainImage: 'https://m.media-amazon.com/images/M/MV5BMzgyZWEzMDgtMzI0YS00ZDMwLTllNjQtZjE3ZmVkNWM3YzliXkEyXkFqcGdeQXVyMTYxNzI4OTYx._V1_FMjpg_UX1000_.jpg',
         name: 'Minecraft',
-        images: ['https://www.ionos.at/digitalguide/fileadmin/_processed_/1/c/csm_linux-minecraft-server-t_dc835841c1.jpg', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],
+        images: ['https://i.guim.co.uk/img/media/c6f7b43fa821d06fe1ab4311e558686529931492/236_140_947_568/master/947.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=06da3aa1e1a44b8dda7c5d2038910e10', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],
         releaseDate: '2023-03-26',
         price: 50, 
       },
@@ -24,7 +25,7 @@ function Main() {
         id: 2,
         mainImage: 'https://cdn.akamai.steamstatic.com/steam/apps/374320/capsule_616x353.jpg?t=1644436409',
         name: 'Dark Souls 3',
-        images: ['https://www.ionos.at/digitalguide/fileadmin/_processed_/1/c/csm_linux-minecraft-server-t_dc835841c1.jpg', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],
+        images: ['https://i.guim.co.uk/img/media/c6f7b43fa821d06fe1ab4311e558686529931492/236_140_947_568/master/947.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=06da3aa1e1a44b8dda7c5d2038910e10', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],
         releaseDate: '2023-03-26',
         price: 50, 
       },
@@ -32,7 +33,7 @@ function Main() {
         id: 3,
         mainImage: 'https://cdn1.epicgames.com/offer/602a0ef0aceb46cca62445439661d712/EGS_STALKER2HeartofChornobyl_GSCGameWorld_S1_2560x1440-7cc8db55646ee7b969c48defed6963f4',
         name: 'S.T.A.L.K.E.R. 2',
-        images: ['https://www.ionos.at/digitalguide/fileadmin/_processed_/1/c/csm_linux-minecraft-server-t_dc835841c1.jpg', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],
+        images: ['https://i.guim.co.uk/img/media/c6f7b43fa821d06fe1ab4311e558686529931492/236_140_947_568/master/947.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=06da3aa1e1a44b8dda7c5d2038910e10', 'https://assets2.rockpapershotgun.com/minecraft-house-ideas-hobbit-hole.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/minecraft-house-ideas-hobbit-hole.jpg', 'https://www.popsci.com/uploads/2022/02/03/Minecraft-Tips-Parents.jpeg', 'https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/05/Minecraft-attacking-a-SkeletoN.jpg'],
         releaseDate: '2024-03-26',
         price: 50, 
       }
@@ -41,8 +42,8 @@ function Main() {
   }
 
   useEffect(() => {
-    getAllGames();
-  }, [])
+    getAllGames().then(r => r).catch(e => console.log(e));
+  }, []);
 
   return (
     <Box>
