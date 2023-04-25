@@ -36,4 +36,9 @@ public class Levels : MonoBehaviour
     {
         SceneManager.LoadScene("Start Screen 1");
     }
+
+    public void Buy()
+    {
+        Application.OpenURL("https://en.wikipedia.org/wiki/Unity_(game_engine)");
+    }
 }
