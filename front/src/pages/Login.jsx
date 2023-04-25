@@ -12,6 +12,7 @@ import {Link as RouterLink, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 import {useDispatch} from "react-redux";
 import {initToken, initUser, loginUser} from "../reducers/user/userStore";
+import {withStyles} from "@mui/styles";
 
 const options = {
     shouldForwardProp: (prop) => prop !== 'fontColor',
@@ -28,14 +29,33 @@ const LoginBox = styled(Box)({
     background: '#B55D9CD9',
 });
 
-const StyledTextField = styled(
-    TextField,
-    options,
-)(({ fontColor }) => ({
-    input: {
-        color: fontColor,
+const CssTextField = withStyles({
+    root: {
+        '& label' : {
+            color: 'white',
+        },
+        '&:hover label': {
+            color: '#00000044',
+        },
+        '& label.Mui-focused': {
+            color: '#000000',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: '#00000044',
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'white',
+            },
+            '&:hover fieldset': {
+                borderColor: '#00000044',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#00000044',
+            },
+        },
     },
-}));
+})(TextField);
 
 const btnSize = {
     width: '150px',
@@ -85,8 +105,8 @@ const Login = () => {
         <>
             <FullScreenContainer maxWidth={false} disableGutters>
                 <LoginBox component="form" onSubmit={handleSubmit}>
-                    <Typography color={'black'} variant="h4">Login</Typography>
-                    <StyledTextField
+                    <Typography color={'white'} variant="h4">Login</Typography>
+                    <CssTextField
                         label="Phone number"
                         type="text"
                         name="phoneNumber"
@@ -94,7 +114,7 @@ const Login = () => {
                         onChange={(e) => setPhoneNumber(e.target.value)}
                         inputProps={{ pattern: '\\d{10,15}' }}
                     />
-                    <StyledTextField
+                    <CssTextField
                         label="Password"
                         type="password"
                         name="password"
@@ -104,7 +124,7 @@ const Login = () => {
                     />
 
                     <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/auth/signUp" underline="hover">
-                        <em style={{ color: 'black' }}>Sign up</em>
+                        <em style={{ color: 'white' }}>Sign up</em>
                     </Link>
 
                     <Box>

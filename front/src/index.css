@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(100%) sepia(85%) saturate(0%) hue-rotate(356deg)
+  brightness(107%) contrast(117%);
+}

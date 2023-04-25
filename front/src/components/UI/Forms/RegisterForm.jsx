@@ -11,6 +11,7 @@ import {
 import {useDispatch} from "react-redux";
 import {registerUser} from "../../../reducers/user/userStore";
 import {redirect} from "react-router-dom";
+import {withStyles} from "@mui/styles";
 
 const currencies = [
     {label: 'USD', value: 'USD'},
@@ -18,6 +19,43 @@ const currencies = [
     {label: 'GBP', value: 'GBP'},
     // ... add more currencies here
 ];
+
+const CssTextField = withStyles({
+    root: {
+        '& svg': {
+          color: 'white',
+        },
+        '& input' : {
+          color: 'white',
+        },
+        '&:hover input': {
+            color: '#00000044',
+        },
+        '& label' : {
+            color: 'white',
+        },
+        '&:hover label': {
+            color: '#00000044',
+        },
+        '& label.Mui-focused': {
+            color: '#000000',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: '#00000044',
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'white',
+            },
+            '&:hover fieldset': {
+                borderColor: '#00000044',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#00000044',
+            },
+        },
+    },
+})(TextField);
 
 const RegistrationForm = ({isActiveFunc}) => {
     const [form, setForm] = useState({
@@ -77,13 +115,13 @@ const RegistrationForm = ({isActiveFunc}) => {
                     padding: 5
                 }}
             >
-                <Typography component="h1" variant="h5">
+                <Typography color={'white'} component="h1" variant="h5">
                     Registration
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} sx={{mt: 1}}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
-                            <TextField
+                            <CssTextField
                                 variant="outlined"
                                 margin="normal"
                                 required
@@ -99,7 +137,7 @@ const RegistrationForm = ({isActiveFunc}) => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField
+                            <CssTextField
                                 variant="outlined"
                                 margin="normal"
                                 required
@@ -114,7 +152,7 @@ const RegistrationForm = ({isActiveFunc}) => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField
+                            <CssTextField
                                 variant="outlined"
                                 margin="normal"
                                 fullWidth
@@ -127,7 +165,7 @@ const RegistrationForm = ({isActiveFunc}) => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField
+                            <CssTextField
                                 variant="outlined"
                                 margin="normal"
                                 fullWidth
@@ -140,7 +178,7 @@ const RegistrationForm = ({isActiveFunc}) => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField
+                            <CssTextField
                                 variant="outlined"
                                 margin="normal"
                                 fullWidth
@@ -153,7 +191,7 @@ const RegistrationForm = ({isActiveFunc}) => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField
+                            <CssTextField
                                 variant="outlined"
                                 margin="normal"
                                 fullWidth
@@ -166,7 +204,7 @@ const RegistrationForm = ({isActiveFunc}) => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField
+                            <CssTextField
                                 variant="outlined"
                                 margin="normal"
                                 fullWidth
@@ -182,7 +220,7 @@ const RegistrationForm = ({isActiveFunc}) => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField
+                            <CssTextField
                                 variant="outlined"
                                 margin="normal"
                                 fullWidth
@@ -198,18 +236,20 @@ const RegistrationForm = ({isActiveFunc}) => {
                                         {option.label}
                                     </MenuItem>
                                 ))}
-                            </TextField>
+                            </CssTextField>
                         </Grid>
                         {error && <Grid item xs={12} sm={12}><Typography variant={'body1'} color={'red'}>{error}</Typography></Grid>}
                     </Grid>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color={'inherit'}
-                        sx={{mt: 3, mb: 2, width: '40%'}}
-                    >
-                        Register
-                    </Button>
+                    <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', mt: '5px'}}>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color={'inherit'}
+                            sx={{mt: 3, mb: 2, width: '40%'}}
+                        >
+                            Register
+                        </Button>
+                    </Box>
                 </Box>
             </Box>
         </Container>

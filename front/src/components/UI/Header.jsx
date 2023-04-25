@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Link, Outlet} from 'react-router-dom';
+import {Link, Outlet, useNavigate} from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,11 +10,13 @@ import {useEffect} from "react";
 import {initToken, logout} from "../../reducers/user/userStore";
 import Cookies from 'js-cookie';
 import {useDispatch} from "react-redux";
+import logo from '../../assets/logo.svg';
 
 function Header(props) {
 
     const {token} = useAuth();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const cookieToken = Cookies.get('token');
@@ -23,6 +25,7 @@ function Header(props) {
 
     const handleLogout = () => {
         dispatch(logout());
+        navigate('/');
     };
 
     const navItemsAuthUser = [{id: 1, name: 'Бібліотека', path: '/library'}, {
@@ -44,7 +47,7 @@ function Header(props) {
                         style={{color: '#570861'}}
                         sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
                     >
-                        <Link to='/'><img width='175' src={require('../../assets/logo.png')} alt='logo'></img></Link>
+                        <Link to='/'><img width='65' src={logo} alt='logo'></img></Link>
                     </Box>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {token.value === ''
