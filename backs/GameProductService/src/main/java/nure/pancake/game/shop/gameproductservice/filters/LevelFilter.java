@@ -12,7 +12,7 @@ import java.util.Collection;
 @EqualsAndHashCode(callSuper = true)
 public class LevelFilter extends FilterPage<LevelSortFiled> {
     @Singular(ignoreNullCollections = true)
-    private Collection<Long> id;
+    private Collection<Long> levelIds;
     @Singular(ignoreNullCollections = true)
     private Collection<Long> gameIds;
     private Range<Float> price;
