@@ -25,7 +25,7 @@ public class Range<T> {
     }
 
     public static <T> Range<T> ofFrom(T from) {
-        return new Range<T>(from, null);
+        return new Range<T>(null, from);
     }
 
     @Nullable
@@ -38,7 +38,7 @@ public class Range<T> {
     }
 
     public static <T> Range<T> ofTo(T to) {
-        return new Range<T>(null, to);
+        return new Range<T>(to, null);
     }
 
 
