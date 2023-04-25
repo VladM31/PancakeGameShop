@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import SmallGameOrLevelCard from '../components/Cards/SmallGameOrLevelCard';
 import { Box, Typography } from '@mui/material';
+import withAuthProtection from "../hoc/withAuthProtection";
 
 function Library() {
   const [boughtGames, setboughtGame] = React.useState([{
@@ -66,4 +67,4 @@ function Library() {
   );
 }
 
-export default Library;
+export default withAuthProtection(Library);

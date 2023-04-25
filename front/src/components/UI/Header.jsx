@@ -14,14 +14,16 @@ import logo from '../../assets/logo.svg';
 
 function Header(props) {
 
-    const {token} = useAuth();
+    const { token } = useAuth();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
         const cookieToken = Cookies.get('token');
-        initToken(cookieToken)
-    }, [])
+        if (cookieToken) {
+            dispatch(initToken(cookieToken));
+        }
+    }, [navigate, dispatch])
 
     const handleLogout = () => {
         dispatch(logout());
