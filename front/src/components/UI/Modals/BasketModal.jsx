@@ -28,6 +28,11 @@ export default function BasicModal() {
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
 
+  const handleNavigate = () => {
+    navigate('/payment', {state: { products: basketGamesOrLevels, totalPrice: basketPrice } });
+    handleClose();
+  };
+
   const basketGamesOrLevels = [
     { 
       gameId: 1,
@@ -98,7 +103,7 @@ export default function BasicModal() {
                 height: '100px',
                 marginTop: '20px',
               }}>
-                <Button onClick={() => { navigate('/payment'); handleClose(); }} variant='contained' color='inherit' sx={{ marginLeft: '20px' }} >Купити</Button><Typography variant='h4' color={'white'} sx={{ marginRight: '20px' }}>Сумма замовлень: {basketPrice}$</Typography>
+                <Button onClick={handleNavigate} variant='contained' color='inherit' sx={{ marginLeft: '20px' }} >Купити</Button><Typography variant='h4' color={'white'} sx={{ marginRight: '20px' }}>Сумма замовлень: {basketPrice}$</Typography>
               </Box>
             </Box>
           </Box>
