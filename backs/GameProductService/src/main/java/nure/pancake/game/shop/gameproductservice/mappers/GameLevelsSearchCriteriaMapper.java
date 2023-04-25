@@ -8,15 +8,15 @@ import org.modelmapper.TypeMap;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CameLevelsSearchCriteriaMapper {
+public class GameLevelsSearchCriteriaMapper {
     private final ModelMapper mapper;
 
-    public CameLevelsSearchCriteriaMapper() {
+    public GameLevelsSearchCriteriaMapper() {
         this.mapper = new ModelMapper();
         mapFrom();
     }
 
-    private void mapFrom(){
+    private void mapFrom() {
         TypeMap<GameLevelsFilter, GameSearchCriteria> propertyMapperFrom =
                 this.mapper.createTypeMap(GameLevelsFilter.class, GameSearchCriteria.class);
 

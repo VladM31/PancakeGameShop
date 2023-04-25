@@ -2,11 +2,12 @@ package nure.pancake.game.shop.gameproductservice.entities.column;
 
 
 import lombok.Getter;
+import nure.pancake.game.shop.gameproductservice.entities.FieldNameGettable;
 import nure.pancake.game.shop.gameproductservice.entities.GenreEntity;
 
 import java.util.Map;
 
-public enum GenreColumn {
+public enum GenreColumn implements FieldNameGettable {
     ID,
     NAME;
 
@@ -21,5 +22,10 @@ public enum GenreColumn {
                         NAME, GenreEntity::getName
                 )
         );
+    }
+
+    @Override
+    public String getFieldName() {
+        return PROPS.getProp(this);
     }
 }
