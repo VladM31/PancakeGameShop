@@ -9,4 +9,15 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void SelectLevel()
+    {
+        SceneManager.LoadScene("Levels"); 
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.Log("Exit");
+    }
 }
