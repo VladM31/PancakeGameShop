@@ -18,11 +18,22 @@ public class PlayerLife : MonoBehaviour
     }
 
 
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.CompareTag("Trap"))
+    //    {
+    //        Die();
+    //    }
+    //}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Trap"))
+        if (collision.gameObject.tag == "Trap")
         {
-            Die();
+            Health.health -= 1;
+            if (Health.health == 0)
+                Die();
+
         }
     }
 
