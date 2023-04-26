@@ -8,19 +8,29 @@ import SignUp from './pages/SignUp';
 import Library from './pages/Library';
 import Header from './components/UI/Header';
 import BasketModal from "./components/UI/Modals/BasketModal";
+import {useState} from "react";
+import AccessDenied from "./pages/AccessDenied";
 
 function GameRoutes() {
+
+    const [isRouteAllowed, setIsRouteAllowed] = useState(false);
+
+    function handleRouteClick() {
+        setIsRouteAllowed(true);
+    }
+
     return(
         <Router>
             <Routes>
-                <Route element={<><Header /> <BasketModal /></>}>
+                <Route element={<><Header /> <BasketModal func={handleRouteClick} /></>}>
                     <Route path="/" name="Main" element={<Main />}/>
                     <Route path="/game/:id" name="Game"  element={<Game />}/>
-                    <Route path="/payment" name="Payment"  element={<Payment />}/>
+                    <Route path="/payment" name="Payment"  element={isRouteAllowed ? <Payment /> : <AccessDenied />}/>
                     <Route path="/game/:gameId/level/:levelId" name="Level"  element={<Level />}/>
                     <Route path="/auth/login" name="Login"  element={<Login />}/>
                     <Route path="/auth/signUp" name="SignUp"  element={<SignUp />}/>
                     <Route path="/library" name="Library"  element={<Library />}/>
+                    <Route path="/accessDenied" name="AccessDenied"  element={<AccessDenied />}/>
                 </Route>
             </Routes>
         </Router>

@@ -57,6 +57,7 @@ const userSlice = createSlice({
             state.token = action.payload;
         },
         logout: (state, action) => {
+            console.log(1);
             Cookies.remove("token");
             state.user = {
                 id: 0,

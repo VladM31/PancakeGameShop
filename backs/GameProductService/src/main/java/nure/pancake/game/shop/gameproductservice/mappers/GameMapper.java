@@ -5,4 +5,7 @@ import nure.pancake.game.shop.gameproductservice.entities.GameEntity;
 
 public interface GameMapper {
     Game toGame(GameEntity game);
+
+    GameEntity toGameEntity(Game game);
+
 }
