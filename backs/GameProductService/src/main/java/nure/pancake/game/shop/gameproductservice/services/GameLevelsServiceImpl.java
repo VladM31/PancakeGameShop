@@ -6,7 +6,7 @@ import nure.pancake.game.shop.gameproductservice.dataobjects.GameLevels;
 import nure.pancake.game.shop.gameproductservice.dataobjects.sortfiled.GameSortFiled;
 import nure.pancake.game.shop.gameproductservice.entities.LevelEntity;
 import nure.pancake.game.shop.gameproductservice.filters.GameLevelsFilter;
-import nure.pancake.game.shop.gameproductservice.mappers.CameLevelsSearchCriteriaMapper;
+import nure.pancake.game.shop.gameproductservice.mappers.GameLevelsSearchCriteriaMapper;
 import nure.pancake.game.shop.gameproductservice.mappers.EntityGameLevelMapper;
 import nure.pancake.game.shop.gameproductservice.mappers.GameLevelsMapper;
 import nure.pancake.game.shop.gameproductservice.repositories.GameRepository;
@@ -23,7 +23,7 @@ public class GameLevelsServiceImpl implements GameLevelsService {
     private final EntityGameLevelMapper entityGameLevelMapper;
     private final GameRepository gameRepository;
     private final LevelRepository levelRepository;
-    private final CameLevelsSearchCriteriaMapper searchCriteriaMapper;
+    private final GameLevelsSearchCriteriaMapper searchCriteriaMapper;
     private final GameSortFiledConvector sortFiledConvector;
     private final GameLevelsMapper gameLevelsMapper;
 
