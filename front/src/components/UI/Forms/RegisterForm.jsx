@@ -10,7 +10,6 @@ import {
 } from '@mui/material';
 import {useDispatch} from "react-redux";
 import {registerUser} from "../../../reducers/user/userStore";
-import {redirect} from "react-router-dom";
 import {withStyles} from "@mui/styles";
 
 const currencies = [
@@ -57,7 +56,7 @@ const CssTextField = withStyles({
     },
 })(TextField);
 
-const RegistrationForm = ({isActiveFunc}) => {
+const RegistrationForm = ({setIsActive, setIsTelephone}) => {
     const [form, setForm] = useState({
         telephone: '',
         password: '',
@@ -92,13 +91,12 @@ const RegistrationForm = ({isActiveFunc}) => {
 
         if (!payload.success) {
             setError(payload.message);
-            redirect('/auth/login');
             return;
         }
 
-        isActiveFunc(true);
+        setIsTelephone(form.telephone);
+        setIsActive(true);
 
-        console.log('Form data:', form);
         // Handle form submission here (e.g., send data to the server)
     };
 

@@ -14,10 +14,6 @@ import {useDispatch} from "react-redux";
 import {initToken, initUser, loginUser} from "../reducers/user/userStore";
 import {withStyles} from "@mui/styles";
 
-const options = {
-    shouldForwardProp: (prop) => prop !== 'fontColor',
-};
-
 const LoginBox = styled(Box)({
     display: 'flex',
     flexDirection: 'column',

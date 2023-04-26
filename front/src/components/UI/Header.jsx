@@ -21,7 +21,7 @@ function Header(props) {
     useEffect(() => {
         const cookieToken = Cookies.get('token');
         if (cookieToken) {
-            dispatch(initToken(cookieToken));
+            dispatch(initToken(JSON.parse(cookieToken)));
         }
     }, [navigate, dispatch])
 

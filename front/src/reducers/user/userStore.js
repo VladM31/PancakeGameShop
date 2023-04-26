@@ -5,12 +5,20 @@ import Cookies from "js-cookie";
 // Async actions using redux-thunk
 export const checkUser = createAsyncThunk("user/checkUser", async (phoneNumber) => {
     try {
-        const data = await api.isRegistered(phoneNumber);
-        console.log(data);
+        return await api.isRegistered(phoneNumber);
     } catch (error) {
         console.log(error);
     }
 });
+
+export const tokenToUser = createAsyncThunk("user/tokenToUser", async () => {
+    try {
+        const token = Cookies.get("token");
+        return await api.tokenToUser(token.value);
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 export const registerUser = createAsyncThunk("user/registerUser", async (user) => {
     return await api.register(user);
@@ -53,11 +61,11 @@ const userSlice = createSlice({
             state.user = action.payload;
         },
         initToken: (state, action) => {
-            Cookies.set("token", action.payload.value, {expires: action.payload.expiresIn});
+            const CookieData = {value: action.payload.value};
+            Cookies.set("token", JSON.stringify(CookieData,null, 1 ), {expires: action.payload.expiresIn});
             state.token = action.payload;
         },
         logout: (state, action) => {
-            console.log(1);
             Cookies.remove("token");
             state.user = {
                 id: 0,

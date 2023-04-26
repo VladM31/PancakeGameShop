@@ -4,10 +4,11 @@ import RegisterHelp from "../components/UI/Etc/RegisterHelp";
 
 function SignUp() {
     const [isActive, setIsActive] = useState(false);
+    const [telephone, setIsTelephone] = useState('');
     return (
         <>
             {
-                isActive ? <RegisterHelp/> : <RegistrationForm isActiveFunc={setIsActive}/>
+                isActive ? <RegisterHelp telephone={telephone}/> : <RegistrationForm setIsActive={setIsActive} setIsTelephone={setIsTelephone}/>
             }
         </>
     );
