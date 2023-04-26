@@ -9,7 +9,7 @@ const withAuthProtection = (WrappedComponent) => {
         if (isAuthenticated) {
             return <WrappedComponent {...props} />;
         } else {
-            return <Navigate to="/" replace />;
+            return <Navigate to="/accessDenied" replace />;
         }
     };
 };

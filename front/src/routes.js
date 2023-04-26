@@ -30,6 +30,7 @@ function GameRoutes() {
                     <Route path="/auth/login" name="Login"  element={<Login />}/>
                     <Route path="/auth/signUp" name="SignUp"  element={<SignUp />}/>
                     <Route path="/library" name="Library"  element={<Library />}/>
+                    <Route path="/accessDenied" name="AccessDenied"  element={<AccessDenied />}/>
                 </Route>
             </Routes>
         </Router>
