@@ -1,0 +1,7 @@
+image:
+  path:
+    game-icon-path: /images/game/icon
+    game-main-image-path: /images/game/mainImage
+    game-screenshots-path: /images/game/screenshots
+    level-main-image-path: /images/level/mainImage
+    level-screenshots-path: /images/level/screenshots
