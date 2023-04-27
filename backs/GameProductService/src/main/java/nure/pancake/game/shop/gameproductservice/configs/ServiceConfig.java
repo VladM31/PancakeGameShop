@@ -2,9 +2,7 @@ package nure.pancake.game.shop.gameproductservice.configs;
 
 import nure.pancake.game.shop.gameproductservice.clients.AuthClient;
 import nure.pancake.game.shop.gameproductservice.convector.GameSortFiledConvector;
-import nure.pancake.game.shop.gameproductservice.mappers.GameLevelsSearchCriteriaMapper;
-import nure.pancake.game.shop.gameproductservice.mappers.EntityGameLevelMapper;
-import nure.pancake.game.shop.gameproductservice.mappers.GameLevelsMapper;
+import nure.pancake.game.shop.gameproductservice.mappers.*;
 import nure.pancake.game.shop.gameproductservice.repositories.GameRepository;
 import nure.pancake.game.shop.gameproductservice.repositories.LevelRepository;
 import nure.pancake.game.shop.gameproductservice.services.*;
@@ -29,5 +27,15 @@ public class ServiceConfig {
     ) {
         return new GameLevelsServiceImpl(entityGameLevelMapper, gameRepository, levelRepository, searchCriteriaMapper,
                 sortFiledConvector, gameLevelsMapper);
+    }
+
+    @Bean
+    GameService gameServiceImpl(
+            GameRepository gameRepository,
+            GameSearchCriteriaMapper gameCriteriaMapper,
+            GameSortFiledConvector sortFiledConvector,
+            GameMapper gameMapper
+    ) {
+        return new GameServiceImpl(gameRepository, gameCriteriaMapper, sortFiledConvector, gameMapper);
     }
 }
