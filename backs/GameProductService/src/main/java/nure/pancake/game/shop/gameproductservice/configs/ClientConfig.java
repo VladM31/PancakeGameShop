@@ -1,7 +1,9 @@
 package nure.pancake.game.shop.gameproductservice.configs;
 
 import nure.pancake.game.shop.gameproductservice.clients.AuthClient;
+import nure.pancake.game.shop.gameproductservice.clients.BuyClient;
 import nure.pancake.game.shop.gameproductservice.clients.HttpAuthClient;
+import nure.pancake.game.shop.gameproductservice.clients.PlugBuyClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,5 +25,10 @@ public class ClientConfig {
                 authHeader,
                 apiUrl
         );
+    }
+
+    @Bean
+    BuyClient plugBuyClient(){
+        return new PlugBuyClient();
     }
 }
