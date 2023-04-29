@@ -59,7 +59,8 @@ public class PurchasedGamesServiceImpl implements PurchasedGamesService {
                 .collect(
                         Collectors.groupingBy(LevelEntity::getGameId,Collectors.toMap(LevelEntity::getId, l -> l)));
 
-        return list.map(p -> gameDetailsMapper.toPurchasedGameDetails(
+        return list.map(p -> gameDetailsMapper
+                .toPurchasedGameDetails(
                 p, gameById.get(p.getGamesId()),
                 levelByGameId.get(p.getGamesId())
         ));
