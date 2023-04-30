@@ -18,6 +18,7 @@ function GameCard({
 	name,
 	purchasedDate,
 	price,
+    gameId,
   }) {
 
   const navigate = useNavigate();
@@ -31,13 +32,17 @@ function GameCard({
     event.stopPropagation();
   }
 
+  const truncateName = (name, maxLength = 16) => {
+    return name.length > maxLength ? name.slice(0, maxLength - 3) + "..." : name;
+  }
+
   return (
-    <StyledCard onClick={(e) => redirectToLevelPage(e)} sx={{ marginBottom: '20px' }}>
+    <StyledCard onClick={(e) => redirectToLevelPage(e, gameId, id)} sx={{ marginBottom: '20px' }}>
       <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
         <CardMedia component="img" sx={{ borderRadius: '20px', width: '35%' }} height="170" image={mainImage} alt={name} />
         <CardContent sx={{ display: 'flex', width: '65%', justifyContent: 'space-between', alignItems: 'center' }}>
           <CardContent>
-            <Typography variant="h4" color="white" sx={{ textAlign: 'center', mt: 1 }}>{name}</Typography>
+            <Typography variant="h5" color="white" sx={{ textAlign: 'center'}}>{name ? truncateName(name) : null}</Typography>
           </CardContent>
           <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '105%', justifyContent: 'space-between', p: 2 }}>
             <Typography variant="h5" color="white">Ціна {price}$</Typography>
