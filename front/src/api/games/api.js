@@ -6,7 +6,7 @@ export const getGames = async () => {
     return data;
 };
 
-export const getGameWithLevels = async (gameId) => {
+export const getGameById = async (gameId) => {
     const { data } = await axios.get(`${baseURL}/games/levels`, {
         params: {
             gameIds: gameId,
