@@ -4,6 +4,9 @@ import { styled } from '@mui/system';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import {getGameWithLevels} from "../../api/games/api";
+import {addToCart} from "../../reducers/cart/cartStore";
+import {useDispatch} from "react-redux";
+import {isPastDate} from "../../helpers/Date";
 
 const StyledCard = styled(Card)(({ theme }) => ({
   cursor: 'pointer',
@@ -16,6 +19,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
 function GameCard({ id, mainImage, name, images, releaseDate, price }) {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const imageList = (
       <ImageList>
@@ -27,22 +31,15 @@ function GameCard({ id, mainImage, name, images, releaseDate, price }) {
       </ImageList>
   );
 
-  function isPastDate(date) {
-    const inputDate = new Date(date);
-    if (isNaN(inputDate)) {
-      throw new Error("Invalid date format");
-    }
-
-    const currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0);
-
-    return inputDate <= currentDate;
-  }
-
   const redirectToGamePage = async (event, id) =>  {
     navigate(`/game/${id}`);
     event.preventDefault();
   }
+
+  const buyHandler = (e, item) => {
+    e.stopPropagation();
+    dispatch(addToCart(item))
+  };
 
   return (
       <StyledCard onClick={(e) => redirectToGamePage(e, id) } style={{ marginTop: '20px' }}>
@@ -58,7 +55,12 @@ function GameCard({ id, mainImage, name, images, releaseDate, price }) {
                     <Typography variant="h5" color="white">
                       Ціна {price}$
                     </Typography>
-                    <Button onClick={(e) => {e.stopPropagation();}} variant="contained" color="inherit">
+                    <Button onClick={(e) => buyHandler(e, {
+                      gameId: id,
+                      mainImage: mainImage,
+                      name: name,
+                      price: price
+                    })} variant="contained" color="inherit">
                       В корзину
                     </Button>
                   </CardContent>

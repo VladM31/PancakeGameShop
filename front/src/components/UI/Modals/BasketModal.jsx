@@ -7,6 +7,9 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import SmallGameOrLevelCard from '../../Cards/SmallGameOrLevelCard';
 import {useNavigate} from "react-router";
 import Cookies from "js-cookie";
+import {useCart} from "../../../reducers/cart/useCart";
+import {removeFromCart} from "../../../reducers/cart/cartStore";
+import {useDispatch} from "react-redux";
 
 const style = {
     position: 'fixed',
@@ -23,17 +26,24 @@ const style = {
     p: 4,
 };
 
-export default function BasicModal({ func }) {
+export default function BasicModal({func}) {
     const [open, setOpen] = React.useState(false);
+
+    const dispatch = useDispatch();
+
     const isAuthenticated = Cookies.get('token');
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const navigate = useNavigate();
 
+    const removeHandler = (id) => {
+        dispatch(removeFromCart(id));
+    }
+
     const handleNavigate = () => {
         if (isAuthenticated) {
             func();
-            navigate('/payment', {state: {products: basketGamesOrLevels, totalPrice: basketPrice}});
+            navigate('/payment', {state: {products: items, totalPrice: basketPrice}});
             handleClose();
         } else {
             navigate('/auth/login');
@@ -41,45 +51,9 @@ export default function BasicModal({ func }) {
         }
     };
 
-    const basketGamesOrLevels = [
-        {
-            gameId: 1,
-            mainImage: 'https://m.media-amazon.com/images/M/MV5BMzgyZWEzMDgtMzI0YS00ZDMwLTllNjQtZjE3ZmVkNWM3YzliXkEyXkFqcGdeQXVyMTYxNzI4OTYx._V1_FMjpg_UX1000_.jpg',
-            name: 'Minecraft',
-            releaseDate: '2023-03-26',
-            price: 50,
-        },
-        {
-            gameId: 2,
-            mainImage: 'https://cdn.akamai.steamstatic.com/steam/apps/374320/capsule_616x353.jpg?t=1644436409',
-            name: 'Dark Souls 3',
-            releaseDate: '2023-03-26',
-            price: 50,
-        },
-        {
-            gameId: 3,
-            mainImage: 'https://cdn1.epicgames.com/offer/602a0ef0aceb46cca62445439661d712/EGS_STALKER2HeartofChornobyl_GSCGameWorld_S1_2560x1440-7cc8db55646ee7b969c48defed6963f4',
-            name: 'S.T.A.L.K.E.R. 2',
-            releaseDate: '2024-03-26',
-            price: 50,
-        },
-        {
-            gameId: 4,
-            mainImage: 'https://cdn1.epicgames.com/offer/602a0ef0aceb46cca62445439661d712/EGS_STALKER2HeartofChornobyl_GSCGameWorld_S1_2560x1440-7cc8db55646ee7b969c48defed6963f4',
-            name: 'S.T.A.L.K.E.R. 2',
-            releaseDate: '2024-03-26',
-            price: 50,
-        },
-        {
-            gameId: 5,
-            mainImage: 'https://cdn1.epicgames.com/offer/602a0ef0aceb46cca62445439661d712/EGS_STALKER2HeartofChornobyl_GSCGameWorld_S1_2560x1440-7cc8db55646ee7b969c48defed6963f4',
-            name: 'S.T.A.L.K.E.R. 2',
-            releaseDate: '2024-03-26',
-            price: 50,
-        }
-    ]
+    const {items} = useCart();
 
-    const basketPrice = basketGamesOrLevels.reduce((acc, game) => acc + game.price, 0)
+    const basketPrice = items.reduce((acc, game) => acc + game.price, 0)
 
     return (
         <>
@@ -98,9 +72,12 @@ export default function BasicModal({ func }) {
                         </Typography>
                         <Box>
                             {
-                                basketGamesOrLevels.map((gameOrLevel) => (
-                                    <SmallGameOrLevelCard onButtonClick={handleClose} cardType='cart'
-                                                          key={gameOrLevel.gameId} levelId={gameOrLevel.levelId}
+                                items.map((gameOrLevel) => (
+                                    <SmallGameOrLevelCard key={gameOrLevel.levelId ? gameOrLevel.levelId : gameOrLevel.gameId}
+                                                          onButtonClick={() => removeHandler(gameOrLevel.levelId ? gameOrLevel.levelId : gameOrLevel.gameId)}
+                                                          handleClose={handleClose}
+                                                          cardType='cart'
+                                                          levelId={gameOrLevel.levelId}
                                                           gameId={gameOrLevel.gameId} mainImage={gameOrLevel.mainImage}
                                                           name={gameOrLevel.name} price={gameOrLevel.price}/>
                                 ))
@@ -116,10 +93,11 @@ export default function BasicModal({ func }) {
                                 marginTop: '20px',
                             }}>
                                 <Button onClick={handleNavigate} variant='contained' color='inherit'
-                                        sx={{marginLeft: '20px'}}>Купити</Button><Typography variant='h4'
-                                                                                             color={'white'}
-                                                                                             sx={{marginRight: '20px'}}>Сумма
-                                замовлень: {basketPrice}$</Typography>
+                                        sx={{marginLeft: '20px'}}>Купити</Button>
+                                <Typography variant='h4'
+                                            color={'white'}
+                                            sx={{marginRight: '20px'}}>Сумма
+                                    замовлень: {basketPrice}$</Typography>
                             </Box>
                         </Box>
                     </Box>

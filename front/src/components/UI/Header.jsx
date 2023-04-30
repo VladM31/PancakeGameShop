@@ -11,6 +11,7 @@ import {initToken, logout} from "../../reducers/user/userStore";
 import Cookies from 'js-cookie';
 import {useDispatch} from "react-redux";
 import logo from '../../assets/logo.svg';
+import {initCart} from "../../reducers/cart/cartStore";
 
 function Header(props) {
 
@@ -23,6 +24,7 @@ function Header(props) {
         if (cookieToken) {
             dispatch(initToken(JSON.parse(cookieToken)));
         }
+        dispatch(initCart());
     }, [navigate, dispatch])
 
     const handleLogout = () => {
