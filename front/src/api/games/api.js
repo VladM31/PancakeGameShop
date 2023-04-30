@@ -1,16 +1,21 @@
 import axios from "axios";
+import {QueryBuilder} from "../../helpers/QueryBuilder";
 const baseURL = "http://localhost:8010/api/v1";
 
 export const getGames = async () => {
-    const { data } = await axios.get(`${baseURL}/games`);
+    const url = new QueryBuilder(`${baseURL}`)
+        .setPath('/games')
+        .build();
+    const { data } = await axios.get(url);
     return data;
 };
 
 export const getGameById = async (gameId) => {
-    const { data } = await axios.get(`${baseURL}/games/levels`, {
-        params: {
-            gameIds: gameId,
-        }
-    });
+    const url = new QueryBuilder(`${baseURL}`)
+        .setPath('/games/levels')
+        .addParam('gameIds', gameId)
+        .build();
+
+    const { data } = await axios.get(url);
     return data;
-}
+};

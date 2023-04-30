@@ -17,7 +17,7 @@ export class QueryBuilder {
 
     build() {
         const url = new URL(this.baseURL);
-        url.pathname = this.path;
+        url.pathname = url.pathname + this.path;
         url.search = this.params.toString();
         return url;
     }
