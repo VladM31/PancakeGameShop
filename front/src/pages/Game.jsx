@@ -5,21 +5,42 @@ import ImageCarousel from '../components/Carousels/ImagesCarousel';
 import {Box, Button, Typography} from '@mui/material';
 import LevelCard from '../components/Cards/LevelCard';
 import Filter from '../components/UI/Filter';
-import {getGameWithLevels} from "../api/games/api";
+import {getLevelsByGameIdAndPage} from "../api/levels/api";
+import {getGameById} from "../api/games/api";
+import CustomPagination from "../components/UI/Pagination";
 
 function Game() {
     const {id} = useParams();
 
     const [game, setGame] = useState({});
+    const [levels, setLevels] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const removeImages = (obj) => {
+        const {levels, ...rest} = obj;
+        return rest;
+    };
+
+    const handleChange = async (event, value) => {
+        if(value === 1 || value < 1) return;
+        setCurrentPage(value);
+        const levels = await getLevelsByGameIdAndPage(id,currentPage - 1);
+        setLevels(levels);
+    };
 
     async function getGame(gameId) {
-        const {content} = await getGameWithLevels(gameId)
-        setGame(content[0]);
+        const {content} = await getGameById(gameId)
+        const game = removeImages(content[0])
+        const levels = await getLevelsByGameIdAndPage(gameId, currentPage - 1);
+        setGame(game);
+        setLevels(levels);
     }
 
     useEffect(() => {
         getGame(id);
     }, [id])
+
+
 
     return (
         <>
@@ -69,9 +90,20 @@ function Game() {
                 </Typography>
                 <Box sx={{display: 'flex'}}>
                     <Box>
-                        {game.levels ? game.levels.map((level) => (
-                            <LevelCard key={level.id} id={level.id} gameId={level.gameId} mainImage={level.mainImage} name={level.name} price={level.price} />
+                        {levels.content ? levels.content.map((level) => (
+                            <LevelCard key={level.id} id={level.id} gameId={level.gameId} mainImage={level.mainImage}
+                                       name={level.name} price={level.price}/>
                         )) : null}
+                        <Box mt={4} display="flex" justifyContent="center">
+                            <CustomPagination
+                                count={levels.totalPages || 1}
+                                page={currentPage}
+                                onChange={handleChange}
+                                variant="outlined"
+                                shape="rounded"
+                                color={'secondary'}
+                            />
+                        </Box>
                     </Box>
                     <Box>
                         <Filter/>
