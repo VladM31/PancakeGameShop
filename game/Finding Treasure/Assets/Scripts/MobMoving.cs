@@ -15,7 +15,7 @@ public class MobMoving : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-
+    
     void Update()
     {
         if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
