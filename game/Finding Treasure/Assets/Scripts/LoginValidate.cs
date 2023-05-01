@@ -16,7 +16,7 @@ public class LoginValidate : MonoBehaviour
     public InputField passwordInput;
     public Text errorText;
 
-    string apiUrl = "http://localhost:8005/api/v1/auth/login"; // URL API сайта
+    string apiUrl = "http://localhost:8005/api/v1/auth/login"; // URL API пїЅпїЅпїЅпїЅпїЅ
 
     LoginResult loginResult = null;
 
@@ -43,13 +43,13 @@ public class LoginValidate : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
-                // В случае ошибки обработки запроса выводим сообщение об ошибке
+                // пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 Debug.Log("Error: " + request.error);
                 errorText.text = request.downloadHandler.text;
             }
             else
             {
-                // Обрабатываем полученные данные в формате JSON
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ JSON
                 string jsonUserData = request.downloadHandler.text;
                 this.loginResult = JsonUtility.FromJson<LoginResult>(jsonUserData);
                 GlobalState.loginResult = loginResult;////////////////////////////////////////////////
@@ -62,7 +62,7 @@ public class LoginValidate : MonoBehaviour
     }
 }
 
-// Классы для хранения данных пользователя в формате JSON
+// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ JSON
 [Serializable]
 public class User
 {

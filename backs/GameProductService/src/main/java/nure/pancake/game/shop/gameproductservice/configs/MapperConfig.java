@@ -48,4 +48,16 @@ public class MapperConfig {
                 urlFactory.makeUrl(imagesUrl)
         );
     }
+
+    @Bean
+    PurchasedGameDetailsMapper purchasedGameDetailsMapper(
+            @Value("${game-main-image-path}") String gameMainImageUrl,
+            @Value("${level-main-image-path}") String levelMainImageUrl,
+            ServiceUrlFactory urlFactory
+    ){
+        return new PurchasedGameDetailsMapper(
+                urlFactory.makeUrl(gameMainImageUrl),
+                urlFactory.makeUrl(levelMainImageUrl)
+        );
+    }
 }
