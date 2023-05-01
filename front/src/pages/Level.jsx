@@ -3,26 +3,36 @@ import React, { useEffect } from 'react';
 import ImageCarousel from '../components/Carousels/ImagesCarousel';
 import {getLevelById} from "../api/levels/api";
 import {useParams} from "react-router-dom";
+import {getGameById} from "../api/games/api";
+import {isPastDate} from "../helpers/Date";
+import {addToCart} from "../reducers/cart/cartStore";
+import {useDispatch} from "react-redux";
 
 function Level() {
-  const {levelId} = useParams();
+  const {levelId, gameId} = useParams();
 
-  const [level, setLevel] = React.useState({
-    levelId: 0,
-    gameId: 0,
-    mainImage: '',
-    name: '',
-    description: '',
-    images: [],
-    price: 0, 
-  });
+  const [level, setLevel] = React.useState({});
+  const [releaseDate, setReleaseDate] = React.useState('');
+
+  const dispatch = useDispatch();
+
+  async function getGameDate() {
+    const { content } = await getGameById(gameId);
+    setReleaseDate(content[0].releaseDate);
+  }
 
   async function getLevel() {
     const { content: level } = await getLevelById(levelId);
     setLevel(level[0])
   }
 
+  const buyHandler = (e, item) => {
+    e.stopPropagation();
+    dispatch(addToCart(item))
+  };
+
   useEffect(() => {
+    getGameDate();
     getLevel();
   }, [])
 
@@ -33,8 +43,25 @@ function Level() {
         <Box sx={{display: 'flex', flexDirection: 'column'}}>
           <Typography align='center' sx={{marginTop: '10px'}} color='white' variant='h5'>{level.name}</Typography>
           <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-            <Typography color='white' variant='h5'>Ціна: {level.price}$</Typography>
-            <Button sx={{backgroundColor: 'white', color: 'black'}}>В корзину</Button>
+            {releaseDate ? isPastDate(releaseDate) ? (
+                <Box sx={{
+                  display: 'flex',
+                  width: '100%',
+                  justifyContent: 'space-between',
+                }}>
+                  <Typography variant="h5" color="white">Ціна {level.price}$</Typography>
+                  <Button onClick={(e) => buyHandler(e, {
+                    levelId: level.levelId,
+                    price: level.price,
+                    name: level.name,
+                    mainImage: level.mainImage,
+                  })} variant="contained" color="inherit">В
+                    корзину</Button>
+                </Box>
+            ) : (
+                <Typography align={'right'} sx={{width: '100%'}} variant="h5" color="white">Гра ще в
+                  розробці</Typography>
+            ) : null}
           </Box>
         </Box>
       </Box>

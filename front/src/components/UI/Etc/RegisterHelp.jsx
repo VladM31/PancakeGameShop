@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { checkUser } from "../../../reducers/user/userStore";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const RegisterHelp = ({ telephone }) => {
-    const [status, setStatus] = React.useState(false);
+    const [status, setStatus] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

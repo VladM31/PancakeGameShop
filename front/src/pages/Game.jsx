@@ -8,6 +8,9 @@ import Filter from '../components/UI/Filter';
 import {getLevelsByGameIdAndPage} from "../api/levels/api";
 import {getGameById} from "../api/games/api";
 import CustomPagination from "../components/UI/Pagination";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../reducers/cart/cartStore";
+import {isPastDate} from "../helpers/Date";
 
 function Game() {
     const {id} = useParams();
@@ -16,15 +19,22 @@ function Game() {
     const [levels, setLevels] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
 
+    const dispatch = useDispatch();
+
     const removeImages = (obj) => {
         const {levels, ...rest} = obj;
         return rest;
     };
 
+    const buyHandler = (e, item) => {
+        e.stopPropagation();
+        dispatch(addToCart(item))
+    };
+
     const handleChange = async (event, value) => {
-        if(value === 1 || value < 1) return;
+        if (value === 1 || value < 1) return;
         setCurrentPage(value);
-        const levels = await getLevelsByGameIdAndPage(id,currentPage - 1);
+        const levels = await getLevelsByGameIdAndPage(id, currentPage - 1);
         setLevels(levels);
     };
 
@@ -36,10 +46,11 @@ function Game() {
         setLevels(levels);
     }
 
+
+
     useEffect(() => {
         getGame(id);
-    }, [id])
-
+    }, [])
 
 
     return (
@@ -63,17 +74,27 @@ function Game() {
                         <Box sx={{display: 'flex', gap: '10px', flexDirection: 'column'}}>
                             <Typography color={'white'} variant='h4' align='center'>{game.name}</Typography>
                             <Typography color={'white'} variant='h5'>Рейтинг: {game.ageRating}+</Typography>
-                            <Typography color={'white'} variant='h5'>Дата виходу: {game.releaseDate}</Typography>
+                            <Typography color={'white'} variant='h5'>Дата виходу: {game.releaseDate ? game.releaseDate.slice(0, 10) : null}</Typography>
                             <Typography color={'white'} variant='h5'>Ціна: {game.price}$</Typography>
                             <Typography color={'white'}
                                         variant='h5'>Жанри: {game.genres ? game.genres.join(', ') : null}</Typography>
                         </Box>
                         <Box alignSelf={'end'}>
-                            <Button onClick={(e) => {
-                                e.stopPropagation();
-                            }} variant="contained" color="inherit">
-                                В корзину
-                            </Button>
+                            {
+                                isPastDate(game.releaseDate) ? (
+                                    <Button onClick={(e) => buyHandler(e, {
+                                        gameId: game.id,
+                                        mainImage: game.mainImage,
+                                        name: game.name,
+                                        price: game.price
+                                    })} variant="contained" color="inherit">
+                                        В корзину
+                                    </Button>
+                                ) : (
+                                    <Typography variant='h5' color={'white'}>Гра ще в розробці</Typography>
+                                )
+                            }
+
                         </Box>
                     </Box>
                 </Box>
@@ -92,7 +113,7 @@ function Game() {
                     <Box>
                         {levels.content ? levels.content.map((level) => (
                             <LevelCard key={level.id} id={level.id} gameId={level.gameId} mainImage={level.mainImage}
-                                       name={level.name} price={level.price}/>
+                                       name={level.name} price={level.price} isReady={isPastDate(game.releaseDate)}/>
                         )) : null}
                         <Box mt={4} display="flex" justifyContent="center">
                             <CustomPagination
