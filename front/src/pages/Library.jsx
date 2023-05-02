@@ -30,8 +30,6 @@ function Library() {
     }, [])
 
     async function getBoughtGamesAndLevels() {
-        const res = await test();
-        console.log(res);
         const boughtGames = [{
             levelId: 1,
             gameId: 1,
