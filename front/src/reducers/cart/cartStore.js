@@ -39,7 +39,6 @@ const cartSlice = createSlice({
             Cookies.set('cart', JSON.stringify(state.items));
         },
         clearCart: (state) => {
-            console.log(1);
             state.items = [];
             Cookies.remove('cart');
         },

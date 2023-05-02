@@ -98,8 +98,6 @@ function Payment() {
             return;
         }
 
-        console.log(products);
-
         const gameIds = products.reduce((accumulator, product) => {
             if(product.levelId === undefined) {
                 if (!accumulator.includes(product.gameId)) {
