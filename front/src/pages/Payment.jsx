@@ -71,7 +71,7 @@ function Payment() {
     const navigate = useNavigate();
     const {products, totalPrice} = location.state;
 
-    const [error, setError] = useState({});
+    const [error, setError] = useState('');
     const [inputData, setInputData] = useState({
         cardNumber: '',
         cardDate: '',
@@ -98,9 +98,13 @@ function Payment() {
             return;
         }
 
+        console.log(products);
+
         const gameIds = products.reduce((accumulator, product) => {
-            if (!accumulator.includes(product.gameId)) {
-                accumulator.push(product.gameId);
+            if(product.levelId === undefined) {
+                if (!accumulator.includes(product.gameId)) {
+                    accumulator.push(product.gameId);
+                }
             }
             return accumulator;
         }, []);
@@ -224,7 +228,7 @@ function Payment() {
                     {
                         error ?
                             <Typography sx={{color: 'red'}} variant={'body1'}>
-                                {error.split('\n').join(', ')}
+                                {error ? error.split('\n').join(', ') : null}
                             </Typography>
                          : null
                     }

@@ -135,7 +135,7 @@ const Login = () => {
                     </Box>
                     {isOpenErrorMes && (
                         <Alert severity="error" onClose={() => setOpenErrorMes(false)}>
-                            {errorMes.split('\n').join(', ')}
+                            {errorMes ? errorMes.split('\n').join(', ') : null}
                         </Alert>
                     )}
                 </LoginBox>
