@@ -23,6 +23,7 @@ function Level() {
 
   async function getLevel() {
     const { content: level } = await getLevelById(levelId);
+    console.log(level);
     setLevel(level[0])
   }
 
@@ -51,7 +52,8 @@ function Level() {
                 }}>
                   <Typography variant="h5" color="white">Ціна {level.price}$</Typography>
                   <Button onClick={(e) => buyHandler(e, {
-                    levelId: level.levelId,
+                    gameId: level.gameId,
+                    levelId: level.id,
                     price: level.price,
                     name: level.name,
                     mainImage: level.mainImage,

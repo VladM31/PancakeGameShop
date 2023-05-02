@@ -1,5 +1,7 @@
 import axios from "axios";
 import {QueryBuilder} from "../../helpers/QueryBuilder";
+import Cookies from "js-cookie";
+
 const baseURL = "http://localhost:8010/api/v1";
 
 export const getGames = async () => {

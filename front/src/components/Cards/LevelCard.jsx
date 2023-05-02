@@ -62,6 +62,7 @@ function GameCard({
                             }}>
                                 <Typography variant="h5" color="white">Ціна {price}$</Typography>
                                 <Button onClick={(e) => buyHandler(e, {
+                                    gameId: gameId,
                                     levelId: id,
                                     mainImage: mainImage,
                                     name: name,
