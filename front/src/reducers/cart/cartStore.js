@@ -17,7 +17,20 @@ const cartSlice = createSlice({
             }
         },
         addToCart: (state, action) => {
-            if(state.items.find(item => item.levelId ? item.levelId === action.payload.levelId : item.gameId === action.payload.gameId)) return;
+            let isLevelIdIncluded = false;
+            let isGameIdIncluded = false;
+            const itemsArray = Array.from(state.items);
+            const levelIds = itemsArray.map(item => item.levelId).filter(id => id !== undefined );
+            const gameIds = itemsArray.map(item => item.gameId).filter(id => id !== undefined);
+
+            if(action.payload.levelId) {
+                isLevelIdIncluded = levelIds.includes(action.payload.levelId);
+            } else {
+                isGameIdIncluded = gameIds.includes(action.payload.gameId);
+            }
+
+            if (isLevelIdIncluded || isGameIdIncluded) return;
+
             state.items.push(action.payload);
             Cookies.set('cart', JSON.stringify(state.items));
         },
