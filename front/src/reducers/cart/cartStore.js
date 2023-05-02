@@ -1,5 +1,5 @@
 // slices/cartSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
 const cartSlice = createSlice({
@@ -9,8 +9,8 @@ const cartSlice = createSlice({
     },
     reducers: {
         initCart: (state) => {
-          const cart = Cookies.get('cart');
-            if(cart) {
+            const cart = Cookies.get('cart');
+            if (cart) {
                 state.items = JSON.parse(cart);
             } else {
                 state.items = [];
@@ -20,10 +20,12 @@ const cartSlice = createSlice({
             let isLevelIdIncluded = false;
             let isGameIdIncluded = false;
             const itemsArray = Array.from(state.items);
-            const levelIds = itemsArray.map(item => item.levelId).filter(id => id !== undefined );
-            const gameIds = itemsArray.map(item => item.gameId).filter(id => id !== undefined);
+            const levelIds = itemsArray.map(item => item.levelId).filter(id => id !== undefined);
+            const gameIds = itemsArray.map(item => {
+                if (item.levelId === undefined) return item.gameId
+            }).filter(id => id !== undefined);
 
-            if(action.payload.levelId) {
+            if (action.payload.levelId) {
                 isLevelIdIncluded = levelIds.includes(action.payload.levelId);
             } else {
                 isGameIdIncluded = gameIds.includes(action.payload.gameId);
@@ -45,5 +47,5 @@ const cartSlice = createSlice({
     },
 });
 
-export const { addToCart, removeFromCart, updateCartItem, clearCart, initCart } = cartSlice.actions;
+export const {addToCart, removeFromCart, updateCartItem, clearCart, initCart} = cartSlice.actions;
 export default cartSlice.reducer;
