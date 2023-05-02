@@ -1,8 +1,6 @@
 import React from 'react';
-import {Card, CardContent, CardMedia, Typography, Button} from '@mui/material';
+import {Card, CardContent, CardMedia, Typography} from '@mui/material';
 import {styled} from '@mui/system';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import {Link} from 'react-router-dom';
 
 function SmallLevelCard({

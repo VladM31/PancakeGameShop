@@ -6,6 +6,34 @@ import {Checkbox} from '@mui/material';
 import {debounce} from 'lodash';
 import {withStyles} from "@mui/styles";
 
+const CssTextField = withStyles({
+    root: {
+        '& label': {
+            color: 'white',
+        },
+        '&:hover label': {
+            color: '#00000044',
+        },
+        '& label.Mui-focused': {
+            color: '#000000',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: '#00000044',
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'white',
+            },
+            '&:hover fieldset': {
+                borderColor: '#00000044',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#00000044',
+            },
+        },
+    },
+})(TextField);
+
 const Filter = ({onFilter}) => {
     const [name, setName] = useState('');
     const [minPrice, setMinPrice] = useState('');
@@ -22,34 +50,6 @@ const Filter = ({onFilter}) => {
         debouncedOnFilter();
         return () => debouncedOnFilter.cancel();
     }, [name, minPrice, maxPrice, isBought, onFilter]);
-
-    const CssTextField = withStyles({
-        root: {
-            '& label': {
-                color: 'white',
-            },
-            '&:hover label': {
-                color: '#00000044',
-            },
-            '& label.Mui-focused': {
-                color: '#000000',
-            },
-            '& .MuiInput-underline:after': {
-                borderBottomColor: '#00000044',
-            },
-            '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                    borderColor: 'white',
-                },
-                '&:hover fieldset': {
-                    borderColor: '#00000044',
-                },
-                '&.Mui-focused fieldset': {
-                    borderColor: '#00000044',
-                },
-            },
-        },
-    })(TextField);
 
     return (
         <Box sx={{width: 325, marginLeft: '20px', backgroundColor: '#B55D9C', padding: '40px', borderRadius: '15px',}}>

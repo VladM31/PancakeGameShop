@@ -35,6 +35,8 @@ export const getBoughtContent = async () => {
         .setPath('/bought-content/details')
         .build();
 
+    if(!Cookies.get('token')) return {content: undefined};
+
     try {
         const {data} = await axios.get(url, {
             headers: {

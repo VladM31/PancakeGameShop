@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {Box, Typography} from '@mui/material';
 import withAuthProtection from "../hoc/withAuthProtection";
 import {getBoughtContent} from "../api/games/api";
-import SmallGameCard from "../components/Cards/SmallGameCard";
 import CardsBox from "../components/Box/CardsBox";
 
 function Library() {
@@ -14,7 +13,6 @@ function Library() {
 
     async function getBoughtGamesAndLevels() {
         const {content} = await getBoughtContent();
-        console.log(content);
         setBoughtGame(content)
     }
 

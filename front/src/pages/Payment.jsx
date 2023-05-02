@@ -14,6 +14,9 @@ import {
 import {makeStyles, withStyles} from "@mui/styles";
 import {useLocation} from "react-router";
 import {purchase} from "../api/payment/api";
+import {clearCart} from "../reducers/cart/cartStore";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,11 +32,46 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const CssTextField = withStyles({
+    root: {
+        '& input' : {
+          color: 'white'
+        },
+        '& label': {
+            color: 'white',
+        },
+        '&:hover label': {
+            color: '#00000044',
+        },
+        '& label.Mui-focused': {
+            color: '#000000',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: '#00000044',
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'white',
+            },
+            '&:hover fieldset': {
+                borderColor: '#00000044',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#00000044',
+            },
+        },
+    },
+})(TextField);
+
 function Payment() {
 
     const maxVisibleItems = 3;
     const location = useLocation();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const {products, totalPrice} = location.state;
+
+    const [error, setError] = useState({});
     const [inputData, setInputData] = useState({
         cardNumber: '',
         cardDate: '',
@@ -44,33 +82,6 @@ function Payment() {
     });
 
     const classes = useStyles();
-    const CssTextField = withStyles({
-        root: {
-            '& label': {
-                color: 'white',
-            },
-            '&:hover label': {
-                color: '#00000044',
-            },
-            '& label.Mui-focused': {
-                color: '#000000',
-            },
-            '& .MuiInput-underline:after': {
-                borderBottomColor: '#00000044',
-            },
-            '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                    borderColor: 'white',
-                },
-                '&:hover fieldset': {
-                    borderColor: '#00000044',
-                },
-                '&.Mui-focused fieldset': {
-                    borderColor: '#00000044',
-                },
-            },
-        },
-    })(TextField);
 
     const handleChange = (event) => {
         const {name, value} = event.target;
@@ -106,7 +117,13 @@ function Payment() {
             cvv2: inputData.cardCVV,
             cardName: inputData.nameOnCard
         })
-        console.log(res);
+
+        if (res.success) {
+            navigate('/');
+            dispatch(clearCart());
+        } else {
+            setError(res.error);
+        }
     }
 
     return (
@@ -204,6 +221,13 @@ function Payment() {
                             onChange={handleChange}
                         />
                     </Grid>
+                    {
+                        error ?
+                            <Typography sx={{color: 'red'}} variant={'body1'}>
+                                {error.split('\n').join(', ')}
+                            </Typography>
+                         : null
+                    }
                 </Grid>
                 <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', mt: '10px'}}>
                     <Button sx={{width: '200px'}} color={'inherit'} variant={'contained'}

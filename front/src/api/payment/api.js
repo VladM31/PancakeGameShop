@@ -21,8 +21,8 @@ export const purchase = async (gameIds, levelIds, email, phoneNumber, creditCard
                 Authorization: `Bearer ${JSON.parse(Cookies.get('token')).value}`,
             },
         });
-        return data;
+        return {success: true, data};
     } catch (e) {
-        console.log(e)
+        return {success: false, error: e.response.data};
     }
 };
