@@ -71,7 +71,7 @@ function SmallGameOrLevelCard({
                         <Typography variant={isLibraryCard || isLibraryLevelCard ? 'h5' : 'h4'} color="white"
                                     sx={isLibraryLevelCard ? {mt: 1} : {textAlign: 'center', mt: 1}}>{name}</Typography>
                         {purchasedDate &&
-                            <Typography variant="h6" color="white" sx={{mt: 1}}>Придбано: {purchasedDate}</Typography>}
+                            <Typography variant="h6" color="white" sx={{mt: 1}}>Придбано: {purchasedDate.slice(0, 10)}</Typography>}
                     </CardContent>
                     <CardContent sx={{
                         display: 'flex',

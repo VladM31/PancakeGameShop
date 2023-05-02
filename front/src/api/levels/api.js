@@ -1,5 +1,6 @@
 import axios from "axios";
 import {QueryBuilder} from "../../helpers/QueryBuilder";
+
 const baseURL = "http://localhost:8010/api/v1";
 
 export const getLevels = async (page = 0) => {
@@ -8,8 +9,12 @@ export const getLevels = async (page = 0) => {
         .addParam('page', page)
         .addParam('size', 3)
         .build();
-    const { data } = await axios.get(url);
-    return data;
+    try {
+        const {data} = await axios.get(url);
+        return data;
+    } catch (e) {
+        console.log(e)
+    }
 };
 
 export const getLevelById = async (id) => {
@@ -17,8 +22,12 @@ export const getLevelById = async (id) => {
         .setPath('/levels')
         .addParam('levelIds', id)
         .build();
-    const { data } = await axios.get(url);
-    return data;
+    try {
+        const {data} = await axios.get(url);
+        return data;
+    } catch (e) {
+        console.log(e)
+    }
 };
 
 export const getLevelsByGameIdAndPage = async (id, page = 0) => {
@@ -28,6 +37,10 @@ export const getLevelsByGameIdAndPage = async (id, page = 0) => {
         .addParam('page', page)
         .addParam('size', 3)
         .build();
-    const { data } = await axios.get(url);
-    return data;
+    try {
+        const {data} = await axios.get(url);
+        return data;
+    } catch (e) {
+        console.log(e)
+    }
 }
