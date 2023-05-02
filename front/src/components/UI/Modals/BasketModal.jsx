@@ -41,6 +41,7 @@ export default function BasicModal({func}) {
     }
 
     const handleNavigate = () => {
+        if(!items.length) return;
         if (isAuthenticated) {
             func();
             navigate('/payment', {state: {products: items, totalPrice: basketPrice}});
