@@ -79,7 +79,7 @@ function Level() {
                                     })} variant="contained" color="inherit">В корзину</Button> : null}
                                 </Box>
                             ) : (
-                                <Typography align={'right'} sx={{ width: '100%' }} variant="h5" color="white">Игра еще в разработке</Typography>
+                                <Typography align={'right'} sx={{ width: '100%' }} variant="h5" color="white">Гра ще в розробці</Typography>
                             )}
                         </Box>
                     </Box>
