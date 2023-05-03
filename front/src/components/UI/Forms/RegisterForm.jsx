@@ -236,7 +236,7 @@ const RegistrationForm = ({setIsActive, setIsTelephone}) => {
                                 ))}
                             </CssTextField>
                         </Grid>
-                        {error && <Grid item xs={12} sm={12}><Typography variant={'body1'} color={'red'}>{error}</Typography></Grid>}
+                        {error && <Grid item xs={12} sm={12}><Typography variant={'body1'} color={'red'}>{error ? error.split('\n').join(', ') : null}</Typography></Grid>}
                     </Grid>
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', mt: '5px'}}>
                         <Button

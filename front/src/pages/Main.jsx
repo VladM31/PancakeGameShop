@@ -1,29 +1,48 @@
-import React, {useEffect} from 'react';
-import {Box} from '@mui/material';
+import {useEffect, useState} from 'react';
+import {Box, CircularProgress} from '@mui/material';
 import DescriptionCard from '../components/Cards/DescriptionCard';
 import brand from '../assets/shopCompany/brand.jpg';
 import games from '../assets/shopCompany/games.png';
 import people from '../assets/shopCompany/people.png';
 import company from '../assets/shopCompany/company.jpg';
 import GamesCarousel from '../components/Carousels/GamesCarousel';
-import {getGames} from "../api/games/api";
+import {getBoughtContent, getGames} from "../api/games/api";
 
 
 function Main() {
-    const [allGames, setGames] = React.useState([]);
+    const [allGames, setGames] = useState([]);
+
+    const [isBought, setIsBought] = useState(false);
 
     async function getAllGames() {
         const allGames = await getGames();
-        setGames(allGames.content)
+        await boughtCheck(allGames.content);
+        setGames(allGames.content);
+    }
+
+    async function boughtCheck(allGames) {
+        const { content } = await getBoughtContent();
+        if (content && content.length > 0) {
+            setIsBought(content.some(item1 => allGames.some(item2 => item1.gamesId === item2.id)));
+        } else {
+            return setIsBought(false);
+        }
     }
 
     useEffect(() => {
-        getAllGames()
+        getAllGames();
     }, []);
 
     return (
         <Box>
-            <GamesCarousel games={allGames}/>
+            {
+                allGames.length > 0 ? (
+                    <GamesCarousel isBought={isBought} games={allGames}/>
+                ) :
+                    (<Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '1400px', height: '500px'}}>
+                        <CircularProgress color="secondary"/>
+                    </Box>)
+            }
             <DescriptionCard imgSide='left' imgUrl={company} title='Компанія'
                              description='Наша компанія заснована в 2023. Ми продукти, щоб дивувати гравців по всьому світі.'/>
             <DescriptionCard imgSide='right' imgUrl={brand} title='Наші бренди'

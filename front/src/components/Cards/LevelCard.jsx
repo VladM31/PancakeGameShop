@@ -2,7 +2,6 @@ import React from 'react';
 import {Card, CardContent, CardMedia, Typography, Button, Box} from '@mui/material';
 import {styled} from '@mui/system';
 import {useNavigate} from 'react-router';
-import {useEffect} from 'react';
 import {addToCart} from "../../reducers/cart/cartStore";
 import {useDispatch} from "react-redux";
 
@@ -22,6 +21,7 @@ function GameCard({
                       price,
                       gameId,
                       isReady,
+                      isBought
                   }) {
 
     const navigate = useNavigate();
@@ -54,21 +54,28 @@ function GameCard({
                     </CardContent>
                     <CardContent>
                         {isReady ? (
-                            <Box sx={{
+                            <Box sx={isBought ? {
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: '105px',
+                                justifyContent: 'center',
+                            } : {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 height: '105px',
                                 justifyContent: 'space-between',
                             }}>
                                 <Typography variant="h5" color="white">Ціна {price}$</Typography>
-                                <Button onClick={(e) => buyHandler(e, {
-                                    gameId: gameId,
-                                    levelId: id,
-                                    mainImage: mainImage,
-                                    name: name,
-                                    price: price
-                                })} variant="contained" color="inherit">В
-                                    корзину</Button>
+                                {
+                                    isBought ? null : <Button onClick={(e) => buyHandler(e, {
+                                        gameId: gameId,
+                                        levelId: id,
+                                        mainImage: mainImage,
+                                        name: name,
+                                        price: price
+                                    })} variant="contained" color="inherit">В
+                                        корзину</Button>
+                                }
                             </Box>
                         ) : (
                             <Typography sx={{width: '100px', mt: 2}} variant="h5" color="white">Гра ще в

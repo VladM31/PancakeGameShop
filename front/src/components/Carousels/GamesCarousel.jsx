@@ -9,8 +9,7 @@ import './styles/GamesCarousel.css'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews, {interval: 1000});
 
-function GamesCarousel(props) {
-  const { games } = props;
+function GamesCarousel({ games, isBought }) {
 
   const theme = useTheme();
 
@@ -42,7 +41,7 @@ function GamesCarousel(props) {
 				games.map((game, index) => (
 					<Box key={game.name}>
 						{ activeStep === index ? (
-						<GameCard id={game.id} mainImage={game.mainImage} name={game.name} images={game.images} releaseDate={game.releaseDate} price={game.price} />
+						<GameCard isBought={isBought} id={game.id} mainImage={game.mainImage} name={game.name} images={game.images} releaseDate={game.releaseDate} price={game.price} />
 						) : null }
 					</Box>
 				))

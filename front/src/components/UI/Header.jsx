@@ -12,12 +12,14 @@ import Cookies from 'js-cookie';
 import {useDispatch} from "react-redux";
 import logo from '../../assets/logo.svg';
 import {initCart} from "../../reducers/cart/cartStore";
+import {useLocation} from "react-router";
 
 function Header(props) {
 
     const { token } = useAuth();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const cookieToken = Cookies.get('token');
@@ -29,6 +31,9 @@ function Header(props) {
 
     const handleLogout = () => {
         dispatch(logout());
+        if(location.pathname === '/') {
+            window.location.reload();
+        }
         navigate('/');
     };
 
