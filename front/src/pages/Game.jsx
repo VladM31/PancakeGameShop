@@ -134,9 +134,9 @@ function Game() {
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         width: '650px',
-                                        height: '500px'
+                                        height: '640px'
                                     }}>
-                                        <Typography variant={'h5'} color={'white'}>Рівнів не знайдено</Typography>
+                                        <Typography variant={'h5'} color={'white'}>Рівнів не знайдено...</Typography>
                                     </Box>
                                 )}
                                 <Box mt={4} display="flex" justifyContent="center">
