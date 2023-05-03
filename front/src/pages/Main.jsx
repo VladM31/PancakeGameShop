@@ -36,7 +36,7 @@ function Main() {
     return (
         <Box>
             {
-                allGames.content ? (
+                allGames.length > 0 ? (
                     <GamesCarousel isBought={isBought} games={allGames}/>
                 ) :
                     (<Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '1400px', height: '500px'}}>
