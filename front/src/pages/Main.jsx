@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Box} from '@mui/material';
+import {Box, CircularProgress} from '@mui/material';
 import DescriptionCard from '../components/Cards/DescriptionCard';
 import brand from '../assets/shopCompany/brand.jpg';
 import games from '../assets/shopCompany/games.png';
@@ -35,7 +35,14 @@ function Main() {
 
     return (
         <Box>
-            <GamesCarousel isBought={isBought} games={allGames}/>
+            {
+                allGames.content ? (
+                    <GamesCarousel isBought={isBought} games={allGames}/>
+                ) :
+                    (<Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '1400px', height: '500px'}}>
+                        <CircularProgress color="secondary"/>
+                    </Box>)
+            }
             <DescriptionCard imgSide='left' imgUrl={company} title='Компанія'
                              description='Наша компанія заснована в 2023. Ми продукти, щоб дивувати гравців по всьому світі.'/>
             <DescriptionCard imgSide='right' imgUrl={brand} title='Наші бренди'

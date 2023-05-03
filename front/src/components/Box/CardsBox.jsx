@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {Box} from "@mui/material";
+import React, {useState} from 'react';
+import {Box, Typography} from "@mui/material";
 import SmallGameCard from "../Cards/SmallGameCard";
 import SmallLevelCard from "../Cards/SmallLevelCard";
 
@@ -11,7 +11,11 @@ const CardsBox = ({game}) => {
             <SmallGameCard {...game} isShown={isShown} showHandler={() => setIsShown((prevState) => !prevState)}/>
             {isShown ? game.levels.map((level) => (
                 <SmallLevelCard gamesId={game.gamesId} key={level.levelsId} {...level}/>
-            )) : null}
+            )) : (
+                <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px'}}>
+                    <Typography variant={'h2'} color={'white'}>Немає куплених рівнів</Typography>
+                </Box>
+            )}
         </Box>
     );
 };

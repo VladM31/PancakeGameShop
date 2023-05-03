@@ -1,4 +1,4 @@
-import {Box, Button, Typography} from '@mui/material';
+import {Box, Button, CircularProgress, Typography} from '@mui/material';
 import {useEffect, useState} from 'react';
 import ImageCarousel from '../components/Carousels/ImagesCarousel';
 import {getLevelById} from "../api/levels/api";
@@ -43,53 +43,57 @@ function Level() {
     }, [])
 
     return (
-        <Box>
-            <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: 1000,
-                backgroundColor: '#B55D9C',
-                padding: '40px',
-                borderRadius: '15px',
-            }}>
-                <ImageCarousel height={'400'} images={level.images ? level.images : []}/>
-                <Box sx={{display: 'flex', flexDirection: 'column'}}>
-                    <Typography align='center' sx={{marginTop: '10px'}} color='white'
-                                variant='h5'>{level.name}</Typography>
-                    <Box sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
-                    }}>
-                        {releaseDate ? isPastDate(releaseDate) ? (
-                            <Box sx={{
-                                display: 'flex',
-                                width: '100%',
-                                justifyContent: 'space-between',
-                            }}>
-                                <Typography variant="h5" color="white">Ціна {level.price}$</Typography>
-                                {!isBought ? <Button onClick={(e) => buyHandler(e, {
-                                    gameId: level.gameId,
-                                    levelId: level.id,
-                                    price: level.price,
-                                    name: level.name,
-                                    mainImage: level.mainImage,
-                                })} variant="contained" color="inherit">В
-                                    корзину</Button> : null}
-                            </Box>
-                        ) : (
-                            <Typography align={'right'} sx={{width: '100%'}} variant="h5" color="white">Гра ще в
-                                розробці</Typography>
-                        ) : null}
+        level && level.id ? (
+            <Box>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: 1000,
+                    backgroundColor: '#B55D9C',
+                    padding: '40px',
+                    borderRadius: '15px',
+                }}>
+                    <ImageCarousel height={'400'} images={level.images ? level.images : []} />
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                        <Typography align='center' sx={{ marginTop: '10px' }} color='white'
+                                    variant='h5'>{level.name}</Typography>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }}>
+                            {releaseDate && isPastDate(releaseDate) ? (
+                                <Box sx={{
+                                    display: 'flex',
+                                    width: '100%',
+                                    justifyContent: 'space-between',
+                                }}>
+                                    <Typography variant="h5" color="white">Цена {level.price}$</Typography>
+                                    {!isBought ? <Button onClick={(e) => buyHandler(e, {
+                                        gameId: level.gameId,
+                                        levelId: level.id,
+                                        price: level.price,
+                                        name: level.name,
+                                        mainImage: level.mainImage,
+                                    })} variant="contained" color="inherit">В корзину</Button> : null}
+                                </Box>
+                            ) : (
+                                <Typography align={'right'} sx={{ width: '100%' }} variant="h5" color="white">Игра еще в разработке</Typography>
+                            )}
+                        </Box>
                     </Box>
                 </Box>
+                <Typography variant='h5'>Описание</Typography>
+                <Box sx={{ width: 1000, backgroundColor: '#B55D9C', padding: '40px', borderRadius: '15px' }}>
+                    <Typography color='white' variant='h5'>{level.description}</Typography>
+                </Box>
             </Box>
-            <Typography variant='h5'>Опис</Typography>
-            <Box sx={{width: 1000, backgroundColor: '#B55D9C', padding: '40px', borderRadius: '15px'}}>
-                <Typography color='white' variant='h5'>{level.description}</Typography>
+        ) : (
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '1400px' }}>
+                <CircularProgress color="secondary" />
             </Box>
-        </Box>
+        )
     );
 }
 
