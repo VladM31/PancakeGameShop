@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
-public class GenreList extends AbstractDtoList<GenreRespond> {
-    public GenreList(Page<GenreRespond> pages) {
+public class GenreList extends AbstractDtoList<String> {
+    public GenreList(Page<String> pages) {
         super(pages);
     }
 }
