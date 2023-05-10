@@ -47,7 +47,7 @@ public class Levels : MonoBehaviour
 
     public void Buy()
     {
-        Application.OpenURL("https://en.wikipedia.org/wiki/Unity_(game_engine)");
+        Application.OpenURL("http://localhost:3000/game/1");
     }
 
     public GameObject[] levels;
