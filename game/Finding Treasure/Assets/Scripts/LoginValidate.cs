@@ -17,6 +17,7 @@ public class LoginValidate : MonoBehaviour
     public Text errorText;
 
     string apiUrl = "http://localhost:8005/api/v1/auth/login"; // URL API �����
+    string levelIdsUrl = "http://localhost:8010/api/v1/bought-content/ids?gameIds=1";
 
     LoginResult loginResult = null;
 
@@ -26,6 +27,33 @@ public class LoginValidate : MonoBehaviour
         string password = passwordInput.text;
 
         StartCoroutine(PostUserData(phone, password));
+    }
+    IEnumerator GetWebData(string url)
+    {
+        
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+        {
+            string token = GlobalState.loginResult.tokenValue;
+            
+            webRequest.SetRequestHeader("Authorization", "Bearer " + token);
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(webRequest.error);
+            }
+            else
+            {
+                // Отримання даних з веб-запиту
+                string responseText = webRequest.downloadHandler.text;
+                var responce = JsonUtility.FromJson<ResponseResult>(responseText);
+
+               
+                GlobalState.loginResult.user.purchasedLevels = responce.content[0].levelIds;
+
+                SceneManager.LoadScene("Start Screen 1");
+            }
+        }
     }
 
     IEnumerator PostUserData(string phoneNumber, string password)
@@ -39,7 +67,7 @@ public class LoginValidate : MonoBehaviour
             request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
             request.SetRequestHeader("Content-Type", "application/json");
             yield return request.SendWebRequest();
-            Debug.Log("Status Code: " + request.responseCode);
+            //Debug.Log("Status Code: " + request.responseCode);
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
@@ -53,8 +81,10 @@ public class LoginValidate : MonoBehaviour
                 string jsonUserData = request.downloadHandler.text;
                 this.loginResult = JsonUtility.FromJson<LoginResult>(jsonUserData);
                 GlobalState.loginResult = loginResult;////////////////////////////////////////////////
-                Debug.Log(loginResult.user.phoneNumber);
-                SceneManager.LoadScene("Start Screen 1");
+                StartCoroutine(
+                                //Debug.Log(loginResult.user.phoneNumber);
+                                GetWebData(levelIdsUrl));
+                
 
             }
         }
@@ -77,4 +107,15 @@ public class LoginResult
     public User user;
     public string tokenValue;
     public long tokenExpirationTime;
+}
+[Serializable]
+public class ResponseResult
+{
+    public Game[] content;
+}
+[Serializable]
+public class Game
+{
+    public long gameId;
+    public long[] levelIds;
 }
