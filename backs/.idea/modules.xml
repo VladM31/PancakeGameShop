@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AuthorizationService/AuthorizationService.iml" filepath="$PROJECT_DIR$/AuthorizationService/AuthorizationService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TelegramBot/BotPhoneNumberProdject.iml" filepath="$PROJECT_DIR$/TelegramBot/BotPhoneNumberProdject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GameProductService/GameProductService.iml" filepath="$PROJECT_DIR$/GameProductService/GameProductService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/backs.iml" filepath="$PROJECT_DIR$/.idea/backs.iml" />
+    </modules>
+  </component>
+</project>
