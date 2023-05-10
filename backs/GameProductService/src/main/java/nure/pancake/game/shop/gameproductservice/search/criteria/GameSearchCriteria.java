@@ -1,9 +1,6 @@
 package nure.pancake.game.shop.gameproductservice.search.criteria;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.*;
 import lombok.*;
 import nure.pancake.game.shop.gameproductservice.entities.GameEntity;
 import nure.pancake.game.shop.gameproductservice.entities.GenreEntity;
@@ -58,32 +55,32 @@ public class GameSearchCriteria implements Specification<GameEntity> {
         }
         if (Range.hasFrom(price)) {
             criteria.add(
-                    cb.ge(root.get("price"), price.getFrom())
+                    cb.ge(root.get("price"), price.fromMap(Float::parseFloat))
             );
         }
         if (Range.hasTo(price)) {
             criteria.add(
-                    cb.le(root.get("price"), price.getTo())
+                    cb.le(root.get("price"), price.toMap(Float::parseFloat))
             );
         }
         if (Range.hasFrom(ageRating)) {
             criteria.add(
-                    cb.ge(root.get("ageRating"), ageRating.getFrom())
+                    cb.ge(root.get("ageRating"), ageRating.fromMap(Float::parseFloat))
             );
         }
         if (Range.hasTo(ageRating)) {
             criteria.add(
-                    cb.le(root.get("ageRating"), ageRating.getTo())
+                    cb.le(root.get("ageRating"), ageRating.toMap(Float::parseFloat))
             );
         }
         if (Range.hasFrom(releaseDate)) {
             criteria.add(
-                    cb.greaterThanOrEqualTo(root.get("releaseDate"), releaseDate.getFrom())
+                    cb.greaterThanOrEqualTo(root.get("releaseDate"), releaseDate.<LocalDate>fromMap(LocalDate::parse))
             );
         }
         if (Range.hasTo(releaseDate)) {
             criteria.add(
-                    cb.lessThanOrEqualTo(root.get("releaseDate"), releaseDate.getTo())
+                    cb.lessThanOrEqualTo(root.get("releaseDate"), releaseDate.<LocalDate>toMap(LocalDate::parse))
             );
         }
         if (CollectionUtils.isEmpty(criteria)) {

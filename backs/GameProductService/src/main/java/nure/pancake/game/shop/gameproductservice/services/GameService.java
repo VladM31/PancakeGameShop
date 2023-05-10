@@ -3,6 +3,7 @@ package nure.pancake.game.shop.gameproductservice.services;
 import nure.pancake.game.shop.gameproductservice.dataobjects.Game;
 import nure.pancake.game.shop.gameproductservice.filters.GameFilter;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 
 public interface GameService {
@@ -11,4 +12,6 @@ public interface GameService {
     boolean update(@NonNull Game game);
 
     boolean save(Game game);
+
+    ResponseEntity<byte[]> getGameFile(Long gameId, Long userId);
 }
