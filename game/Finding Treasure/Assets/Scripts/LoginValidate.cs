@@ -20,7 +20,10 @@ public class LoginValidate : MonoBehaviour
     string levelIdsUrl = "http://localhost:8010/api/v1/bought-content/ids?gameIds=1";
 
     LoginResult loginResult = null;
-
+    public void SingUp()
+    {
+        Application.OpenURL("http://localhost:3000/auth/singUp");
+    }
     public void SubmitForm()
     {
         string phone = phoneInput.text;
