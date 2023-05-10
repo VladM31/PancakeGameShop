@@ -44,12 +44,12 @@ public class LevelSearchCriteria implements Specification<LevelEntity> {
         }
         if (Range.hasFrom(price)) {
             criteria.add(
-                    cb.ge(root.get("price"), price.getFrom())
+                    cb.ge(root.get("price"), price.fromMap(Float::parseFloat))
             );
         }
         if (Range.hasTo(price)) {
             criteria.add(
-                    cb.le(root.get("price"), price.getTo())
+                    cb.le(root.get("price"), price.toMap(Float::parseFloat))
             );
         }
         if (hidden != null) {

@@ -3,13 +3,11 @@ package nure.pancake.game.shop.gameproductservice.configs;
 import nure.pancake.game.shop.gameproductservice.clients.AuthClient;
 import nure.pancake.game.shop.gameproductservice.clients.BuyClient;
 import nure.pancake.game.shop.gameproductservice.convector.GameSortFiledConvector;
+import nure.pancake.game.shop.gameproductservice.convector.GenreSortFiledConvector;
 import nure.pancake.game.shop.gameproductservice.convector.LevelSortFiledConvector;
 import nure.pancake.game.shop.gameproductservice.convector.PurchasedGameSortFieldConvector;
 import nure.pancake.game.shop.gameproductservice.mappers.*;
-import nure.pancake.game.shop.gameproductservice.repositories.GameRepository;
-import nure.pancake.game.shop.gameproductservice.repositories.LevelRepository;
-import nure.pancake.game.shop.gameproductservice.repositories.PurchasedGameRepository;
-import nure.pancake.game.shop.gameproductservice.repositories.PurchasedLevelRepository;
+import nure.pancake.game.shop.gameproductservice.repositories.*;
 import nure.pancake.game.shop.gameproductservice.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,9 +37,11 @@ public class ServiceConfig {
             GameRepository gameRepository,
             GameSearchCriteriaMapper gameCriteriaMapper,
             GameSortFiledConvector sortFiledConvector,
-            GameMapper gameMapper
+            GameMapper gameMapper,
+            PurchasedGameRepository purchasedGameRepository
     ) {
-        return new GameServiceImpl(gameRepository, gameCriteriaMapper, sortFiledConvector, gameMapper);
+        return new GameServiceImpl(gameRepository, gameCriteriaMapper,
+                sortFiledConvector, gameMapper,purchasedGameRepository);
     }
 
     @Bean
@@ -83,5 +83,10 @@ public class ServiceConfig {
                 gameDetailsMapper,
                 gameRepository,
                 levelRepository);
+    }
+
+    @Bean
+    GenreService genreServiceImpl(GenreRepository genreRepository, GenreSortFiledConvector convector){
+        return new GenreServiceImpl(genreRepository,convector);
     }
 }

@@ -2,6 +2,7 @@ package nure.pancake.game.shop.gameproductservice.controllers;
 
 import jakarta.validation.ValidationException;
 import nure.pancake.game.shop.gameproductservice.exceptions.BuyContentException;
+import nure.pancake.game.shop.gameproductservice.exceptions.GameFileNotFound;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -37,8 +38,8 @@ public class ErrorHandleController {
         return errors;
     }
 
-    @ExceptionHandler({BuyContentException.class})
-    public String handleBuyContentException(BuyContentException ex){
+    @ExceptionHandler({BuyContentException.class, GameFileNotFound.class})
+    public String handleBuyContentException(RuntimeException ex){
         log.warn(ex.getMessage());
         return ex.getMessage();
     }

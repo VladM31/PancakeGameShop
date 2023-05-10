@@ -4,11 +4,24 @@ import lombok.RequiredArgsConstructor;
 import nure.pancake.game.shop.gameproductservice.convector.GameSortFiledConvector;
 import nure.pancake.game.shop.gameproductservice.dataobjects.Game;
 import nure.pancake.game.shop.gameproductservice.dataobjects.sortfiled.GameSortFiled;
+import nure.pancake.game.shop.gameproductservice.exceptions.BuyContentException;
+import nure.pancake.game.shop.gameproductservice.exceptions.GameFileNotFound;
 import nure.pancake.game.shop.gameproductservice.filters.GameFilter;
 import nure.pancake.game.shop.gameproductservice.mappers.GameMapper;
 import nure.pancake.game.shop.gameproductservice.mappers.GameSearchCriteriaMapper;
 import nure.pancake.game.shop.gameproductservice.repositories.GameRepository;
+import nure.pancake.game.shop.gameproductservice.repositories.PurchasedGameRepository;
+import nure.pancake.game.shop.gameproductservice.search.criteria.GameSearchCriteria;
+import nure.pancake.game.shop.gameproductservice.search.criteria.PurchasedGameSearchCriteria;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
+import java.io.IOException;
+import java.nio.file.Files;
 
 @RequiredArgsConstructor
 public class GameServiceImpl implements GameService {
@@ -16,6 +29,7 @@ public class GameServiceImpl implements GameService {
     private final GameSearchCriteriaMapper gameCriteriaMapper;
     private final GameSortFiledConvector sortFiledConvector;
     private final GameMapper gameMapper;
+    private final PurchasedGameRepository purchasedGameRepository;
 
     @Override
     public Page<Game> findBy(GameFilter filter) {
@@ -34,5 +48,36 @@ public class GameServiceImpl implements GameService {
     @Override
     public boolean save(Game game) {
         return gameRepository.save(gameMapper.toGameEntity(game)) != null;
+    }
+
+    @Override
+    public ResponseEntity<byte[]> getGameFile(Long gameId, Long userId) {
+        var gameOpt =gameRepository.findOne(GameSearchCriteria.builder().gameId(gameId).build());
+        if(!purchasedGameRepository.exists(
+                PurchasedGameSearchCriteria
+                        .builder()
+                        .gameId(gameId)
+                        .userId(userId)
+                        .build())){
+            throw new BuyContentException("Content not bought");
+        }
+
+        if(gameOpt.isEmpty()){
+            throw new GameFileNotFound("Гра не існує");
+        }
+
+        ClassPathResource resource = new ClassPathResource("files/games/game_" + gameOpt.get().getId() + ".zip");
+
+        try {
+            byte[] data = Files.readAllBytes(resource.getFile().toPath());
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            headers.setContentLength(data.length);
+            headers.set("Content-Disposition", "attachment; filename=" + gameOpt.get().getName() + ".zip");
+
+            return new ResponseEntity<>(data, headers, HttpStatus.OK);
+        } catch (IOException e) {
+            throw new GameFileNotFound("Файл гри не існує. " + e.getMessage());
+        }
     }
 }

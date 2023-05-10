@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class GenreListMapper {
-    private final ModelMapper mapper;
+    private final ModelMapper mapper = new ModelMapper();
 
     public GenreList toGenreList(Page<String> genres) {
         return new GenreList(

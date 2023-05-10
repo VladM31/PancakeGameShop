@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b9ea31a-42b6-45e8-8fec-f77b8594d589" name="Changes" comment="PGS-57 Static info sign-up component">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/UI/Forms/RegisterForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/UI/Forms/RegisterForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/reducers/user/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/reducers/user/userStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backs/GameProductService/src/main/java/nure/pancake/game/shop/gameproductservice/search/criteria/GameSearchCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/backs/GameProductService/src/main/java/nure/pancake/game/shop/gameproductservice/search/criteria/GameSearchCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backs/GameProductService/src/main/java/nure/pancake/game/shop/gameproductservice/search/criteria/LevelSearchCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/backs/GameProductService/src/main/java/nure/pancake/game/shop/gameproductservice/search/criteria/LevelSearchCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backs/GameProductService/src/main/java/nure/pancake/game/shop/gameproductservice/utils/Range.java" beforeDir="false" afterPath="$PROJECT_DIR$/backs/GameProductService/src/main/java/nure/pancake/game/shop/gameproductservice/utils/Range.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="Git.Settings">
     <favorite-branches>
@@ -37,6 +38,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="dev" />
+      </list>
+    </option>
+  </component>
   <component name="JsBowerSettings">
     <bower-package value="" />
     <bower.json value="" />
@@ -49,25 +57,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Git.Branch.Popup.ShowAllRemotes": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "frontend/PGS-59-Implement-registration",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Универ/3 курс/2 семестр/МППС/PancakeGameShop/front",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "D:\\WebStorm 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/front" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Универ\3 курс\2 семестр\МППС\PancakeGameShop\front\src\assets" />
@@ -97,6 +92,7 @@
       <workItem from="1682332730171" duration="275000" />
       <workItem from="1682333022112" duration="152000" />
       <workItem from="1682333183019" duration="97000" />
+      <workItem from="1683573560961" duration="144000" />
     </task>
     <task id="LOCAL-00001" summary="PGS-4 #comment added routes and made configuration #6">
       <created>1678995778967</created>
