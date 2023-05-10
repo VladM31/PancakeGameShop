@@ -84,7 +84,7 @@ function Level() {
                         </Box>
                     </Box>
                 </Box>
-                <Typography variant='h5'>Описание</Typography>
+                <Typography sx={{mt: 2}} variant='h3' color={'white'} align={'center'}>Опис</Typography>
                 <Box sx={{ width: 1000, backgroundColor: '#B55D9C', padding: '40px', borderRadius: '15px' }}>
                     <Typography color='white' variant='h5'>{level.description}</Typography>
                 </Box>
