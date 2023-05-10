@@ -1,6 +1,7 @@
 import axios from "axios";
 import {QueryBuilder} from "../../helpers/QueryBuilder";
 import Cookies from "js-cookie";
+import { saveAs } from 'file-saver';
 
 const baseURL = "http://localhost:8010/api/v1";
 
@@ -47,4 +48,24 @@ export const getBoughtContent = async () => {
     } catch (e) {
         console.log(e);
     }
+}
+
+export const downloadGame = async (id, name) => {
+    console.log('Скачивание...')
+    const url = new QueryBuilder(`${baseURL}`)
+        .setPath(`/games/${id}/file`)
+        .build();
+    console.log(url);
+    try {
+        const file = await axios.get(url, {
+            headers: {
+                Authorization: `Bearer ${JSON.parse(Cookies.get('token')).value}`
+            },
+            responseType: 'blob'
+        })
+        saveAs(new Blob([file.data]), `${name}.zip`);
+    }catch (e) {
+        console.log(e)
+    }
+
 }
