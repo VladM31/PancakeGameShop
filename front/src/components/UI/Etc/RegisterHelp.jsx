@@ -25,7 +25,7 @@ const RegisterHelp = ({ telephone }) => {
     }, [dispatch, navigate, status, telephone]);
 
     const arr = [
-        { text: 'Перейдіть до телеграм бота.' },
+        { text: 'Перейдіть за послання до теграм бота.' },
         { text: 'Натисніть кнопку start.' },
         { text: 'Натисніть кнопку Contact.' },
         { text: 'Зачикайте 10-30 секунд.' },
@@ -41,7 +41,7 @@ const RegisterHelp = ({ telephone }) => {
                     arr.map((item, index) => {
                         return (
                             <li style={{ fontSize: 22, color: '#ffffff', listStyleType: 'none' }} key={index}>
-                                <p>{index + 1}. {item.text} {index === 0 ? <a target='_blank' style={{fontStyle: "italic", fontSize: '16px', textDecoration: 'none', color: 'white'}} href={'https://t.me/needlework_number_bot'}>(телеграм бот)</a> : null}</p>
+                                <p>{index + 1}. {item.text}</p>
                             </li>
                         )
                     })

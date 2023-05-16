@@ -16,6 +16,7 @@ public class LoginValidate : MonoBehaviour
     string apiUrl = "http://localhost:8005/api/v1/auth/login"; // URL API �����
     string levelIdsUrl = "http://localhost:8010/api/v1/bought-content/ids?gameIds=1";
 
+    LoginResult loginResult = null;
     public void SingUp()
     {
         Application.OpenURL("http://localhost:3000/auth/singUp");
@@ -24,7 +25,7 @@ public class LoginValidate : MonoBehaviour
     {
         string phone = phoneInput.text;
         string password = passwordInput.text;
-        Debug.Log(phone + " " + password);
+
         StartCoroutine(PostUserData(phone, password));
     }
     IEnumerator GetWebData(string url)
@@ -53,13 +54,11 @@ public class LoginValidate : MonoBehaviour
                 SceneManager.LoadScene("Start Screen 1");
             }
         }
-
     }
 
     IEnumerator PostUserData(string phoneNumber, string password)
     {
         string data = "{\"phoneNumber\":\"" + phoneNumber + "\",\"password\":\"" + password + "\"}";
-        Debug.Log(phoneNumber + " " + password);
 
         using (var request = new UnityWebRequest(apiUrl, "POST"))
         {
@@ -68,7 +67,7 @@ public class LoginValidate : MonoBehaviour
             request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
             request.SetRequestHeader("Content-Type", "application/json");
             yield return request.SendWebRequest();
-            Debug.Log("Status Code: " + request.responseCode);
+            //Debug.Log("Status Code: " + request.responseCode);
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
@@ -80,7 +79,8 @@ public class LoginValidate : MonoBehaviour
             {
                 // ������������ ���������� ������ � ������� JSON
                 string jsonUserData = request.downloadHandler.text;
-                GlobalState.loginResult = JsonUtility.FromJson<LoginResult>(jsonUserData);
+                this.loginResult = JsonUtility.FromJson<LoginResult>(jsonUserData);
+                GlobalState.loginResult = loginResult;////////////////////////////////////////////////
                 StartCoroutine(
                                 //Debug.Log(loginResult.user.phoneNumber);
                                 GetWebData(levelIdsUrl));
@@ -98,7 +98,7 @@ public class User
 {
     public int id;
     public string phoneNumber;
-    public long[] purchasedLevels = new long [0];//
+    public long[]? purchasedLevels;
 }
 
 [Serializable]
