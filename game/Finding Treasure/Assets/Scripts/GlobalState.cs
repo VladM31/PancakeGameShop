@@ -5,5 +5,4 @@ using UnityEngine;
 public static class GlobalState
 {
     public static LoginResult loginResult;
-    public static int collectedCherries =0;
 } 
