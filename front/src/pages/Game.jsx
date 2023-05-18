@@ -6,7 +6,7 @@ import {Box, Button, CircularProgress, Typography} from '@mui/material';
 import LevelCard from '../components/Cards/LevelCard';
 import Filter from '../components/UI/Filter';
 import {getLevelsByGameIdAndPage} from "../api/levels/api";
-import {getBoughtContent, getGameById} from "../api/games/api";
+import {downloadGame, getBoughtContent, getGameById} from "../api/games/api";
 import CustomPagination from "../components/UI/Pagination";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../reducers/cart/cartStore";
@@ -27,6 +27,10 @@ function Game() {
         const {levels, ...rest} = obj;
         return rest;
     };
+
+    const downloadFile = async () => {
+        await downloadGame(id, game.name);
+    }
 
     const buyHandler = (e, item) => {
         e.stopPropagation();
@@ -100,7 +104,7 @@ function Game() {
                                                     price: game.price
                                                 })} variant="contained" color="inherit">
                                                     В корзину
-                                                </Button>) : null
+                                                </Button>) : <Button variant="contained" color="inherit" onClick={() => downloadFile()}>Завантажити</Button>
                                         ) : (
                                             <Typography variant='h5' color={'white'}>Гра ще в розробці</Typography>
                                         )
