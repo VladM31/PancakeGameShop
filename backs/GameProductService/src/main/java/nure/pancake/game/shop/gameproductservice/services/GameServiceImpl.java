@@ -69,7 +69,7 @@ public class GameServiceImpl implements GameService {
         ClassPathResource resource = new ClassPathResource("files/games/game_" + gameOpt.get().getId() + ".zip");
 
         try {
-            byte[] data = Files.readAllBytes(resource.getFile().toPath());
+            byte[] data = resource.getInputStream().readAllBytes();
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
             headers.setContentLength(data.length);
