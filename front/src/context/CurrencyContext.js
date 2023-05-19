@@ -9,10 +9,7 @@ export const CurrencyProvider = ({ children }) => {
     const currencySymbols = {
         'USD': '$', // US Dollar
         'EUR': '€', // Euro
-        'JPY': '¥', // Japanese Yen
         'GBP': '£', // British Pound Sterling
-        'AUD': 'A$', // Australian Dollar
-        'CAD': 'C$', // Canadian Dollar
         'UAH': '₴', // Ukrainian Hryvnia
         // добавьте любые другие валюты по необходимости
     };
