@@ -7,7 +7,7 @@ const Product = ({ priceInUSD, variant = 'h5', sx }) => {
     const priceInCurrentCurrency = priceInUSD * (rate.value || 0);
     const currencySymbol = currencySymbols[currency] || currency; // если символа нет, используем код валюты
 
-    return <Typography color={'white'} variant={variant} sx={sx}>Ціна: {priceInCurrentCurrency.toFixed(2)} {currencySymbol}</Typography>
+    return <Typography color={'white'} variant={variant} sx={sx}>Ціна: {priceInCurrentCurrency < 1000 ? priceInCurrentCurrency.toFixed(2) :  priceInCurrentCurrency.toFixed(0)} {currencySymbol}</Typography>
 };
 
 export default Product;
