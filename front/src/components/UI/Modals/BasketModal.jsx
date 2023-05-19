@@ -10,6 +10,7 @@ import Cookies from "js-cookie";
 import {useCart} from "../../../reducers/cart/useCart";
 import {removeFromCart} from "../../../reducers/cart/cartStore";
 import {useDispatch} from "react-redux";
+import Product from "../../Etc/Product";
 
 const style = {
     position: 'fixed',
@@ -95,10 +96,7 @@ export default function BasicModal({func}) {
                             }}>
                                 <Button onClick={handleNavigate} variant='contained' color='inherit'
                                         sx={{marginLeft: '20px'}}>Купити</Button>
-                                <Typography variant='h4'
-                                            color={'white'}
-                                            sx={{marginRight: '20px'}}>Сумма
-                                    замовлень: {basketPrice}$</Typography>
+                                <Product variant={'h4'} sx={{marginRight: '20px'}} priceInUSD={basketPrice}/>
                             </Box>
                         </Box>
                     </Box>
