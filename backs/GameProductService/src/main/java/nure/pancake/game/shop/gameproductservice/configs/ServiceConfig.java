@@ -9,6 +9,7 @@ import nure.pancake.game.shop.gameproductservice.convector.PurchasedGameSortFiel
 import nure.pancake.game.shop.gameproductservice.mappers.*;
 import nure.pancake.game.shop.gameproductservice.repositories.*;
 import nure.pancake.game.shop.gameproductservice.services.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -88,5 +89,14 @@ public class ServiceConfig {
     @Bean
     GenreService genreServiceImpl(GenreRepository genreRepository, GenreSortFiledConvector convector){
         return new GenreServiceImpl(genreRepository,convector);
+    }
+
+    @Bean
+    PromoCodeService promoCodeServiceImpl(
+            PromoCodeMapper mapper,
+            PromoCodeRepository repository,
+            @Value("${promo-code-key}") String key,
+            PromoCodeFilterMapper filterMapper){
+        return new PromoCodeServiceImpl(mapper,repository,key,filterMapper);
     }
 }
