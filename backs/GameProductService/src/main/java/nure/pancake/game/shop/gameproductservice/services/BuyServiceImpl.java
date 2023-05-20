@@ -36,6 +36,7 @@ public class BuyServiceImpl implements BuyService {
     private final GameRepository gameRepository;
     private final LevelRepository levelRepository;
     private final BuyClient buyClient;
+    private final PromoCodeService promoCodeService;
 
     @Transactional
     public boolean buy(BuyContent buyContent) {
@@ -55,7 +56,7 @@ public class BuyServiceImpl implements BuyService {
             throw new BuyContentException("Can but level because game not buy");
         }
 
-        if (!buyClient.sentTransaction(buyContent, getPrice(existStore))) {
+        if (!buyClient.sentTransaction(buyContent, getPrice(existStore,promoCodeService.getDiscountPercentage(buyContent.getPromoCode())))) {
             throw new BuyContentException("Payment error");
         }
 
@@ -151,11 +152,15 @@ public class BuyServiceImpl implements BuyService {
                 .allMatch(gId -> existContentStore.getGameStore().containsKey(gId) || boughtContentStore.boughtGameIds.contains(gId));
     }
 
-    private Float getPrice(ExistContentStore existContentStore) {
-        return (float) DoubleStream.concat(
+    private Float getPrice(ExistContentStore existContentStore,int discount) {
+        var price = DoubleStream.concat(
                 existContentStore.gameStore.values().stream().mapToDouble(GameEntity::getPrice),
                 existContentStore.levelStore.values().stream().mapToDouble(LevelEntity::getPrice)
         ).sum();
+
+
+
+        return (float)(price - (price / 100.0 * discount));
     }
 
     private Long getPurchasedGameId(Long levelId,Map<Long, LevelEntity> levelStore,Map<Long, PurchasedGameEntity> purByGameId){

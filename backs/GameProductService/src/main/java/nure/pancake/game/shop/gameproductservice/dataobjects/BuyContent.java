@@ -18,4 +18,5 @@ public class BuyContent {
     private CreditCard creditCard;
     private String email;
     private String phoneNumber;
+    private String promoCode;
 }

@@ -61,9 +61,10 @@ public class ServiceConfig {
             PurchasedLevelRepository purchasedLevelRepository,
             GameRepository gameRepository,
             LevelRepository levelRepository,
-            BuyClient buyClient
+            BuyClient buyClient,
+            PromoCodeService promoCodeService
     ) {
-        return new BuyServiceImpl(purchasedGameRepository, purchasedLevelRepository, gameRepository, levelRepository, buyClient);
+        return new BuyServiceImpl(purchasedGameRepository, purchasedLevelRepository, gameRepository, levelRepository, buyClient,promoCodeService);
     }
 
     @Bean
