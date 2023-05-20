@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
+    Alert,
     Box, Button,
     Card,
     CardContent,
@@ -7,13 +8,13 @@ import {
     Grid,
     List,
     ListItem,
-    ListItemText,
+    ListItemText, Snackbar,
     TextField,
     Typography
 } from "@mui/material";
 import {makeStyles, withStyles} from "@mui/styles";
 import {useLocation} from "react-router";
-import {purchase} from "../api/payment/api";
+import {getPromoCodeDiscount, purchase} from "../api/payment/api";
 import {clearCart} from "../reducers/cart/cartStore";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
@@ -71,6 +72,9 @@ function Payment() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {products, totalPrice} = location.state;
+    const [promoCode, setPromoCode] = useState('');
+    const [discount, setDiscount] = useState(0);
+    const [errorMsg, setErrorMsg] = useState('');
 
     const [error, setError] = useState('');
     const [inputData, setInputData] = useState({
@@ -118,8 +122,9 @@ function Payment() {
             cardNumber: inputData.cardNumber,
             expiryDate: inputData.cardDate,
             cvv2: inputData.cardCVV,
-            cardName: inputData.nameOnCard
-        })
+            cardName: inputData.nameOnCard,
+            discount
+        });
 
         if (res.success) {
             navigate('/');
@@ -128,6 +133,35 @@ function Payment() {
             setError(res.error);
         }
     }
+
+    // Функция обработки изменений промокода
+    const handlePromoCodeChange = (event) => {
+        setPromoCode(event.target.value);
+    };
+
+    // Хук useEffect для обработки изменений промокода с задержкой
+    useEffect(() => {
+        if(promoCode.trim().length === 0) {
+            setDiscount(0);
+            return;
+        }
+        const timeoutId = setTimeout(async () => {
+            const {success, data} = await getPromoCodeDiscount(promoCode);
+            if (success) {
+                if (data === 0) {
+                    setDiscount(0);
+                    setErrorMsg('Промокод не действителен или срок его действия истек.');
+                } else {
+                    setDiscount(data);
+                    setErrorMsg('');
+                }
+            } else {
+                setDiscount(0);
+                setErrorMsg('Произошла ошибка при проверке промокода.');
+            }
+        }, 1000);
+        return () => clearTimeout(timeoutId);
+    }, [promoCode]);
 
     return (
         <Container maxWidth="sm">
@@ -154,7 +188,7 @@ function Payment() {
                         </Box>
                     </Grid>
                     <Grid item xs={12}>
-                        <Product variant={'body1'} priceInUSD={totalPrice}/>
+                        <Product variant={'body1'} priceInUSD={totalPrice} discount={discount}/>
                     </Grid>
                     <Grid item xs={12}>
                         <Card sx={{background: 'rgba(181, 93, 156, 0.85)', borderRadius: 5, padding: 2}}>
@@ -224,6 +258,16 @@ function Payment() {
                             onChange={handleChange}
                         />
                     </Grid>
+                    <Grid item xs={12}>
+                        <CssTextField
+                            fullWidth
+                            name="promoCode"
+                            label="Промокод"
+                            variant="outlined"
+                            value={promoCode}
+                            onChange={handlePromoCodeChange}
+                        />
+                    </Grid>
                     {
                         error ?
                             <Typography sx={{color: 'red'}} variant={'body1'}>
@@ -237,6 +281,11 @@ function Payment() {
                             onClick={() => purchaseHandler()}>Сплатити</Button>
                 </Box>
             </Box>
+            <Snackbar open={!!errorMsg} autoHideDuration={6000} onClose={() => setErrorMsg('')}>
+                <Alert onClose={() => setErrorMsg('')} severity="error">
+                    {errorMsg}
+                </Alert>
+            </Snackbar>
         </Container>
     );
 }
