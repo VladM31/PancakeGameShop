@@ -4,6 +4,7 @@ import {styled} from '@mui/system';
 import {useNavigate} from 'react-router';
 import {addToCart} from "../../reducers/cart/cartStore";
 import {useDispatch} from "react-redux";
+import Product from "../Etc/Product";
 
 const StyledCard = styled(Card)(({theme}) => ({
     cursor: 'pointer',
@@ -44,10 +45,10 @@ function GameCard({
     return (
         <StyledCard onClick={(e) => redirectToLevelPage(e, gameId, id)} sx={{marginBottom: '20px'}}>
             <CardContent sx={{display: 'flex', flexDirection: 'row'}}>
-                <CardMedia component="img" sx={{borderRadius: '20px', width: '35%'}} height="170" image={mainImage}
+                <CardMedia component="img" sx={{borderRadius: '20px', width: '30%'}} height="170" image={mainImage}
                            alt={name}/>
                 <CardContent
-                    sx={{display: 'flex', width: '65%', justifyContent: 'space-between', alignItems: 'center'}}>
+                    sx={{display: 'flex', width: '70%', justifyContent: 'space-between', alignItems: 'center'}}>
                     <CardContent>
                         <Typography variant="h5" color="white"
                                     sx={{textAlign: 'center'}}>{name ? truncateName(name) : null}</Typography>
@@ -65,7 +66,7 @@ function GameCard({
                                 height: '105px',
                                 justifyContent: 'space-between',
                             }}>
-                                <Typography variant="h5" color="white">Ціна {price}$</Typography>
+                                <Product priceInUSD={price}/>
                                 {
                                     isBought ? null : <Button onClick={(e) => buyHandler(e, {
                                         gameId: gameId,

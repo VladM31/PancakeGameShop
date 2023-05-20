@@ -17,6 +17,7 @@ import {purchase} from "../api/payment/api";
 import {clearCart} from "../reducers/cart/cartStore";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import Product from "../components/Etc/Product";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -153,7 +154,7 @@ function Payment() {
                         </Box>
                     </Grid>
                     <Grid item xs={12}>
-                        <Typography color={'white'} variant="body1">Сумма: {totalPrice}$</Typography>
+                        <Product variant={'body1'} priceInUSD={totalPrice}/>
                     </Grid>
                     <Grid item xs={12}>
                         <Card sx={{background: 'rgba(181, 93, 156, 0.85)', borderRadius: 5, padding: 2}}>

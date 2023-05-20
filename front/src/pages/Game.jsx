@@ -11,6 +11,7 @@ import CustomPagination from "../components/UI/Pagination";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../reducers/cart/cartStore";
 import {isPastDate} from "../helpers/Date";
+import Product from "../components/Etc/Product";
 
 function Game() {
     const {id} = useParams();
@@ -89,7 +90,7 @@ function Game() {
                                     <Typography color={'white'} variant='h5'>Рейтинг: {game.ageRating}+</Typography>
                                     <Typography color={'white'} variant='h5'>Дата
                                         виходу: {game.releaseDate ? game.releaseDate.slice(0, 10) : null}</Typography>
-                                    <Typography color={'white'} variant='h5'>Ціна: {game.price}$</Typography>
+                                    <Product priceInUSD={game.price}/>
                                     <Typography color={'white'}
                                                 variant='h5'>Жанри: {game.genres ? game.genres.join(', ') : null}</Typography>
                                 </Box>

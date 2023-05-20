@@ -5,6 +5,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router';
+import Product from "../Etc/Product";
 
 function SmallGameOrLevelCard({
                                   gameId,
@@ -79,7 +80,7 @@ function SmallGameOrLevelCard({
                                 Переглянути
                             </Link>
                         ) : (
-                            <Typography variant="h5" color="white">Ціна {price}$</Typography>
+                            <Product priceInUSD={price}/>
                         )}
                         {isLibraryCard ? (
                             <Button onClick={onButtonClick} color="inherit" variant="contained">

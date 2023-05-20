@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router';
 import {addToCart} from "../../reducers/cart/cartStore";
 import {useDispatch} from "react-redux";
 import {isPastDate} from "../../helpers/Date";
+import Product from "../Etc/Product";
 
 const StyledCard = styled(Card)(({theme}) => ({
     cursor: 'pointer',
@@ -58,9 +59,7 @@ function GameCard({id, mainImage, name, images, releaseDate, price, isBought}) {
                                     <Typography variant="h4" color="white">Гра вже придбана</Typography>
                                 ) : (
                                     <>
-                                        <Typography variant="h5" color="white">
-                                            Ціна {price}$
-                                        </Typography>
+                                        <Product priceInUSD={price}/>
                                         <Button onClick={(e) => buyHandler(e, {
                                             gameId: id,
                                             mainImage: mainImage,

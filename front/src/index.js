@@ -5,13 +5,16 @@ import store from './store/store';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {CurrencyProvider} from "./context/CurrencyContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <App/>
-        </Provider>
+        <CurrencyProvider>
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </CurrencyProvider>
     </React.StrictMode>
 );
 

@@ -1,5 +1,5 @@
 import {Box, Button, CircularProgress, Typography} from '@mui/material';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ImageCarousel from '../components/Carousels/ImagesCarousel';
 import {getLevelById} from "../api/levels/api";
 import {useParams} from "react-router-dom";
@@ -7,6 +7,7 @@ import {getBoughtContent, getGameById} from "../api/games/api";
 import {isPastDate} from "../helpers/Date";
 import {addToCart} from "../reducers/cart/cartStore";
 import {useDispatch} from "react-redux";
+import Product from "../components/Etc/Product";
 
 function Level() {
     const {levelId, gameId} = useParams();
@@ -69,7 +70,7 @@ function Level() {
                                     width: '100%',
                                     justifyContent: 'space-between',
                                 }}>
-                                    <Typography variant="h5" color="white">Цена {level.price}$</Typography>
+                                    <Product priceInUSD={level.price}/>
                                     {!isBought ? <Button onClick={(e) => buyHandler(e, {
                                         gameId: level.gameId,
                                         levelId: level.id,
