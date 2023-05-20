@@ -1,5 +1,6 @@
 package nure.pancake.game.shop.gameproductservice.services;
 
+import jakarta.validation.ValidationException;
 import nure.pancake.game.shop.gameproductservice.dataobjects.PromoCode;
 import nure.pancake.game.shop.gameproductservice.entities.PromoCodeEntity;
 import nure.pancake.game.shop.gameproductservice.exceptions.PromoCodeException;
@@ -11,6 +12,7 @@ import nure.pancake.game.shop.gameproductservice.search.criteria.PromoCodeSearch
 import nure.pancake.game.shop.gameproductservice.utils.Range;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -53,6 +55,9 @@ public class PromoCodeServiceImpl implements PromoCodeService{
 
     @Override
     public int getDiscountPercentage(String code) {
+        if(!StringUtils.hasText(code) || code.length() < 10 || code.length() > 35){
+            throw new ValidationException("Code is blank or length is not between 10 and 35");
+        }
         try {
             Long id = decode(code);
 

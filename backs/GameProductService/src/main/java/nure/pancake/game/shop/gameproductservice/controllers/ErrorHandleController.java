@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @ResponseBody
@@ -24,8 +25,13 @@ public class ErrorHandleController {
 
     @ExceptionHandler(value = {ValidationException.class})
     public String handle(ValidationException e) {
-        log.warn(e.getCause().getLocalizedMessage());
-        return e.getCause().getLocalizedMessage();
+        var message = e.getMessage()  + Optional
+                .ofNullable(e.getCause())
+                .map(Throwable::getLocalizedMessage)
+                .map(s -> " -> " + s)
+                .orElse("");
+        log.warn(message);
+        return message;
     }
 
     @ExceptionHandler({MethodArgumentNotValidException.class, BindException.class})
