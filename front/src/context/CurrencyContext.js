@@ -22,7 +22,6 @@ export const CurrencyProvider = ({ children }) => {
         fetch('https://api.currencyapi.com/v3/latest?apikey=VYSm83qa0BIT75Huo2DXr5CaBuURjmuVKnlNxYzE')
             .then(response => response.json())
             .then(data =>  {
-                console.log(data.data[currency]);
                 setRate(data.data[currency])
             })
             .catch(error => console.error(error));
