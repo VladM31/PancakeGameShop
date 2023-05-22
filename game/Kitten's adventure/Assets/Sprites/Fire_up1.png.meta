@@ -1,0 +1,894 @@
+fileFormatVersion: 2
+guid: 906bf33f85f75d7489e6e31656e3f215
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 367
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e99ffb69152ecf479f43ab08b717588
+      internalID: -2067644002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 367
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f00d476b4fa60f64abbd95b2ac493ed3
+      internalID: -2043865353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 367
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a0fba719619c747af934dbec1ee295
+      internalID: 503983473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 367
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683acd79346779a418d9786da5034d47
+      internalID: -2003826350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 367
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78eaa85d97ea28546af125f8e9ef6f34
+      internalID: 377690098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 367
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f91d58c3bd945c4dbecbfbc975a1108
+      internalID: 450461121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 367
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47811e828a92e004b960458ac8ca693b
+      internalID: 751570839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 277
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9c0af48644b0549b1dec9857a7487c
+      internalID: 1885442678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_8
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 277
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c78e09fe9b834f41ad797ffac6799b9
+      internalID: 1166218395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 277
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a36d1dbf7672e48bf06f967576b65a
+      internalID: -1046149765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 277
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1709abd7cc11148a5bd1b76f2c4798
+      internalID: 1853707624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 277
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e2f781caf85cf4daf9b8091ade202a
+      internalID: -1600237967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_12
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 277
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0e3e3dac7dcaf4c9eadaddfa1b502d
+      internalID: 1404981323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 277
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38bce6af76428f240a03c69d0771fc5d
+      internalID: -1859725552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 187
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b1499d26b221b40b346d734dbed058
+      internalID: 1787004327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_15
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 187
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff84059c7c2a2546a2d875b679c1a34
+      internalID: 2070791464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_16
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 187
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ecdd59813ddcc4ea681e3f75a68764
+      internalID: 1473688973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_17
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 187
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9951d8a502f285f4f8c50dce4f6ab280
+      internalID: -799060318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_18
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 187
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd2cc7487a8b974db32fc98bfa5399a
+      internalID: -422561790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_19
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 187
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0707a9462f0414486eab1b20224d0f
+      internalID: -1091284323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_20
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 187
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e30fab8a3ef42e4ca539d0a0bf3be54
+      internalID: -1398383486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887eced4456fbdf46b5d975e5563afc8
+      internalID: 1290605223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_22
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 97
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0771cdc6c5d94444dab7768a367e84e6
+      internalID: -1379112450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 97
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb316f02b97d9746bebd5fc2fb9d0fa
+      internalID: 1833168991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_24
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 97
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d475eb6a7245e54f9bd5cd3b47836ac
+      internalID: 1813550126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_25
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 97
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0abbc25ce991c2418641c8f328f71d9
+      internalID: -2026451987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_26
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 97
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9747f887a2fabb4a89185adcdf2e42c
+      internalID: -2041804746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_27
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 97
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f708905023fc4438b45538d824d80a
+      internalID: -36635797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a584afc01d51ee4aa8a86d161a8a90d
+      internalID: 1248020887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_29
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 7
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9fc3ca506a58a44b8f4252acc144366
+      internalID: 1952350048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_30
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 7
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a94d696a3d31ee4c923dca51a8ebd7b
+      internalID: 616643178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_31
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 7
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03caa498f74f28746ac7d5b156fa8fd4
+      internalID: -908987580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_32
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0283056c7b97254dafcff2975e12d61
+      internalID: -1890885349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_33
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 7
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31eaa3dac2ad7304c978a85aa6ad7beb
+      internalID: -1446152627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 966-9663402_fireball-clipart-sprite_34
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 7
+        width: 80
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de8c3d663e7a994c8dd7fd9588e2666
+      internalID: 904091447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      966-9663402_fireball-clipart-sprite_0: -2067644002
+      966-9663402_fireball-clipart-sprite_1: -2043865353
+      966-9663402_fireball-clipart-sprite_10: 1853707624
+      966-9663402_fireball-clipart-sprite_11: -1600237967
+      966-9663402_fireball-clipart-sprite_12: 1404981323
+      966-9663402_fireball-clipart-sprite_13: -1859725552
+      966-9663402_fireball-clipart-sprite_14: 1787004327
+      966-9663402_fireball-clipart-sprite_15: 2070791464
+      966-9663402_fireball-clipart-sprite_16: 1473688973
+      966-9663402_fireball-clipart-sprite_17: -799060318
+      966-9663402_fireball-clipart-sprite_18: -422561790
+      966-9663402_fireball-clipart-sprite_19: -1091284323
+      966-9663402_fireball-clipart-sprite_2: 503983473
+      966-9663402_fireball-clipart-sprite_20: -1398383486
+      966-9663402_fireball-clipart-sprite_21: 1290605223
+      966-9663402_fireball-clipart-sprite_22: -1379112450
+      966-9663402_fireball-clipart-sprite_23: 1833168991
+      966-9663402_fireball-clipart-sprite_24: 1813550126
+      966-9663402_fireball-clipart-sprite_25: -2026451987
+      966-9663402_fireball-clipart-sprite_26: -2041804746
+      966-9663402_fireball-clipart-sprite_27: -36635797
+      966-9663402_fireball-clipart-sprite_28: 1248020887
+      966-9663402_fireball-clipart-sprite_29: 1952350048
+      966-9663402_fireball-clipart-sprite_3: -2003826350
+      966-9663402_fireball-clipart-sprite_30: 616643178
+      966-9663402_fireball-clipart-sprite_31: -908987580
+      966-9663402_fireball-clipart-sprite_32: -1890885349
+      966-9663402_fireball-clipart-sprite_33: -1446152627
+      966-9663402_fireball-clipart-sprite_34: 904091447
+      966-9663402_fireball-clipart-sprite_4: 377690098
+      966-9663402_fireball-clipart-sprite_5: 450461121
+      966-9663402_fireball-clipart-sprite_6: 751570839
+      966-9663402_fireball-clipart-sprite_7: 1885442678
+      966-9663402_fireball-clipart-sprite_8: 1166218395
+      966-9663402_fireball-clipart-sprite_9: -1046149765
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
