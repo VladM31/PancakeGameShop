@@ -14,7 +14,7 @@ public class LoginValidate : MonoBehaviour
     public Text errorText;
 
     string apiUrl = "http://localhost:8005/api/v1/auth/login"; // URL API �����
-    string levelIdsUrl = "http://localhost:8010/api/v1/bought-content/ids?gameIds=1";
+    string levelIdsUrl = "http://localhost:8010/api/v1/bought-content/ids?gameIds=4";
 
     LoginResult loginResult = null;
     public void SingUp()
