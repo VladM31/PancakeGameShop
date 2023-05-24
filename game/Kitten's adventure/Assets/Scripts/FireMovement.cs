@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +11,7 @@ public class FireMovement : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rb;
-    
+
     private enum MovementState { idle, flying }
 
     private void Start()
@@ -30,7 +29,7 @@ public class FireMovement : MonoBehaviour
     private void UpdateAnimationState()
     {
         MovementState state;
-        if (rbPlayer.bodyType == RigidbodyType2D.Dynamic)
+        if (rbPlayer.bodyType == RigidbodyType2D.Dynamic && currentWaypointIndex != waypoints.Length-1)
         {
             state = MovementState.flying;
         }

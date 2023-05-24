@@ -6,6 +6,7 @@ TagManager:
   tags:
   - jumpableground
   - player
+  - Trigger
   layers:
   - Default
   - TransparentFX
