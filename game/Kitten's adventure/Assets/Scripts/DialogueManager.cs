@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public Text dialogueText;
+    public GameObject enterText;
+
     public Rigidbody2D rbPlayer;
 
     public Rigidbody2D rbFire;
@@ -68,6 +70,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         dialogueText.text = "";
+        enterText.SetActive(false);
         rbPlayer.bodyType = RigidbodyType2D.Dynamic;
         rbFire.bodyType = RigidbodyType2D.Dynamic;
         Debug.Log("END");
