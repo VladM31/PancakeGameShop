@@ -17,7 +17,7 @@ public class Finish : MonoBehaviour
 
     private void CompleteLevel()
     {
-        SceneManager.LoadScene("Start Screen 1");
+        SceneManager.LoadScene("Level Completed");
     }
 
 }
