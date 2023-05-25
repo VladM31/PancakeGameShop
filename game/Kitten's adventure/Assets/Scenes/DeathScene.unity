@@ -437,10 +437,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 975458827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f9e4cb63ff308438f02dba48d682de, type: 3}
+  m_Script: {fileID: 11500000, guid: d8053917ff1e0f04885abb8ab5a74b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameover: {fileID: 0}
 --- !u!114 &975458830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,8 +485,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 975458829}
-        m_TargetAssemblyTypeName: deathScene, Assembly-CSharp
-        m_MethodName: ReturnToMainMenu
+        m_TargetAssemblyTypeName: RestartController, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -837,10 +836,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1865081869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f9e4cb63ff308438f02dba48d682de, type: 3}
+  m_Script: {fileID: 11500000, guid: d8053917ff1e0f04885abb8ab5a74b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameover: {fileID: 0}
 --- !u!114 &1865081872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,8 +884,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1865081871}
-        m_TargetAssemblyTypeName: deathScene, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_TargetAssemblyTypeName: RestartController, Assembly-CSharp
+        m_MethodName: RestartLevel1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

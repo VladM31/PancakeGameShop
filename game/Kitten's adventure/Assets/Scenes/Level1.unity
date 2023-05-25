@@ -4801,7 +4801,7 @@ GameObject:
   - component: {fileID: 824538966}
   - component: {fileID: 824538965}
   m_Layer: 0
-  m_Name: Light 2D
+  m_Name: Darkness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
