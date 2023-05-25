@@ -67,6 +67,17 @@ public class PlayerLife : MonoBehaviour
 
         Debug.Log("You dead");
     }
+    public bool IsDead()
+    {
+        if (timeRemaining <= 0) // timeRemaining - переменная, отвечающая за оставшееся время
+        {
+            return true; // Юнит считается мертвым
+        }
+        else
+        {
+            return false; // Юнит жив
+        }
+    }
 
     void ShowTimeLine()
     {
