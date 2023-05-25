@@ -770,7 +770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.65, y: -0.6, z: -8}
+  m_LocalPosition: {x: -6.69, y: -0.6, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7922539018116461628}
-  minX: -8.48
+  minX: -6.69
   maxX: 41.56
   minY: -0.58
   maxY: 2.24
@@ -5636,6 +5636,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+--- !u!1 &1735289655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5702108671178614162, guid: 6deb42e1171ca1e42a5bfd668304f7a3, type: 3}
+  m_PrefabInstance: {fileID: 5835860947224165473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768511206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6589,7 +6594,10 @@ PrefabInstance:
     - {fileID: 663458667956404326, guid: 6deb42e1171ca1e42a5bfd668304f7a3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5702108671178614162, guid: 6deb42e1171ca1e42a5bfd668304f7a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7922539018116461632}
   m_SourcePrefab: {fileID: 100100000, guid: 6deb42e1171ca1e42a5bfd668304f7a3, type: 3}
 --- !u!4 &7922539018116461628 stripped
 Transform:
@@ -6601,6 +6609,18 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 5040584947183900186, guid: 6deb42e1171ca1e42a5bfd668304f7a3, type: 3}
   m_PrefabInstance: {fileID: 5835860947224165473}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7922539018116461632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735289655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47860437d91c3db459ea390cd7a37232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8478310926017540603
 PrefabInstance:
   m_ObjectHideFlags: 0
