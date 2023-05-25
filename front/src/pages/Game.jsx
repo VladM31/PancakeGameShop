@@ -52,8 +52,10 @@ function Game() {
         const levels = await getLevelsByGameIdAndPage(gameId, currentPage - 1);
         if (boughtContent && boughtContent.length > 0) {
             boughtContent.map(item => setBoughtLevels([...boughtLevels, ...item.levels]))
-            const isBought = boughtContent.some(item => item.id === game.id);
-            setIsBought(!isBought);
+            const isBought = boughtContent.some(item => {
+                return item.gamesId === +gameId
+            });
+            setIsBought(isBought);
         }
         setGame(game);
         setLevels(levels);
@@ -62,7 +64,7 @@ function Game() {
 
     useEffect(() => {
         getGame(id);
-    }, [])
+    }, [id])
 
 
     return (
