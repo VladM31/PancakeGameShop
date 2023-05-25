@@ -118,4 +118,5 @@ public class Game
 {
     public long gameId;
     public long[] levelIds;
+
 }
