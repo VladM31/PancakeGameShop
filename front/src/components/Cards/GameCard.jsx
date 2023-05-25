@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Card, CardContent, CardMedia, Typography, ImageList, ImageListItem, Button} from '@mui/material';
 import {styled} from '@mui/system';
 import {useNavigate} from 'react-router';
@@ -6,6 +6,7 @@ import {addToCart} from "../../reducers/cart/cartStore";
 import {useDispatch} from "react-redux";
 import {isPastDate} from "../../helpers/Date";
 import Product from "../Etc/Product";
+import {getBoughtContent} from "../../api/games/api";
 
 const StyledCard = styled(Card)(({theme}) => ({
     cursor: 'pointer',
@@ -15,10 +16,25 @@ const StyledCard = styled(Card)(({theme}) => ({
     height: '625px',
 }));
 
-function GameCard({id, mainImage, name, images, releaseDate, price, isBought}) {
+function GameCard({id, mainImage, name, images, releaseDate, price}) {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [isBought, setIsBought] = useState(false);
+
+    async function boughtCheck(gameId) {
+        const { content } = await getBoughtContent();
+        if (content && content.length > 0) {
+            setIsBought(content.some(item1 => item1.gamesId === gameId));
+        } else {
+            return setIsBought(false);
+        }
+    }
+
+    useEffect(() => {
+        boughtCheck(id);
+    }, [id]);
 
     const imageList = (
         <ImageList>

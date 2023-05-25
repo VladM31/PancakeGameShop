@@ -21,16 +21,10 @@ export const getPromoCodeDiscount = async (promoCode) => {
     }
 };
 
-export const purchase = async (gameIds, levelIds, email, phoneNumber, creditCard, promoCode) => {
+export const purchase = async (gameIds, levelIds, email, phoneNumber, creditCard) => {
     const url = new QueryBuilder(`${baseURL}`)
         .setPath('/payment/buy')
         .build();
-
-    // Получить скидку для промокода
-    const {success, data: discount} = await getPromoCodeDiscount(promoCode);
-    if (!success) {
-        // обработка ошибки
-    }
 
     try {
         const { data } = await axios.post(url, {
@@ -39,7 +33,7 @@ export const purchase = async (gameIds, levelIds, email, phoneNumber, creditCard
             email,
             phoneNumber,
             creditCard,
-            discount
+            promoCode: creditCard.promoCode
         }, {
             headers: {
                 Authorization: `Bearer ${JSON.parse(Cookies.get('token')).value}`,

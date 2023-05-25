@@ -123,7 +123,7 @@ function Payment() {
             expiryDate: inputData.cardDate,
             cvv2: inputData.cardCVV,
             cardName: inputData.nameOnCard,
-            discount
+            promoCode: promoCode
         });
 
         if (res.success) {
@@ -145,6 +145,7 @@ function Payment() {
             setDiscount(0);
             return;
         }
+
         const timeoutId = setTimeout(async () => {
             const {success, data} = await getPromoCodeDiscount(promoCode);
             if (success) {

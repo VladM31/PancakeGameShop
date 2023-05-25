@@ -6,27 +6,15 @@ import games from '../assets/shopCompany/games.png';
 import people from '../assets/shopCompany/people.png';
 import company from '../assets/shopCompany/company.jpg';
 import GamesCarousel from '../components/Carousels/GamesCarousel';
-import {getBoughtContent, getGames} from "../api/games/api";
+import {getGames} from "../api/games/api";
 
 
 function Main() {
     const [allGames, setGames] = useState([]);
 
-    const [isBought, setIsBought] = useState(false);
-
     async function getAllGames() {
         const allGames = await getGames();
-        await boughtCheck(allGames.content);
         setGames(allGames.content);
-    }
-
-    async function boughtCheck(allGames) {
-        const { content } = await getBoughtContent();
-        if (content && content.length > 0) {
-            setIsBought(content.some(item1 => allGames.some(item2 => item1.gamesId === item2.id)));
-        } else {
-            return setIsBought(false);
-        }
     }
 
     useEffect(() => {
@@ -37,7 +25,7 @@ function Main() {
         <Box>
             {
                 allGames.length > 0 ? (
-                    <GamesCarousel isBought={isBought} games={allGames}/>
+                    <GamesCarousel games={allGames}/>
                 ) :
                     (<Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '1400px', height: '500px'}}>
                         <CircularProgress color="secondary"/>
