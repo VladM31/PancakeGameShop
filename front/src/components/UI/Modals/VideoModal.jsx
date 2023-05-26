@@ -20,8 +20,9 @@ function VideoModal() {
                 maxWidth="sm"
             >
                 <DialogContent sx={{
-                    width: '31.2vw',
+                    width: '31.25vw',
                     height: '40vh',
+                    backgroundColor: 'black'
                 }}>
                     <ReactPlayer
                         url={videoModalUrl}
