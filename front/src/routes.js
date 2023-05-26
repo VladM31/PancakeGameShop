@@ -10,6 +10,7 @@ import Header from './components/UI/Header';
 import BasketModal from "./components/UI/Modals/BasketModal";
 import {useState} from "react";
 import AccessDenied from "./pages/AccessDenied";
+import VideoModal from "./components/UI/Modals/VideoModal";
 
 function GameRoutes() {
 
@@ -22,7 +23,7 @@ function GameRoutes() {
     return(
         <Router>
             <Routes>
-                <Route element={<><Header /> <BasketModal func={handleRouteClick} /></>}>
+                <Route element={<><Header /> <BasketModal func={handleRouteClick} /> <VideoModal /> </>}>
                     <Route path="/" name="Main" element={<Main />}/>
                     <Route path="/game/:id" name="Game"  element={<Game />}/>
                     <Route path="/payment" name="Payment"  element={isRouteAllowed ? <Payment /> : <AccessDenied />}/>

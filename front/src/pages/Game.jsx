@@ -77,7 +77,7 @@ function Game() {
                             padding: '40px',
                             borderRadius: '15px',
                         }}>
-                            <ImageCarousel images={game.images ? game.images : []}/>
+                            <ImageCarousel images={game.images ? game.images : []} url={game.videoUrl ? game.videoUrl : 'https://www.youtube.com/watch?v=5QZcOugHQ6s&ab_channel=kriper2004'}/>
                             <Box sx={{
                                 display: 'flex',
                                 width: '50%',

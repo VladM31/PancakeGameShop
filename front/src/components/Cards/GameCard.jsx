@@ -24,8 +24,11 @@ function GameCard({id, mainImage, name, images, releaseDate, price, isBought}) {
         <ImageList>
             {images.slice(0, 4).map((image, index) => (
                 <ImageListItem key={image}>
-                    <img style={{borderRadius: 5, maxWidth: '300px', maxHeight: '200px', objectFit: 'cover'}}
-                         src={`${image}`} alt={`game img #${index}`}/>
+                    <img
+                        style={{ borderRadius: 5, maxWidth: '300px', maxHeight: '200px', objectFit: 'cover' }}
+                        src={`${image}`}
+                        alt={`game img #${index}`}
+                    />
                 </ImageListItem>
             ))}
         </ImageList>
