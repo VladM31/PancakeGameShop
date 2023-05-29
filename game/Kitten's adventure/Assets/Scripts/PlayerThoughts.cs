@@ -17,7 +17,7 @@ public class PlayerThoughts : MonoBehaviour
     {
         thought.SetActive(true);
         playerThoughts.Play();
-        Invoke("Hide", 8f);
+        Invoke("Hide", 6f);
 
     }
 

@@ -19,8 +19,6 @@ public class PlayerInteraction : MonoBehaviour
         FindObjectOfType<DialogueManagerLeve2>().StartDialogue(dialogue);
     }
 
-
-
     private void Start()
     {
         text.SetActive(false);
