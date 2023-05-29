@@ -54,7 +54,7 @@ function Level() {
                     padding: '40px',
                     borderRadius: '15px',
                 }}>
-                    <ImageCarousel height={'400'} images={level.images ? level.images : []} />
+                    <ImageCarousel height={'400'} images={level.images ? level.images : []} url={level.videoUrl ? level.videoUrl : 'https://www.youtube.com/watch?v=5QZcOugHQ6s&ab_channel=kriper2004'} />
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                         <Typography align='center' sx={{ marginTop: '10px' }} color='white'
                                     variant='h5'>{level.name}</Typography>
