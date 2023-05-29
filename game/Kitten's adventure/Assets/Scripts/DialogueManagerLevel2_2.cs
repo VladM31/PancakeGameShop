@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManagerLeve2 : MonoBehaviour
+public class DialogueManagerLevel2_2 : MonoBehaviour
 {
     public Text dialogueText;
     public GameObject enterText;
@@ -24,14 +23,13 @@ public class DialogueManagerLeve2 : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && cofferMovement.isTouched)
         {
             DisplayNextSentence();
         }
     }
     public void StartDialogue(Dialogue dialogue)
     {
-
         rbPlayer.bodyType = RigidbodyType2D.Static;
         sentences.Clear();
 
@@ -44,7 +42,7 @@ public class DialogueManagerLeve2 : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    private void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
@@ -69,12 +67,14 @@ public class DialogueManagerLeve2 : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    private void EndDialogue()
     {
         dialogueText.text = "";
+        rbPlayer.bodyType = RigidbodyType2D.Dynamic;
         enterText.SetActive(false);
         Debug.Log("END");
-        cofferMovement.isMoving = true;
     }
 
 }
+
+

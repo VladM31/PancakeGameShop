@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TriggerPlay : MonoBehaviour
 {
-    public bool  isTriggered = false;
+    public bool isTriggered = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "player" && !isTriggered)
@@ -13,5 +14,6 @@ public class TriggerPlay : MonoBehaviour
             isTriggered = true;
         }
     }
+
 }
 //

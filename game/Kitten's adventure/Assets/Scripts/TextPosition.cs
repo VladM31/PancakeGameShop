@@ -6,6 +6,8 @@ public class TextPosition : MonoBehaviour
 {
     public Transform target; // Ссылка на объект, к которому будет привязан текст
     private RectTransform rectTransform;
+    public float yOffset = 150f; // Регулируйте этот параметр для настройки смещения
+
 
     private void Start()
     {
@@ -23,7 +25,6 @@ public class TextPosition : MonoBehaviour
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
 
             // Добавляем смещение вверх к позиции текста
-            float yOffset = 150f; // Регулируйте этот параметр для настройки смещения
             screenPosition.y += yOffset;
 
             // Устанавливаем новую позицию текста
