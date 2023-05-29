@@ -5673,7 +5673,7 @@ MonoBehaviour:
   dialogueText: {fileID: 547826907}
   enterText: {fileID: 87346694}
   rbPlayer: {fileID: 2507824050167297288}
-  rbFire: {fileID: 749956232}
+  rbNPC: {fileID: 749956232}
 --- !u!4 &1768511208
 Transform:
   m_ObjectHideFlags: 0

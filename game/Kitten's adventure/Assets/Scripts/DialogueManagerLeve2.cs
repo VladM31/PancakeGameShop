@@ -4,14 +4,14 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManagerLeve2 : MonoBehaviour
 {
     public Text dialogueText;
     public GameObject enterText;
 
     public Rigidbody2D rbPlayer;
 
-    public Rigidbody2D rbNPC;
+    public GameObject rbNPC;
 
 
     private Queue<string> sentences;
@@ -19,7 +19,9 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        enterText.SetActive(false);
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -31,13 +33,13 @@ public class DialogueManager : MonoBehaviour
     {
 
         rbPlayer.bodyType = RigidbodyType2D.Static;
-        rbNPC.bodyType = RigidbodyType2D.Static;
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
+        enterText.SetActive(true);
 
         DisplayNextSentence();
     }
@@ -72,7 +74,6 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         enterText.SetActive(false);
         rbPlayer.bodyType = RigidbodyType2D.Dynamic;
-        rbNPC.bodyType = RigidbodyType2D.Dynamic;
         Debug.Log("END");
     }
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class TextPosition : MonoBehaviour
 {
     public Transform target; // —сылка на объект, к которому будет прив€зан текст
-
     private RectTransform rectTransform;
 
     private void Start()
