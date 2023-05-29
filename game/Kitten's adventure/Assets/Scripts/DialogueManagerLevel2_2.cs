@@ -15,10 +15,17 @@ public class DialogueManagerLevel2_2 : MonoBehaviour
 
     private Queue<string> sentences;
 
+    public GameObject key;
+    public Transform keyAppearingPoint;
+
+    public FinishLevel2 keyParameters;
+
     void Start()
     {
         sentences = new Queue<string>();
         enterText.SetActive(false);
+        key.SetActive(false);
+        key.transform.position = keyAppearingPoint.position;
     }
 
     private void Update()
@@ -49,7 +56,10 @@ public class DialogueManagerLevel2_2 : MonoBehaviour
             EndDialogue();
             return;
         }
-
+        else if (sentences.Count == 3)
+        {
+            key.SetActive(true);
+        }
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
         dialogueText.text = sentence;
@@ -73,8 +83,9 @@ public class DialogueManagerLevel2_2 : MonoBehaviour
         rbPlayer.bodyType = RigidbodyType2D.Dynamic;
         enterText.SetActive(false);
         Debug.Log("END");
+        key.SetActive(false);
+        keyParameters.keyIsTaken = true;
     }
 
 }
-
 
