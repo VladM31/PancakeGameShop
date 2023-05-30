@@ -11,7 +11,7 @@ public class CofferMovement : MonoBehaviour
     private int currentWaypointIndex = 0;
     [SerializeField] private float speed = 2f;
     public bool isTouched = false;
-    //private Animator anim;
+    
     public Rigidbody2D rbPlayer;
 
 
@@ -28,27 +28,8 @@ public class CofferMovement : MonoBehaviour
 
     public void Update()
     {
-        //UpdateAnimationState();
         Moving();
     }
-
-
-    //private void UpdateAnimationState()
-    //{
-    //    MovementState state;
-    //    if (rbPlayer.bodyType == RigidbodyType2D.Dynamic && currentWaypointIndex != waypoints.Length - 1)
-    //    {
-    //        state = MovementState.flying;
-    //    }
-    //    else
-    //    {
-    //        state = MovementState.idle;
-    //    }
-    //    anim.SetInteger("state", (int)state);
-
-    //}
-
-
 
     private void Moving()
     {

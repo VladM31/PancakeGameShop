@@ -20,6 +20,9 @@ public class DialogueManagerLevel2_2 : MonoBehaviour
 
     public FinishLevel2 keyParameters;
 
+    public AudioSource cofferVoice;
+
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -72,6 +75,7 @@ public class DialogueManagerLevel2_2 : MonoBehaviour
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
+            cofferVoice.Play();
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.05f);
         }
