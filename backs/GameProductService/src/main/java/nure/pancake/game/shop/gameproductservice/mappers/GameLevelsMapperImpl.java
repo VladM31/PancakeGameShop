@@ -26,6 +26,7 @@ public class GameLevelsMapperImpl implements GameLevelsMapper {
                 .icon(game.getIcon())
                 .mainImage(game.getMainImage())
                 .images(game.getImages())
+                .videoLink(game.getVideoLink())
                 .genres(game.getGenreEntities().stream().map(GenreEntity::getName).collect(Collectors.toSet()))
                 .levels(levels.stream().map(mapper::toLevel).collect(Collectors.toList()))
                 .build();
