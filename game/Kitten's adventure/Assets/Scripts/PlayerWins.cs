@@ -10,6 +10,7 @@ public class PlayerWins : MonoBehaviour
     public GameObject player;
     public GameObject cofferNPC;
 
+    public AudioSource playerWins;
 
     public Transform [] targetPoints;  // Целевая точка, куда нужно переместить игрока
     
@@ -24,6 +25,7 @@ public class PlayerWins : MonoBehaviour
         {
             coffer.isTouched = true;
             coffer.isMoving = false;
+            playerWins.Play();
             Teleport();
             Invoke("TriggerDialogue", 1f);
         }

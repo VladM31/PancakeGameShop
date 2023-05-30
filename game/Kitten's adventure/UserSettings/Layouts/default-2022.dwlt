@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 115
+  controlID: 108
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 339.19995
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -96,8 +96,8 @@ MonoBehaviour:
     y: 0
     width: 255.2
     height: 460.8
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 20}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -515,23 +515,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animation
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 46
   m_LastFolders:
-  - Assets/Animation
+  - Assets
   m_LastFoldersGridSize: 46
   m_LastProjectPath: D:\test\PancakeGameShop\game\Kitten's adventure
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: e6890000
-    m_LastClickedID: 35302
-    m_ExpandedIDs: 000000005c8800005e8800006088000062880000648800006688000000ca9a3b
+    m_SelectedIDs: 1c880000
+    m_LastClickedID: 34844
+    m_ExpandedIDs: 000000001c8800001e8800002088000022880000248800002688000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -559,7 +559,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005c8800005e88000060880000628800006488000066880000
+    m_ExpandedIDs: 000000001c8800001e88000020880000228800002488000026880000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -587,7 +587,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000a27f0000b67f0000c87f0000f87f00002e7f00003a8500006089000070b10000d8a60000008b0000ceb10000c6b10000dab200009e7f0000347f0000445600003e560000365600003a56000038f8000046f800004cf8000052f800005af800003ed900002e680000688a0000927500006e8a00009a8a0000a28a000006bc0000babb0000668c0000c28c000000000000
+    m_ExpandedInstanceIDs: c6230000a27f0000b67f0000c87f0000f87f00002e7f00003a8500006089000070b10000d8a60000008b0000ceb10000c6b10000dab200009e7f0000347f0000445600003e560000365600003a56000038f8000046f800004cf8000052f800005af800003ed900002e680000688a0000927500006e8a00009a8a0000a28a000006bc0000babb0000668c0000c28c000000000000c8a40000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -698,24 +698,24 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 45.200012}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 86faffff4a750000507500006a760000e0760000
+      m_ExpandedIDs: 509dffffd6ceffff46d7fffffad9ffff80deffff46dfffff1afbffff0ca000001ea0000028a0000038a00000baa20000dca30000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: MainMenu
+        m_OriginalName: MainMenu
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 40924
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -1107,9 +1107,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 11.114324, y: 0.040576342, z: 0.15729904}
+    m_Target: {x: 14.049869, y: -1.9518461, z: 1.6949105}
     speed: 2
-    m_Value: {x: 11.114324, y: 0.040576342, z: 0.15729904}
+    m_Value: {x: 14.049869, y: -1.9518461, z: 1.6949105}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1159,9 +1159,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.0029999923, y: -0.0014999928, z: 0.0000044999924, w: 0.9999944}
   m_Size:
-    m_Target: 10.11067
+    m_Target: 15.231521
     speed: 2
-    m_Value: 10.11067
+    m_Value: 15.231521
   m_Ortho:
     m_Target: 1
     speed: 2
