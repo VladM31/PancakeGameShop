@@ -32,6 +32,8 @@ public class GameEntity {
     private String icon;
     @Column(name = "main_image")
     private String mainImage;
+    @Column(name = "video_link")
+    private String videoLink;
     @Column(name = "images")
     @Convert(converter = ListStringConvector.class)
     private List<String> images;
