@@ -8,6 +8,7 @@ TagManager:
   - player
   - Trigger
   - Coffer
+  - River
   layers:
   - Default
   - TransparentFX
