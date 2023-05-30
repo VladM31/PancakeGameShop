@@ -22,6 +22,7 @@ public class GameRespond {
     private LocalDateTime releaseDate;
     private String icon;
     private String mainImage;
+    private String videoLink;
     private List<String> images;
     private Set<String> genres;
 }
