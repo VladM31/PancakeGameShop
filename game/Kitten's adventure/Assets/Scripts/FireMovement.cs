@@ -7,7 +7,7 @@ public class FireMovement : MonoBehaviour
     public Rigidbody2D rbPlayer;
     [SerializeField] private GameObject[] waypoints;
     private int currentWaypointIndex = 0;
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float speed = 10f;
 
     private Animator anim;
     private Rigidbody2D rb;
