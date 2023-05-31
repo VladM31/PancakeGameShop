@@ -41,7 +41,7 @@ public class CofferMovement : MonoBehaviour
             {
                 currentWaypointIndex++;
 
-                if(currentWaypointIndex == 2)
+                if(currentWaypointIndex == 3)
                 {
                     rbPlayer.bodyType = RigidbodyType2D.Dynamic;
                     firstPointIsGone = true;
