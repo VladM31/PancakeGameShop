@@ -22,9 +22,12 @@ public class DialogueManagerLevel2_2 : MonoBehaviour
 
     public AudioSource cofferVoice;
 
+    public Animator amin;
+    public GameObject coffer_open;
 
     void Start()
     {
+        amin = coffer_open.GetComponent<Animator>();
         sentences = new Queue<string>();
         enterText.SetActive(false);
         key.SetActive(false);
@@ -62,6 +65,7 @@ public class DialogueManagerLevel2_2 : MonoBehaviour
         else if (sentences.Count == 3)
         {
             key.SetActive(true);
+            amin.SetBool("IsOpen", true);
         }
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
@@ -86,6 +90,7 @@ public class DialogueManagerLevel2_2 : MonoBehaviour
         dialogueText.text = "";
         rbPlayer.bodyType = RigidbodyType2D.Dynamic;
         enterText.SetActive(false);
+        amin.SetBool("IsOpen", false);
         Debug.Log("END");
         key.SetActive(false);
         keyParameters.keyIsTaken = true;
