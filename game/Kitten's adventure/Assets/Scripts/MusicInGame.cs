@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MusicInGame : MonoBehaviour
 {
-    public AudioSource[] audio;
     private float volume;
 
     void Start()
@@ -15,9 +14,11 @@ public class MusicInGame : MonoBehaviour
 
     private void ValueMusic()
     {
-        foreach (var item in audio)
+        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+
+        foreach (var audioSource in audioSources)
         {
-            item.volume = volume;
+            audioSource.volume = volume;
         }
     }
 
