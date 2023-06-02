@@ -47,7 +47,7 @@ public class GameEntity {
 
     @RequiredArgsConstructor
     public enum FieldName implements FieldNameGettable {
-        GENRE("genres");
+        GENRE("genreEntities");
         @Getter
         private final String fieldName;
     }

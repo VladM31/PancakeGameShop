@@ -6630,6 +6630,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2136807550}
     m_Modifications:
     - target: {fileID: 2947519868226036471, guid: 709ce4dc4c3eb3e49b57d3c3f0f4d549, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947519868226036471, guid: 709ce4dc4c3eb3e49b57d3c3f0f4d549, type: 3}
       propertyPath: rbPlayer
       value: 
       objectReference: {fileID: 2507824050167297288}
