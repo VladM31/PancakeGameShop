@@ -24,6 +24,7 @@ public class GameLevelsRespond {
     private String mainImage;
     private String videoUrl;
     private List<String> images;
+    private List<String> platforms;
     private Set<String> genres;
     private List<LevelRespond> levels;
 }
