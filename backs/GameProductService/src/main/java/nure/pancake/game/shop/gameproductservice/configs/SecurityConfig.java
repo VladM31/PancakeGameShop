@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers(HttpMethod.GET,"/bought-content/**","/games/{gameId}/file","/promo-code/**").authenticated()
+                .requestMatchers(HttpMethod.GET,"/bought-content/**","/games/{gameId}/file/{platform}","/promo-code/**").authenticated()
                 .requestMatchers(HttpMethod.GET, "/**").permitAll()
                 .requestMatchers(HttpMethod.POST,"/genres")
                 .hasAuthority(Role.ADMINISTRATION.name())
