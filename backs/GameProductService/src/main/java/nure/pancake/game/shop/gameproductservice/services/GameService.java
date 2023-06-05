@@ -1,5 +1,6 @@
 package nure.pancake.game.shop.gameproductservice.services;
 
+import nure.pancake.game.shop.gameproductservice.dataobjects.DownloadGame;
 import nure.pancake.game.shop.gameproductservice.dataobjects.Game;
 import nure.pancake.game.shop.gameproductservice.filters.GameFilter;
 import org.springframework.data.domain.Page;
@@ -13,5 +14,5 @@ public interface GameService {
 
     boolean save(Game game);
 
-    ResponseEntity<byte[]> getGameFile(Long gameId, Long userId);
+    ResponseEntity<byte[]> getGameFile(DownloadGame downloadGame);
 }
