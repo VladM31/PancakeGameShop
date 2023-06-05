@@ -5,6 +5,8 @@ import lombok.*;
 import nure.pancake.game.shop.gameproductservice.entities.GameEntity;
 import nure.pancake.game.shop.gameproductservice.entities.GenreEntity;
 import nure.pancake.game.shop.gameproductservice.utils.Range;
+import org.hibernate.sql.ast.tree.predicate.PredicateCollector;
+import org.hibernate.sql.ast.tree.predicate.PredicateContainer;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -25,6 +27,8 @@ public class GameSearchCriteria implements Specification<GameEntity> {
     private Collection<Long> genreIds;
     @Singular(ignoreNullCollections = true)
     private Collection<String> genreNames;
+    @Singular(ignoreNullCollections = true)
+    private Collection<String> platforms;
     private Range<Float> price;
     private Range<Float> ageRating;
     private Range<LocalDate> releaseDate;
@@ -50,6 +54,20 @@ public class GameSearchCriteria implements Specification<GameEntity> {
                             .get(GenreEntity.FieldName.GENRE_NAME.getFieldName()))
                     .value(genreNames));
         }
+
+        if (!CollectionUtils.isEmpty(platforms)) {
+            var platformsPath = root.get("platforms").as(String.class);
+
+            criteria.add(
+                    cb.or(
+                            platforms.stream()
+                                    .map(p -> cb.like(platformsPath, "%" + p + "%"))
+                                    .toArray(Predicate[]::new)
+                    )
+            );
+        }
+
+
         if (StringUtils.hasText(name)) {
             criteria.add(cb.like(root.get("name"), "%" + name + "%"));
         }

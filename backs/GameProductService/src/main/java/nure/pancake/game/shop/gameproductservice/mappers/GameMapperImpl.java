@@ -23,6 +23,7 @@ public class GameMapperImpl implements GameMapper {
                 .icon(entity.getIcon())
                 .mainImage(entity.getMainImage())
                 .images(entity.getImages())
+                .videoLink(entity.getVideoLink())
                 .genres(entity.getGenreEntities().stream().map(GenreEntity::getName).collect(Collectors.toSet()))
                 .build();
     }
