@@ -22,6 +22,7 @@ export const getPromoCodeDiscount = async (promoCode) => {
 };
 
 export const purchase = async (gameIds, levelIds, email, phoneNumber, creditCard) => {
+
     const url = new QueryBuilder(`${baseURL}`)
         .setPath('/payment/buy')
         .build();
