@@ -4,10 +4,12 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import nure.pancake.game.shop.gameproductservice.dataobjects.User;
+import nure.pancake.game.shop.gameproductservice.dto.DownloadGameRequest;
 import nure.pancake.game.shop.gameproductservice.dto.GameLevelsList;
 import nure.pancake.game.shop.gameproductservice.dto.GameList;
 import nure.pancake.game.shop.gameproductservice.filters.GameFilter;
 import nure.pancake.game.shop.gameproductservice.filters.GameLevelsFilter;
+import nure.pancake.game.shop.gameproductservice.mappers.DownloadGameMapper;
 import nure.pancake.game.shop.gameproductservice.mappers.GameLevelsListMapper;
 import nure.pancake.game.shop.gameproductservice.mappers.GameListMapper;
 import nure.pancake.game.shop.gameproductservice.services.GameLevelsService;
@@ -25,6 +27,7 @@ public class GameController {
     private final GameLevelsService gameLevelsService;
     private final GameListMapper gameListMapper;
     private final GameLevelsListMapper gameLevelsListMapper;
+    private final DownloadGameMapper downloadGameMapper;
 
     @GetMapping
     public GameList getGames(GameFilter filter){
@@ -40,8 +43,8 @@ public class GameController {
         );
     }
 
-    @GetMapping("/{gameId}/file")
-    public ResponseEntity<byte[]> getGameFile(@AuthenticationPrincipal User user, @PathVariable @Valid @NotNull Long gameId){
-        return gameService.getGameFile(gameId,user.getId());
+    @GetMapping("/{gameId}/file/{platform}")
+    public ResponseEntity<byte[]> getGameFile(@AuthenticationPrincipal User user, @Valid @ModelAttribute DownloadGameRequest request){
+        return gameService.getGameFile(downloadGameMapper.toDownloadGame(request, user.getId()));
     }
 }

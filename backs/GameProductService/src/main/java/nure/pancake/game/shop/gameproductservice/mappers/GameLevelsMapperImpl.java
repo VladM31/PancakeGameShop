@@ -2,6 +2,7 @@ package nure.pancake.game.shop.gameproductservice.mappers;
 
 import lombok.RequiredArgsConstructor;
 import nure.pancake.game.shop.gameproductservice.dataobjects.GameLevels;
+import nure.pancake.game.shop.gameproductservice.dataobjects.Platforms;
 import nure.pancake.game.shop.gameproductservice.entities.GameEntity;
 import nure.pancake.game.shop.gameproductservice.entities.GenreEntity;
 import nure.pancake.game.shop.gameproductservice.entities.LevelEntity;
@@ -27,6 +28,7 @@ public class GameLevelsMapperImpl implements GameLevelsMapper {
                 .mainImage(game.getMainImage())
                 .images(game.getImages())
                 .videoLink(game.getVideoLink())
+                .platforms(game.getPlatforms().stream().map(Platforms::valueOf).toList())
                 .genres(game.getGenreEntities().stream().map(GenreEntity::getName).collect(Collectors.toSet()))
                 .levels(levels.stream().map(mapper::toLevel).collect(Collectors.toList()))
                 .build();

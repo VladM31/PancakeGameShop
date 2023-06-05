@@ -2,6 +2,7 @@ package nure.pancake.game.shop.gameproductservice.filters;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import nure.pancake.game.shop.gameproductservice.dataobjects.Platforms;
 import nure.pancake.game.shop.gameproductservice.dataobjects.sortfiled.GameSortFiled;
 import nure.pancake.game.shop.gameproductservice.utils.Range;
 
@@ -20,6 +21,8 @@ public class GameLevelsFilter extends  FilterPage<GameSortFiled> {
     private Collection<Long> levelIds;
     @Singular(ignoreNullCollections = true)
     private Collection<String> genres;
+    @Singular(ignoreNullCollections = true)
+    private Collection<Platforms> platforms;
     private Range<Float> price;
     private Range<Float> ageRating;
     private Range<LocalDate> releaseDate;

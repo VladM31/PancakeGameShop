@@ -24,5 +24,6 @@ public class Game {
     private String mainImage;
     private String videoLink;
     private List<String> images;
+    private List<Platforms> platforms;
     private Set<String> genres;
 }

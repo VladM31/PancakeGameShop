@@ -22,10 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
@@ -56,7 +53,10 @@ public class BuyServiceImpl implements BuyService {
             throw new BuyContentException("Can but level because game not buy");
         }
 
-        if (!buyClient.sentTransaction(buyContent, getPrice(existStore,promoCodeService.getDiscountPercentage(buyContent.getPromoCode())))) {
+        var discount = Optional.ofNullable(buyContent.getPromoCode()).map( c -> c.isBlank() ? null : c)
+                .map(promoCodeService::getDiscountPercentage).orElse(0);
+
+        if (!buyClient.sentTransaction(buyContent, getPrice(existStore,discount))) {
             throw new BuyContentException("Payment error");
         }
 
@@ -164,6 +164,7 @@ public class BuyServiceImpl implements BuyService {
     }
 
     private Long getPurchasedGameId(Long levelId,Map<Long, LevelEntity> levelStore,Map<Long, PurchasedGameEntity> purByGameId){
+
         return purByGameId.get(levelStore.get(levelId).getGameId()).getId();
     }
 }

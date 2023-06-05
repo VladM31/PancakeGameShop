@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import nure.pancake.game.shop.gameproductservice.dataobjects.Platforms;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,6 +24,7 @@ public class GameRespond {
     private String icon;
     private String mainImage;
     private String videoUrl;
+    private List<String> platforms;
     private List<String> images;
     private Set<String> genres;
 }

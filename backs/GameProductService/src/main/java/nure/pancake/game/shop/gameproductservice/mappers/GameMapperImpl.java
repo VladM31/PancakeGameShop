@@ -1,6 +1,7 @@
 package nure.pancake.game.shop.gameproductservice.mappers;
 
 import nure.pancake.game.shop.gameproductservice.dataobjects.Game;
+import nure.pancake.game.shop.gameproductservice.dataobjects.Platforms;
 import nure.pancake.game.shop.gameproductservice.entities.GameEntity;
 import nure.pancake.game.shop.gameproductservice.entities.GenreEntity;
 import org.modelmapper.ModelMapper;
@@ -23,6 +24,7 @@ public class GameMapperImpl implements GameMapper {
                 .icon(entity.getIcon())
                 .mainImage(entity.getMainImage())
                 .images(entity.getImages())
+                .platforms(entity.getPlatforms().stream().map(Platforms::valueOf).toList())
                 .videoLink(entity.getVideoLink())
                 .genres(entity.getGenreEntities().stream().map(GenreEntity::getName).collect(Collectors.toSet()))
                 .build();
