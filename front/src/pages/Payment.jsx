@@ -123,7 +123,7 @@ function Payment() {
             expiryDate: inputData.cardDate,
             cvv2: inputData.cardCVV,
             cardName: inputData.nameOnCard,
-            promoCode: promoCode
+            promoCode: promoCode ? promoCode : null
         });
 
         if (res.success) {

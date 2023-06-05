@@ -15,12 +15,14 @@ function Level() {
     const [level, setLevel] = useState({});
     const [releaseDate, setReleaseDate] = useState('');
     const [isBought, setIsBought] = useState(false);
+    const [videoUrl, setVideoUrl] = useState('');
 
     const dispatch = useDispatch();
 
     async function getGameDate() {
         const {content} = await getGameById(gameId);
         setReleaseDate(content[0].releaseDate);
+        setVideoUrl(content[0].videoUrl)
     }
 
     async function getLevel() {
@@ -54,7 +56,7 @@ function Level() {
                     padding: '40px',
                     borderRadius: '15px',
                 }}>
-                    <ImageCarousel height={'400'} images={level.images ? level.images : []} url={level.videoUrl ? level.videoUrl : 'https://www.youtube.com/watch?v=5QZcOugHQ6s&ab_channel=kriper2004'} />
+                    <ImageCarousel height={'400'} images={level.images ? level.images : []} />
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                         <Typography align='center' sx={{ marginTop: '10px' }} color='white'
                                     variant='h5'>{level.name}</Typography>
