@@ -29,4 +29,17 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Exit");
     }
+
+    public void Settings()
+    {
+        SceneManager.LoadScene("Settings");
+        Debug.Log("Settings");
+    }
+
+    public void Settings_Back()
+    {
+        SceneManager.LoadScene("Start Screen 1");
+        Debug.Log("Settings");
+    }
+
 }
