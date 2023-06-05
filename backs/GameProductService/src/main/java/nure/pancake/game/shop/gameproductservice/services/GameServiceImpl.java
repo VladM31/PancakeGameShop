@@ -2,6 +2,7 @@ package nure.pancake.game.shop.gameproductservice.services;
 
 import lombok.RequiredArgsConstructor;
 import nure.pancake.game.shop.gameproductservice.convector.GameSortFiledConvector;
+import nure.pancake.game.shop.gameproductservice.dataobjects.DownloadGame;
 import nure.pancake.game.shop.gameproductservice.dataobjects.Game;
 import nure.pancake.game.shop.gameproductservice.dataobjects.sortfiled.GameSortFiled;
 import nure.pancake.game.shop.gameproductservice.exceptions.BuyContentException;
@@ -51,22 +52,31 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public ResponseEntity<byte[]> getGameFile(Long gameId, Long userId) {
-        var gameOpt =gameRepository.findOne(GameSearchCriteria.builder().gameId(gameId).build());
-        if(!purchasedGameRepository.exists(
-                PurchasedGameSearchCriteria
-                        .builder()
-                        .gameId(gameId)
-                        .userId(userId)
-                        .build())){
-            throw new BuyContentException("Content not bought");
-        }
+    public ResponseEntity<byte[]> getGameFile(DownloadGame dg) {
+        var gameOpt =gameRepository.findOne(GameSearchCriteria
+                .builder()
+                .gameId(dg.gameId())
+                .platform(dg.platform().name())
+                .build());
 
         if(gameOpt.isEmpty()){
             throw new GameFileNotFound("Гра не існує");
         }
 
-        ClassPathResource resource = new ClassPathResource("files/games/game_" + gameOpt.get().getId() + ".zip");
+        if(!purchasedGameRepository.exists(
+                PurchasedGameSearchCriteria
+                        .builder()
+                        .gameId(dg.gameId())
+                        .userId(dg.userId())
+                        .build())){
+            throw new BuyContentException("Content not bought");
+        }
+
+        ClassPathResource resource = new ClassPathResource(toPath(dg));
+
+        if(!resource.exists()){
+            throw new GameFileNotFound("Файл гри не існує.");
+        }
 
         try {
             byte[] data = resource.getInputStream().readAllBytes();
@@ -79,5 +89,9 @@ public class GameServiceImpl implements GameService {
         } catch (IOException e) {
             throw new GameFileNotFound("Файл гри не існує. " + e.getMessage());
         }
+    }
+
+    private String toPath(DownloadGame dg){
+        return "files/games/game_" + dg.gameId() + "_" + dg.platform() + ".zip";
     }
 }
