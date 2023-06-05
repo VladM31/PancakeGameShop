@@ -5,20 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    private bool pause = false;
+    public bool pause = false;
     public GameObject pauseMenu;
+    public GameObject settingsMenu;
 
 
-    // Update is called once per frame
+    private void Start()
+    {
+        settingsMenu.SetActive(false);
+    }
+
+    //Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(pause) {
-                Resume();
-            } else if(pause)
+            if (pause)
             {
-                MainMenu();
+                Resume();
             }
             else
             {
@@ -27,24 +31,32 @@ public class Pause : MonoBehaviour
         }
     }
 
+
     public void Resume()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         pause = false;
     }
 
     void Payse()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         pause = true;
     }
 
     public void MainMenu()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Start Screen 1");
+    }
+
+    public void SwitchToSettings()
+    {
+        //pause = false;
+        //pauseMenu.SetActive(false);
+        settingsMenu.SetActive(true);
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicInGame : MonoBehaviour
 {
-    private float volume;
+    public float volume;
 
     void Start()
     {  
@@ -12,7 +12,7 @@ public class MusicInGame : MonoBehaviour
         ValueMusic();
     }
 
-    private void ValueMusic()
+    public void ValueMusic()
     {
         AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
 
@@ -22,7 +22,7 @@ public class MusicInGame : MonoBehaviour
         }
     }
 
-    private void Load()
+    public void Load()
     {
         volume = PlayerPrefs.GetFloat("volume", volume);
     }
