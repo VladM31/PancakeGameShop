@@ -32,6 +32,7 @@ public class GameLevelsRespondMapper {
             ep.using(gameUrlMapper.toIconUrl()).map(GameLevels::getIcon,GameLevelsRespond::setIcon);
             ep.using(gameUrlMapper.toMainImageUrl()).map(GameLevels::getMainImage,GameLevelsRespond::setMainImage);
             ep.using(gameUrlMapper.toImagesUrl()).map(GameLevels::getImages,GameLevelsRespond::setImages);
+            ep.map(GameLevels::getVideoLink, GameLevelsRespond::setVideoUrl);
             ep.using(toLevelRespond).map(GameLevels::getLevels,GameLevelsRespond::setLevels);
         });
     }

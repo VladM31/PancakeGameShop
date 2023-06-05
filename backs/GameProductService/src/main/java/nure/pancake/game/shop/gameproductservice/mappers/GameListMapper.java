@@ -24,6 +24,7 @@ public class GameListMapper {
         propertyMapperFrom.addMappings(ep -> {
             ep.using(gameUrlMapper.toIconUrl()).map(Game::getIcon,GameRespond::setIcon);
             ep.using(gameUrlMapper.toMainImageUrl()).map(Game::getMainImage,GameRespond::setMainImage);
+            ep.map(Game::getVideoLink,GameRespond::setVideoUrl);
             ep.using(gameUrlMapper.toImagesUrl()).map(Game::getImages,GameRespond::setImages);
         });
     }

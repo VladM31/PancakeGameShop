@@ -22,7 +22,7 @@ public class GameLevelsRespond {
     private LocalDateTime releaseDate;
     private String icon;
     private String mainImage;
-    private String videoLink;
+    private String videoUrl;
     private List<String> images;
     private Set<String> genres;
     private List<LevelRespond> levels;
