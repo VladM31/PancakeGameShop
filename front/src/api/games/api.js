@@ -50,10 +50,9 @@ export const getBoughtContent = async () => {
     }
 }
 
-export const downloadGame = async (id, name) => {
-    console.log('Скачивание...')
+export const downloadGame = async (id, name, platform) => {
     const url = new QueryBuilder(`${baseURL}`)
-        .setPath(`/games/${id}/file`)
+        .setPath(`/games/${id}/file/${platform}`)
         .build();
     console.log(url);
     try {
