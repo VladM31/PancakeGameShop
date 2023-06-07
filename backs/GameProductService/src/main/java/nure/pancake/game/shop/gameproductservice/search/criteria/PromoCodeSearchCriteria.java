@@ -10,7 +10,7 @@ import nure.pancake.game.shop.gameproductservice.utils.Range;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.CollectionUtils;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,7 +23,7 @@ public class PromoCodeSearchCriteria implements Specification<PromoCodeEntity> {
     @Singular(ignoreNullCollections = true)
     private Collection<Long> promoIds;
     private Range<Integer> discountPercentage;
-    private Range<LocalDate> endDate;
+    private Range<LocalDateTime> endDate;
 
     @Override
     public Predicate toPredicate(Root<PromoCodeEntity> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -44,12 +44,12 @@ public class PromoCodeSearchCriteria implements Specification<PromoCodeEntity> {
         }
         if (Range.hasFrom(endDate)) {
             criteria.add(
-                    cb.greaterThanOrEqualTo(root.get("endDate"), endDate.<LocalDate>fromMap(LocalDate::parse))
+                    cb.greaterThanOrEqualTo(root.get("endDate"), endDate.<LocalDateTime>fromMap(LocalDateTime::parse))
             );
         }
         if (Range.hasTo(endDate)) {
             criteria.add(
-                    cb.lessThanOrEqualTo(root.get("endDate"), endDate.<LocalDate>toMap(LocalDate::parse))
+                    cb.lessThanOrEqualTo(root.get("endDate"), endDate.<LocalDateTime>toMap(LocalDateTime::parse))
             );
         }
         if (CollectionUtils.isEmpty(criteria)) {
