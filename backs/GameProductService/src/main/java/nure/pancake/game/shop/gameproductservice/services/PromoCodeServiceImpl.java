@@ -21,7 +21,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.List;
 
@@ -65,7 +65,7 @@ public class PromoCodeServiceImpl implements PromoCodeService{
                     PromoCodeSearchCriteria
                             .builder()
                             .promoId(id)
-                            .endDate(Range.ofFrom(LocalDate.now()))
+                            .endDate(Range.ofFrom(LocalDateTime.now()))
                             .build()
             ).map(PromoCodeEntity::getDiscountPercentage).orElse(0);
         }catch (PromoCodeException e){
