@@ -138,6 +138,8 @@ function Game() {
                                         <Product priceInUSD={game.price}/>
                                         <Typography color={'white'}
                                                     variant='h5'>Жанри: {game.genres ? game.genres.join(', ') : null}</Typography>
+                                        <Typography color={'white'}
+                                                    variant='h5'>Платформи: {game.platforms ? game.platforms.join(', ') : null}</Typography>
                                     </Box>
                                     <Box alignSelf={'end'}>
                                         {
